@@ -34,7 +34,7 @@
                   <div class="item">
                     <img src="/Images/gallery/events/working_bee.jpg" alt="" />
                     <div class="carousel-caption">
-                      <p>Working bee. Familes, committee members, teachers and children all lending a hand to fix up the crèche.</p>
+                      <p>Working bee. Families, committee members, teachers and children all lending a hand to fix up the crèche.</p>
                     </div>
                   </div>
                   <div class="item">

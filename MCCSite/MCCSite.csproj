@@ -145,6 +145,7 @@
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Web\Admin\AddEvent.aspx" />
     <Content Include="Web\Admin\AddNews.aspx" />
+    <Content Include="Web\Admin\AddPhotos.aspx" />
     <Content Include="Web\Admin\AddReview.aspx" />
     <Content Include="Web\Main\About.aspx" />
     <Content Include="Web\Parent\CollectingYourChild.aspx" />
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="Web\Admin\AddNews.aspx.designer.cs">
       <DependentUpon>AddNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Admin\AddPhotos.aspx.cs">
+      <DependentUpon>AddPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Admin\AddPhotos.aspx.designer.cs">
+      <DependentUpon>AddPhotos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Admin\AddReview.aspx.cs">
       <DependentUpon>AddReview.aspx</DependentUpon>

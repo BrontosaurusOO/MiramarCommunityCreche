@@ -6,7 +6,7 @@ class Testimonal
     public string Text { get; set; }
     public string Name { get; set; }
     public DateTime Date { get; set; }
-    
+
     public Testimonal(string text, string name, DateTime date)
     {
         Text = text;
@@ -26,21 +26,21 @@ class TestimonalComparer : IComparer
     }
 }
 
-class Event
+class EventItem
 {
     public string Title { get; set; }
     public string Description { get; set; }
     public int Days { get; set; }
     public DateTime Date { get; set; }
 
-    public Event(string title, string desc, int days, DateTime date)
+    public EventItem(string title, string desc, int days, DateTime date)
     {
         Title = title;
         Description = desc;
         Days = days;
         Date = date;
     }
-   
+
 }
 
 
@@ -48,8 +48,8 @@ class EventComparer : IComparer
 {
     public int Compare(object x, object y)
     {
-        Event eventX = x as Event;
-        Event eventY = y as Event;
+        EventItem eventX = x as EventItem;
+        EventItem eventY = y as EventItem;
 
         return eventY.Date.CompareTo(eventX.Date);
     }
@@ -77,5 +77,47 @@ class NewsComparer : IComparer
         News newsY = y as News;
 
         return newsY.Date.CompareTo(newsX.Date);
+    }
+}
+
+class Photo
+{
+    public string Name { get; set; }
+    public string Caption { get; set; }
+    public string Folder { get; set; }
+    public string Height { get; set; }
+    public string Width { get; set; }
+    public DateTime Date { get; set; }
+
+    public enum PhotoFolders
+    {
+        Event,
+        Trips,
+        Guest,
+        Inside,
+        Outside,
+        Themed
+    }
+
+    public Photo(string f, string name, string desc, string w, string h, DateTime d)
+    {
+        Name = name;
+        Caption = desc;
+        Folder = f;
+        Height = h;
+        Width = w;
+        Date = d;
+    }
+
+}
+
+class PhotoComparer : IComparer
+{
+    public int Compare(object x, object y)
+    {
+        Photo photoX = x as Photo;
+        Photo photoY = y as Photo;
+
+        return photoY.Date.CompareTo(photoX.Date);
     }
 }

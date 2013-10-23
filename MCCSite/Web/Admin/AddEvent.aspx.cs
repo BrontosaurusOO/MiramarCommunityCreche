@@ -57,7 +57,7 @@ namespace MCCSite.Web.Admin
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            Event t = new Event(array[0], array[1], days, date);
+                            EventItem t = new EventItem(array[0], array[1], days, date);
                             events.Add(t);
                         }
                     }
@@ -141,7 +141,7 @@ namespace MCCSite.Web.Admin
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                Event card = (Event)e.Item.DataItem;
+                EventItem card = (EventItem)e.Item.DataItem;
 
                 System.Web.UI.HtmlControls.HtmlGenericControl eventTitle = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("eventTitle");
                 System.Web.UI.HtmlControls.HtmlGenericControl eventDescription = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("eventDesc");
