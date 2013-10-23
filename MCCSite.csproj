@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A1113B84-162A-474D-A4D9-6F84894A7172}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCCSite</RootNamespace>
+    <AssemblyName>MCCSite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\MCCSite.dll" />
+    <Content Include="bin\MCCSite.pdb" />
+    <Content Include="Files\Events.txt" />
+    <Content Include="Files\News.txt" />
+    <Content Include="Files\Photos.txt" />
+    <Content Include="Images\childchatlogo.png" />
+    <Content Include="Images\Daily_program\gathering_karakia.jpg" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\FeaturedSliderPhotos\creche_front.jpg" />
+    <Content Include="Images\FeaturedSliderPhotos\mat_time.JPG" />
+    <Content Include="Images\FeaturedSliderPhotos\Shade_Sails_2012.jpeg" />
+    <Content Include="Images\Gallery\Events\boy_birthday_cake.jpg" />
+    <Content Include="Images\Gallery\Events\boy_birthday_cake_2.jpg" />
+    <Content Include="Images\Gallery\Events\fish_chip_evening.jpg" />
+    <Content Include="Images\Gallery\Events\fish_chip_evening_2.jpg" />
+    <Content Include="Images\Gallery\Events\Taniwha_building.jpg" />
+    <Content Include="Images\Gallery\Events\working_bee.jpg" />
+    <Content Include="Images\Gallery\Guests\zippty_zoo_1.jpg" />
+    <Content Include="Images\Gallery\Guests\zippty_zoo_2.jpg" />
+    <Content Include="Images\Gallery\Guests\zippty_zoo_3.jpg" />
+    <Content Include="Images\Gallery\Inside\boy_builders_play.jpg" />
+    <Content Include="Images\Gallery\Inside\girl_bus_whale.jpg" />
+    <Content Include="Images\Gallery\Inside\girl_gear_blocks.jpg" />
+    <Content Include="Images\Gallery\Inside\girl_jungle_animals.jpg" />
+    <Content Include="Images\Gallery\Inside\girl_matching_cards.jpg" />
+    <Content Include="Images\Gallery\Inside\girl_playdough.jpg" />
+    <Content Include="Images\Gallery\Inside\girl_writing.jpg" />
+    <Content Include="Images\Gallery\Inside\inside_play.jpg" />
+    <Content Include="Images\Gallery\Inside\magnets.jpg" />
+    <Content Include="Images\Gallery\Inside\teacher__child_buddy_lynda.jpg" />
+    <Content Include="Images\Gallery\Outside\boy_building_ocean.jpg" />
+    <Content Include="Images\Gallery\Outside\boy_building_play.jpg" />
+    <Content Include="Images\Gallery\Outside\boy_rope_ladder.jpg" />
+    <Content Include="Images\Gallery\Outside\boy_watering_can.jpg" />
+    <Content Include="Images\Gallery\Outside\boy_water_play.jpg" />
+    <Content Include="Images\Gallery\Outside\gardening.jpg" />
+    <Content Include="Images\Gallery\Outside\girl_sport_together.jpg" />
+    <Content Include="Images\Gallery\Outside\girl_top_slide.jpg" />
+    <Content Include="Images\Gallery\Outside\outside_area.jpg" />
+    <Content Include="Images\Gallery\Outside\outside_area_2.jpg" />
+    <Content Include="Images\Gallery\Outside\rope_bridge.jpg" />
+    <Content Include="Images\Gallery\Outside\sand_puddle.jpg" />
+    <Content Include="Images\Gallery\Outside\wall_mural_play.jpg" />
+    <Content Include="Images\Gallery\Outside\water_play.jpg" />
+    <Content Include="Images\Gallery\Outside\water_play_sand.jpg" />
+    <Content Include="Images\Gallery\Themes\boys_dressup_week.jpg" />
+    <Content Include="Images\Gallery\Themes\girl_dressup_week.jpg" />
+    <Content Include="Images\Gallery\Themes\inside_dressup_week.jpg" />
+    <Content Include="Images\Gallery\Themes\lynda_pj_week.jpg" />
+    <Content Include="Images\Gallery\Themes\pj_breakfast_week.jpg" />
+    <Content Include="Images\Gallery\Themes\sci_week_insects.jpg" />
+    <Content Include="Images\Gallery\Themes\sci_week_volcanoes.jpg" />
+    <Content Include="Images\Gallery\Trips\walk_supermarket.jpg" />
+    <Content Include="Images\googleplusicon.png" />
+    <Content Include="Images\hands-art.png" />
+    <Content Include="Images\hands\blue-hand.png" />
+    <Content Include="Images\hands\green-hand.png" />
+    <Content Include="Images\hands\light-blue-hand.png" />
+    <Content Include="Images\hands\maeuve-hand.png" />
+    <Content Include="Images\hands\magenta-hand.png" />
+    <Content Include="Images\hands\orange-hnd.png" />
+    <Content Include="Images\hands\pink-hand.png" />
+    <Content Include="Images\hands\purple-hand.png" />
+    <Content Include="Images\hands\yellow-green-hand.png" />
+    <Content Include="Images\hands\yellow-hand.png" />
+    <Content Include="Images\hands\yellow-orange-hand.png" />
+    <Content Include="Images\icons\glyphicons-halflings-white.png" />
+    <Content Include="Images\icons\glyphicons-halflings.png" />
+    <Content Include="Images\logofacebook.png" />
+    <Content Include="Images\logofindtb.png" />
+    <Content Include="Images\ProfileScans\about_me_page.jpg" />
+    <Content Include="Images\ProfileScans\about_profile_page.jpg" />
+    <Content Include="Images\ProfileScans\aspirations_page.jpg" />
+    <Content Include="Images\ProfileScans\front_page.jpeg" />
+    <Content Include="Images\ProfileScans\personal_child_page.jpg" />
+    <Content Include="Images\ProfileScans\teachers_welcome.jpg" />
+    <Content Include="Images\ProfileScans\Te_Whariki_page.jpg" />
+    <Content Include="Images\ProfileScans\whanau_family_voice_page.jpg" />
+    <Content Include="Images\Staff\ellen_grenville.jpg" />
+    <Content Include="Images\Staff\helen_lynch.JPG" />
+    <Content Include="Images\Staff\jane_hann.jpg" />
+    <Content Include="Images\Staff\linda_tinson.jpg" />
+    <Content Include="Images\Staff\linda_tinson_1.jpg" />
+    <Content Include="Images\Staff\lynda_hopkin.jpg" />
+    <Content Include="Images\Staff\tracey_edwards.jpg" />
+    <Content Include="Images\teacher_child_buddy.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Styles\bootstrap-responsive.css" />
+    <Content Include="Styles\bootstrap-responsive.min.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Web\Admin\AddEvent.aspx" />
+    <Content Include="Web\Admin\AddNews.aspx" />
+    <Content Include="Web\Admin\AddReview.aspx" />
+    <Content Include="Web\Main\About.aspx" />
+    <Content Include="Web\Parent\CollectingYourChild.aspx" />
+    <Content Include="Web\Parent\Community.aspx" />
+    <Content Include="Web\Parent\DayAtCreche.aspx" />
+    <Content Include="Web\Parent\Emergencies.aspx" />
+    <Content Include="Web\Parent\HandoutForms.aspx" />
+    <Content Include="Web\Parent\ImportantInfo.aspx" />
+    <Content Include="Web\Parent\ParentNews.aspx" />
+    <Content Include="Web\Side\CHILDChats.aspx" />
+    <Content Include="Web\Main\ContactUs.aspx" />
+    <Content Include="Web\Controls\Side-Bar-Menu.ascx" />
+    <Content Include="Web\Side\CrecheHire.aspx" />
+    <Content Include="Web\Side\DailyProgram.aspx" />
+    <Content Include="Web\Side\Enrolment.aspx" />
+    <Content Include="Web\Side\Events.aspx" />
+    <Content Include="Web\Side\Fees.aspx" />
+    <Content Include="Files\Testimonials.txt" />
+    <Content Include="Web\Gallery\EventPhotos.aspx" />
+    <Content Include="Web\Gallery\ExcursionPhotos.aspx" />
+    <Content Include="Web\Gallery\InsidePhotos.aspx" />
+    <Content Include="Web\Gallery\OutsidePhotos.aspx" />
+    <Content Include="Web\Gallery\GuestPhotos.aspx" />
+    <Content Include="Web\Gallery\ThemedPhotos.aspx" />
+    <Content Include="Images\ero-logo.png" />
+    <Content Include="Images\logofindthebest.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\tree.png" />
+    <Content Include="Web\Main\Philosophy.aspx" />
+    <Content Include="Web\Side\PhotoGallery.aspx" />
+    <Content Include="Web\Side\Profiles.aspx" />
+    <Content Include="Web\Main\Reviews.aspx" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Web\Main\Staff.aspx" />
+    <Content Include="Styles\jquery.image-gallery.css" />
+    <Content Include="Styles\jquery.image-gallery.min.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web\Side\WaitingList.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Web\Admin\AddEvent.aspx.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Admin\AddEvent.aspx.designer.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Admin\AddNews.aspx.cs">
+      <DependentUpon>AddNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Admin\AddNews.aspx.designer.cs">
+      <DependentUpon>AddNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Admin\AddReview.aspx.cs">
+      <DependentUpon>AddReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Admin\AddReview.aspx.designer.cs">
+      <DependentUpon>AddReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Main\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Main\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Parent\CollectingYourChild.aspx.cs">
+      <DependentUpon>CollectingYourChild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Parent\CollectingYourChild.aspx.designer.cs">
+      <DependentUpon>CollectingYourChild.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Parent\Community.aspx.cs">
+      <DependentUpon>Community.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Parent\Community.aspx.designer.cs">
+      <DependentUpon>Community.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Parent\DayAtCreche.aspx.cs">
+      <DependentUpon>DayAtCreche.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Parent\DayAtCreche.aspx.designer.cs">
+      <DependentUpon>DayAtCreche.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Parent\Emergencies.aspx.cs">
+      <DependentUpon>Emergencies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Parent\Emergencies.aspx.designer.cs">
+      <DependentUpon>Emergencies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Parent\HandoutForms.aspx.cs">
+      <DependentUpon>HandoutForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Parent\HandoutForms.aspx.designer.cs">
+      <DependentUpon>HandoutForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Parent\ImportantInfo.aspx.cs">
+      <DependentUpon>ImportantInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Parent\ImportantInfo.aspx.designer.cs">
+      <DependentUpon>ImportantInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Parent\ParentNews.aspx.cs">
+      <DependentUpon>ParentNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Parent\ParentNews.aspx.designer.cs">
+      <DependentUpon>ParentNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\CHILDChats.aspx.cs">
+      <DependentUpon>CHILDChats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\CHILDChats.aspx.designer.cs">
+      <DependentUpon>CHILDChats.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Main\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Main\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\Side-Bar-Menu.ascx.cs">
+      <DependentUpon>Side-Bar-Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\Side-Bar-Menu.ascx.designer.cs">
+      <DependentUpon>Side-Bar-Menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\CrecheHire.aspx.cs">
+      <DependentUpon>CrecheHire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\CrecheHire.aspx.designer.cs">
+      <DependentUpon>CrecheHire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\DailyProgram.aspx.cs">
+      <DependentUpon>DailyProgram.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\DailyProgram.aspx.designer.cs">
+      <DependentUpon>DailyProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\Enrolment.aspx.cs">
+      <DependentUpon>Enrolment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\Enrolment.aspx.designer.cs">
+      <DependentUpon>Enrolment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\Fees.aspx.cs">
+      <DependentUpon>Fees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\Fees.aspx.designer.cs">
+      <DependentUpon>Fees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Gallery\EventPhotos.aspx.cs">
+      <DependentUpon>EventPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Gallery\EventPhotos.aspx.designer.cs">
+      <DependentUpon>EventPhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Gallery\ExcursionPhotos.aspx.cs">
+      <DependentUpon>ExcursionPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Gallery\ExcursionPhotos.aspx.designer.cs">
+      <DependentUpon>ExcursionPhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Gallery\InsidePhotos.aspx.cs">
+      <DependentUpon>InsidePhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Gallery\InsidePhotos.aspx.designer.cs">
+      <DependentUpon>InsidePhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Gallery\OutsidePhotos.aspx.cs">
+      <DependentUpon>OutsidePhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Gallery\OutsidePhotos.aspx.designer.cs">
+      <DependentUpon>OutsidePhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Gallery\GuestPhotos.aspx.cs">
+      <DependentUpon>GuestPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Gallery\GuestPhotos.aspx.designer.cs">
+      <DependentUpon>GuestPhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Gallery\ThemedPhotos.aspx.cs">
+      <DependentUpon>ThemedPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Gallery\ThemedPhotos.aspx.designer.cs">
+      <DependentUpon>ThemedPhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs" />
+    <Compile Include="Web\Main\Philosophy.aspx.cs">
+      <DependentUpon>Philosophy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Main\Philosophy.aspx.designer.cs">
+      <DependentUpon>Philosophy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\PhotoGallery.aspx.cs">
+      <DependentUpon>PhotoGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\PhotoGallery.aspx.designer.cs">
+      <DependentUpon>PhotoGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\Profiles.aspx.cs">
+      <DependentUpon>Profiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\Profiles.aspx.designer.cs">
+      <DependentUpon>Profiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Main\Reviews.aspx.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Main\Reviews.aspx.designer.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Main\Staff.aspx.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Main\Staff.aspx.designer.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Side\WaitingList.aspx.cs">
+      <DependentUpon>WaitingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Side\WaitingList.aspx.designer.cs">
+      <DependentUpon>WaitingList.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Files\ChildChat.doc" />
+    <None Include="Files\Crechefees.doc" />
+    <None Include="Files\CrecheGuide.doc" />
+    <None Include="Files\Individual profile sheet.docx" />
+    <None Include="Files\Philosophy2012.doc" />
+    <None Include="Files\StrategicPlan2011-2015.doc" />
+    <None Include="Files\WhanauFamilyVoice.docx" />
+    <None Include="Images\hands\hands-art.psd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1696</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,324 @@
+﻿/* Page layout
+---------------------------------------------------------*/
+body{background-color:#fff; min-width:1023px;}
+
+.header{height:150px;}
+.header-top{background-color: #9BD9E6; height:80px;}
+.top-links{display: inline-block; margin-top: 40px;}
+.ribbon{width: 120px; display: inline-block; float: left; position: absolute; padding: 0 0 0 10px;}
+.logo {width: 90px; display: inline-block; float: left; padding: 15px 15px 5px 25px; position:absolute;}
+.dark-green{color:#31542A;}
+.main{margin-top:-70px; margin-bottom:85px;}
+.page-body{ padding-left: 10px; position:relative;}
+#pageBody{padding: 0 20px;}
+.side-bar-menu{margin-top:150px;}
+
+.social-links{margin:20px 0 0 15px;}
+.social-links li{display: inline-block; float: left; padding-left: 8px;}
+.follow-us{margin-left:10px;}
+
+#messageBar{padding:15px;}
+#msgText{padding:10px; border-radius:10px;}
+
+.footer {background-color: #afd679; color:#fff; height:40px; font-size:10px;}
+.transparent-tree {width: 550px; opacity:0.1;} 
+#tree{position:fixed; bottom:38px; left:0px; z-index: -1; width:250px;}
+#adminPanel{padding-left: 10px;}
+/* Text formatting
+----------------------------------------------------------*/
+h1,h2,h3{color: #c20f08;}
+.heading-title{font-size: 30px; margin-bottom: 0px; }
+.heading-motto{margin-bottom: 2px;}
+.sub-heading-motto{font-size: 10px; margin-bottom: 2px; display: inline;}
+
+p{word-break: break-word;}
+a { color:#c20f08; text-decoration:underline;}
+
+.text-large{font-size:28px;}
+
+/* Bootstrap overwrites
+----------------------------------------------------------*/
+.nav-pills{margin-bottom: 0px;}
+.nav-pills a {color:#fff;}
+
+.dl-horizontal dt{width: 65px;}
+.dl-horizontal dd {margin-left: 80px;}
+   
+.carousel-control .icon-prev, .carousel-control .icon-next {background-image:none;}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {margin-left: auto; margin-right: auto;max-width: 600px; max-height: 450px;}
+.carousel-inner > .item {background-color: #eee;}
+    
+fieldset {padding: initial;}
+legend + .control-group {margin-top: inherit;}
+.radio, .checkbox {padding-left:inherit;}
+input[type="radio"], input[type="checkbox"] {margin: 9px 5px 10px; width: 25px !important;}
+select {width: 100px;}
+
+.modal.wide{width: 700px;}
+.modal-body {max-height:500px}
+
+.btn{text-decoration: none;}
+.nav-list > li > a,.nav-pills > li > a,.nav-tabs > li > a { text-decoration:none;}
+.nav.nav-pills > li > a:hover, .nav.nav-pills > li > a:focus {background-color: #d21a18;}
+a.thumbnail,a.thumbnail:hover, a.thumbnail:focus{ text-decoration:none;}
+/* Misc 
+----------------------------------------------------------*/
+
+.clear { clear: both;}
+.centered {text-align: center;}
+
+.left-5{padding-left:5px;}
+.left-10{padding-left:10px;}
+.left-15{padding-left:15px;}
+.right-5{padding-right:5px;}
+.right-10{padding-right:10px;}
+.right-15{padding-right:15px;}
+.top-15{margin-top:15px;}
+.top-50{margin-top:50px;}
+.bottom-50{margin-bottom:50px;}
+
+/* Photos
+----------------------------------------------------------*/
+.photo-holder 
+{
+    padding: 5px;
+    display:  inline-block;
+    float: left;
+    width: 400px; height: 300px; 
+}
+ 			
+.img-frame { margin-top:60px;} 			
+
+
+.photo-gallery-holder 
+{
+    padding: 5px;
+    width: 650px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 			
+.gallery-img-frame { width: 640px; height:480px;} 
+
+.frame { width: 230px;}
+.thumbnail {background-color:#F2F2F2;}
+.thumbnail p {color:#000; text-decoration: none;}
+
+/* Home Page
+----------------------------------------------------------*/
+
+
+/* Enrolment Page
+----------------------------------------------------------*/
+#enrolButton
+{
+    position:fixed;
+}
+#calStartDate
+{
+    display:none;
+    position:absolute;
+    border:solid 2px black;
+    background-color:white;
+}
+
+.enrolment input, .enrolment textarea {width: 360px;}
+
+/* Staff Page
+----------------------------------------------------------*/
+.staff-attributes{font-size:11px;}        
+
+/* Review Page
+----------------------------------------------------------*/
+.testimonial-card{border-bottom: 1px solid #eee; padding: 10px; margin: 5px;}
+.testimonial-text{font-size:16px;}
+.testimonial-text.apos{font-size:28px;}
+.testimonial-name{font-size:12px; font-style:italic;}
+.test-date{font-size:10px; font-weight:bold;}
+
+/* Event & News Page
+----------------------------------------------------------*/
+.news-title{font-size: 14px; font-weight: bold;}
+.news-description{ font-size:12px;}
+.news-date{font-size:12px; font-weight:bold;}
+
+/* Smart phone */
+@media all and (max-width: 767px) 
+{
+   .transparent-tree {width: 550px !important; opacity:0.1;} 
+    #tree{width: 180px;}
+}
+
+/* iPad [portrait + landscape] */
+@media all and (min-width: 767px) 
+{
+     .transparent-tree {width: 550px !important; opacity:0.1;} 
+     #tree{width: 180px;}
+}
+
+/* iPad [portrait] */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)
+{}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (orientation:landscape) and (max-width: 766px) {}
+
+/* Link body */
+.persona-button
+{
+    width:120px;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.1;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(0,0,0,0.5), 0 0 2px rgba(0,0,0,0.2);
+
+  background: #297dc3;
+  background: -moz-linear-gradient(top, #43a6e2, #287cc2);
+  background: -ms-linear-gradient(top, #43a6e2, #287cc2);
+  background: -o-linear-gradient(top, #43a6e2, #287cc2);
+  background: -webkit-linear-gradient(top, #43a6e2, #287cc2);
+  background: linear-gradient(top, #43a6e2, #287cc2);
+
+  -moz-border-radius:   3px;
+  -ms-border-radius:     3px;
+  -o-border-radius:     3px;
+  -webkit-border-radius:   3px;
+  border-radius:       3px;
+
+  -moz-box-shadow:   0 1px 0 rgba(0,0,0,0.2);
+  -ms-box-shadow:   0 1px 0 rgba(0,0,0,0.2);
+  -o-box-shadow:     0 1px 0 rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+  box-shadow:     0 1px 0 rgba(0,0,0,0.2);
+}
+
+.persona-button:hover{
+  background: #21669f;
+  background: -moz-linear-gradient(top, #3788b9, #21669f);
+  background: -ms-linear-gradient(top, #3788b9, #21669f);
+  background: -o-linear-gradient(top, #3788b9, #21669f);
+  background: -webkit-linear-gradient(top, #3788b9, #21669f);
+  background: linear-gradient(top, #3788b9, #21669f);
+}
+
+.persona-button:active, .persona-button:focus{
+  top: 1px;
+  -moz-box-shadow:   none;
+  -ms-box-shadow:   none;
+  -o-box-shadow:     none;
+  -webkit-box-shadow: none;
+  box-shadow:     none;
+}
+
+.persona-button span{
+  display: inline-block;
+  padding: 5px 10px 5px 40px;
+}
+
+/* Icon */
+.persona-button span:after{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAYAAAA/I0V3AAAA4klEQVR42o2RWaqEMBRE3YaCiDjPwQGcd9CrysLv4wTyoLFD90dxqbp1EgdPRB7Kskznea6Zn/aPoKoqUUrJOI5m4l2QBfSyLHKep1zXZSae3An1fS/7vst931bGkzuhaZrsLVbGkzuheZ7lOI6HyJ2QUkqv6yrbtv0LT+6E7G0UrfBfP3lZlpoXH4ZBmHgn5Pv+KwxDfqp0XQdgJp6c/RsUBIGOokiSJDE/s21bACbe5Ozp0TdAHMdSFIXUdS1N01C2wpObPT36HifwCJzI0iX29Oh7XP0E3CB9L01TzM+i/wePv4ZE5RtAngAAAABJRU5ErkJggg==) 10px center no-repeat;
+  content: '';
+  display: block;
+  width: 31px;
+
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  top: 0;
+  z-index: 10;
+}
+
+/*  Icon background */
+.persona-button span:before{
+  content: '';
+  display: block;
+  height: 100%;
+  width: 20px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  background: #42a9dd;
+  background: -moz-linear-gradient(top, #50b8e8, #3095ce);
+  background: -ms-linear-gradient(top, #50b8e8, #3095ce);
+  background: -o-linear-gradient(top, #50b8e8, #3095ce);
+  background: -webkit-linear-gradient(top, #50b8e8, #3095ce);
+  background: linear-gradient(top, #50b8e8, #3095ce);
+
+  -moz-border-radius:   3px 0 0 3px;
+  -ms-border-radius:     3px 0 0 3px;
+  -o-border-radius:     3px 0 0 3px;
+  -webkit-border-radius:   3px 0 0 3px;
+  border-radius:       3px 0 0 3px;
+}
+
+/* Triangle */
+.persona-button:before{
+  background: #42a9dd;
+  content: '';
+  display: block;
+  height: 26px;
+  width: 26px;
+
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  margin-top: -13px;
+  z-index: 0;
+
+  background: -moz-linear-gradient(-45deg, #50b8e8, #3095ce);
+  background: -ms-linear-gradient(-45deg, #50b8e8, #3095ce);
+  background: -o-linear-gradient(-45deg, #50b8e8, #3095ce);
+  background: -webkit-linear-gradient(-45deg, #50b8e8, #3095ce);
+  background: linear-gradient(-45deg, #3095ce, #50b8e8); /* flipped for updated spec */
+
+  -moz-box-shadow:   1px -1px 1px rgba(0,0,0,0.1);
+  -ms-box-shadow:   1px -1px 1px rgba(0,0,0,0.1);
+  -o-box-shadow:     1px -1px 1px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 1px -1px 1px rgba(0,0,0,0.1);
+  box-shadow:     1px -1px 1px rgba(0,0,0,0.1);
+
+  -moz-transform:   rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:     rotate(45deg);
+  -webkit-transform:   rotate(45deg);
+  transform:       rotate(45deg);
+}
+
+/* Inset shadow (required here because the icon background clips it when on the `a` element) */
+.persona-button:after{
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+
+  -moz-border-radius:   3px;
+  -ms-border-radius:     3px;
+  -o-border-radius:     3px;
+  -webkit-border-radius:   3px;
+  border-radius:       3px;
+
+  -moz-box-shadow:   inset 0 -1px 0 rgba(0,0,0,0.3);
+  -ms-box-shadow:   inset 0 -1px 0 rgba(0,0,0,0.3);
+  -o-box-shadow:     inset 0 -1px 0 rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.3);
+  box-shadow:     inset 0 -1px 0 rgba(0,0,0,0.3);
+}

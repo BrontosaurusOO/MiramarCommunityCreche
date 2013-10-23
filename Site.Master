@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>Miramar Community Crèche</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Styles/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
+    <link rel="shortcut icon" href="Images/favicon.ico" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="row-fluid header">
+        <div class="span12 header-top">
+            <asp:Image src="/Images/ribbon1.gif" CssClass="ribbon" runat="server" ImageUrl="/Default.aspx" />
+            <a href="/Default.aspx">
+                <asp:Image src="/Images/logo.png" CssClass="logo" runat="server" ImageUrl="/Default.aspx" /></a>
+            <div class="top-links pull-right">
+                <ul class="nav nav-pills">
+                    <li><a href="/Default.aspx"><i class="icon-home icon-white"></i>Home</a></li>
+                    <li><a href="/web/main/About.aspx"><i class="icon-question-sign icon-white"></i>About
+                        Us</a></li>
+                    <li><a href="/web/main/Philosophy.aspx"><i class="icon-info-sign icon-white"></i>Philosophy</a></li>
+                    <li><a href="/web/main/Staff.aspx"><i class="icon-user icon-white"></i>Staff</a></li>
+                    <li><a href="/web/parent/ParentNews.aspx"><i class="icon-star icon-white"></i>For Parents</a></li>
+                    <li><a href="/web/main/Reviews.aspx"><i class="icon-thumbs-up icon-white"></i>Reviews</a></li>
+                    <li><a href="/web/main/ContactUs.aspx"><i class="icon-map-marker icon-white"></i>Contact
+                        Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid main">
+        <div class="span2 side-menu" id="sideBar" runat="server">
+            <asp:ContentPlaceHolder ID="SideContent" runat="server" />
+        </div>
+        <div class="span10 page-body" id="pageBody" runat="server">
+            <div id="messageBar" runat="server" visible="false">
+                <p id="msgText" runat="server">
+                </p>
+            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </div>
+    <img data-spy="affix" data-offset-top="40" runat="server" id="tree" src="/Images/tree.png"
+        alt="" />
+    <div class="footer row-fluid navbar navbar-fixed-bottom">
+        <div id="adminPanel" class="span12" runat="server" visible="false">
+            <a href="/Web/Admin/AddEvent.aspx">Add Event </a>|<a href="/Web/Admin/AddNews.aspx">
+                Add News </a>|<a href="/Web/Admin/AddReview.aspx"> Add Review </a>
+        </div>
+        <div class="span3">
+            <a id="signin" href="#" class="persona-button" runat="server" visible="false"><span>
+                Log in</span></a> <a id="signout" href="#" class="persona-button" runat="server"
+                    visible="false"><span>Logout</span></a>
+        </div>
+        <div class="span9">
+            <p class="small text-center">
+                Miramar Community Crèche
+                <br />
+                Te Whare Manaaki Tamariki o Te Motu Kairangi</p>
+        </div>
+        <div class="span3">
+        </div>
+    </div>
+    </form>
+    <asp:ContentPlaceHolder ID="JavascriptContent" runat="server" />
+</body>
+</html>
