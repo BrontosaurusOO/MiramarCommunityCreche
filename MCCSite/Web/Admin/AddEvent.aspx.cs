@@ -35,7 +35,7 @@ namespace MCCSite.Web.Admin
         public void GetEventItems()
         {
             //Read reviews into Arraylist 
-            string sAppPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            string sAppPath = ""; //System.AppDomain.CurrentDomain.BaseDirectory;
             try
             {
                 using (StreamReader sr = new StreamReader(String.Format("{0}/Files/Events.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
@@ -66,7 +66,7 @@ namespace MCCSite.Web.Admin
             }
             catch (Exception ex)
             {
-                // Master.AddErrorMessage("An error occured retrieving the events. Please try again soon or contact the crèche for assisstance.");
+                // Master.AddErrorMessage("An error occurred retrieving the events. Please try again soon or contact the crèche for assistance.");
                 Console.WriteLine("The file could not be read.");
                 Console.WriteLine(ex.Message);
             }
@@ -131,7 +131,7 @@ namespace MCCSite.Web.Admin
             }
             catch (Exception ex)
             {
-                Master.AddErrorMessage("There was an Error adding a new item.");
+                Master.AddErrorMessage("There was an error adding a new item." + ex);
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(ex.Message);
             }

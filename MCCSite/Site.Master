@@ -9,7 +9,7 @@
     <link href="~/Styles/bootstrap-responsive.css" rel="stylesheet" />
     <link href="~/Styles/bootstrap.css" rel="stylesheet" />
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.js"></script>
     <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
     <link rel="shortcut icon" href="Images/favicon.ico" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
@@ -19,19 +19,19 @@
     <form runat="server">
     <div class="row-fluid header">
         <div class="span12 header-top">
-            <asp:Image src="/Images/ribbon1.gif" CssClass="ribbon" runat="server" ImageUrl="/Default.aspx" />
-            <a href="/Default.aspx">
-                <asp:Image src="/Images/logo.png" CssClass="logo" runat="server" ImageUrl="/Default.aspx" /></a>
+            <asp:Image src="/images/ribbon1.gif" CssClass="ribbon" runat="server" ImageUrl="/default.aspx" />
+            <a href="/default.aspx">
+                <asp:Image src="/images/logo.png" CssClass="logo" runat="server" ImageUrl="/default.aspx" /></a>
             <div class="top-links pull-right">
                 <ul class="nav nav-pills">
-                    <li><a href="/Default.aspx"><i class="icon-home icon-white"></i>Home</a></li>
-                    <li><a href="/web/main/About.aspx"><i class="icon-question-sign icon-white"></i>About
+                    <li><a href="/default.aspx"><i class="icon-home icon-white"></i>Home</a></li>
+                    <li><a href="/web/main/about.aspx"><i class="icon-question-sign icon-white"></i>About
                         Us</a></li>
-                    <li><a href="/web/main/Philosophy.aspx"><i class="icon-info-sign icon-white"></i>Philosophy</a></li>
-                    <li><a href="/web/main/Staff.aspx"><i class="icon-user icon-white"></i>Staff</a></li>
-                    <li><a href="/web/parent/ParentNews.aspx"><i class="icon-star icon-white"></i>For Parents</a></li>
-                    <li><a href="/web/main/Reviews.aspx"><i class="icon-thumbs-up icon-white"></i>Reviews</a></li>
-                    <li><a href="/web/main/ContactUs.aspx"><i class="icon-map-marker icon-white"></i>Contact
+                    <li><a href="/web/main/philosophy.aspx"><i class="icon-info-sign icon-white"></i>Philosophy</a></li>
+                    <li><a href="/web/main/staff.aspx"><i class="icon-user icon-white"></i>Staff</a></li>
+                    <li><a href="/web/parent/parentNews.aspx"><i class="icon-star icon-white"></i>For Parents</a></li>
+                    <li><a href="/web/main/reviews.aspx"><i class="icon-thumbs-up icon-white"></i>Reviews</a></li>
+                    <li><a href="/web/main/contactsus.aspx"><i class="icon-map-marker icon-white"></i>Contact
                         Us</a></li>
                 </ul>
             </div>
@@ -51,23 +51,27 @@
     </div>
     <img data-spy="affix" data-offset-top="40" runat="server" id="tree" src="/Images/tree.png"
         alt="" />
-    <div class="footer row-fluid navbar navbar-fixed-bottom">
-        <div id="adminPanel" class="span12" runat="server" visible="false">
-            <a href="/Web/Admin/AddEvent.aspx">Add Event </a>|<a href="/Web/Admin/AddNews.aspx">
-                Add News </a>|<a href="/Web/Admin/AddReview.aspx"> Add Review </a>
-        </div>
-        <div class="span3">
-            <a id="signin" href="#" class="persona-button" runat="server" visible="false"><span>
-                Log in</span></a> <a id="signout" href="#" class="persona-button" runat="server"
-                    visible="false"><span>Logout</span></a>
-        </div>
-        <div class="span9">
-            <p class="small text-center">
-                Miramar Community Crèche
-                <br />
-                Te Whare Manaaki Tamariki o Te Motu Kairangi</p>
-        </div>
-        <div class="span3">
+    <div class="footer row-fluid navbar navbar-fixed-bottom ">
+        <div class="span12">
+            <div class="span2">
+                <div id="adminPanel" runat="server" visible="false">
+                <a href="/web/admin/default.aspx">Admin </a>
+                    <%--<a href="/Web/Admin/AddEvent.aspx">Add an event item </a>|<a href="/Web/Admin/AddNews.aspx">
+                        Add a news item </a>|<a href="/Web/Admin/AddReview.aspx"> Add a review </a>|<a href="/Web/Admin/AddReview.aspx">
+                            Add a photo </a>--%>
+                </div>
+            </div>
+            <div class="span8">
+                <p class="small text-center">
+                    Miramar Community Crèche
+                    <br />
+                    Te Whare Manaaki Tamariki o Te Motu Kairangi</p>
+            </div>
+            <div class="span2">
+                <a id="signin" href="#" class="persona-button" runat="server" visible="false"><span>
+                    Log in</span></a> <a id="signout" href="#" class="persona-button" runat="server"
+                        visible="false"><span>Logout</span></a>
+            </div>
         </div>
     </div>
     </form>

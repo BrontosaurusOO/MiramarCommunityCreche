@@ -21,10 +21,10 @@ using System.Web.UI.WebControls;
                 pageBody.Attributes.Add("class", String.Join(" ", pageBody.Attributes["class"].Split(' ').Except(new string[]{"","span10"})));       //.Concat(new string[]{"offset1"}).ToArray()) to add a class add this on the end 
             }
 
-            //if (ShowAdminAction )
-            //{
-            //    adminPanel.Visible = true;
-            //}
+            if (ShowAdminAction)
+            {
+                adminPanel.Visible = true;
+            }
         }
 
         public void AddErrorMessage(string error) 

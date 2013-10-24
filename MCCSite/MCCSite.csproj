@@ -147,6 +147,7 @@
     <Content Include="Web\Admin\AddNews.aspx" />
     <Content Include="Web\Admin\AddPhotos.aspx" />
     <Content Include="Web\Admin\AddReview.aspx" />
+    <Content Include="Web\Admin\default.aspx" />
     <Content Include="Web\Main\About.aspx" />
     <Content Include="Web\Parent\CollectingYourChild.aspx" />
     <Content Include="Web\Parent\Community.aspx" />
@@ -223,6 +224,13 @@
     </Compile>
     <Compile Include="Web\Admin\AddReview.aspx.designer.cs">
       <DependentUpon>AddReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Main\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
