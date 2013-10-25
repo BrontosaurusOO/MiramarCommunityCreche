@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JsonFx">
+      <HintPath>..\..\..\..\Downloads\jsonfx-master\build\Release_v4.0\JsonFx.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -51,6 +54,8 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="auth\login.aspx" />
+    <Content Include="auth\logout.aspx" />
     <Content Include="bin\MCCSite.dll" />
     <Content Include="bin\MCCSite.pdb" />
     <Content Include="Files\Events.txt" />
@@ -197,6 +202,27 @@
     <Content Include="Web\Side\WaitingList.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="auth\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="auth\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Admin\AddEvent.aspx.cs">
       <DependentUpon>AddEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -455,6 +481,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.Master" />
     <None Include="Files\ChildChat.doc" />
     <None Include="Files\Crechefees.doc" />
     <None Include="Files\CrecheGuide.doc" />

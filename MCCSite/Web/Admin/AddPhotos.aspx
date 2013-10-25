@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
     CodeBehind="AddPhotos.aspx.cs" Inherits="MCCSite.Web.Admin.AddPhotos" %>
 
 <%@ MasterType VirtualPath="~/Site.Master" %>

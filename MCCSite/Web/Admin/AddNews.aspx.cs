@@ -68,7 +68,7 @@ namespace MCCSite.Web.Admin
         {
             AddNewsItem();
             news.Clear();
-            //Regrab news items to show the new item =D
+            //Re-grab news items to show the new item =D
             GetNewsItems();
             this.rptNews.DataSource = news;
             this.rptNews.DataBind();

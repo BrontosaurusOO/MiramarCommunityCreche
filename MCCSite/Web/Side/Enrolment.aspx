@@ -10,7 +10,7 @@
 <div class="row-fluid">
 <div class="span10">
 <ul class="breadcrumb">
-              <li><a href="/Web/Side/waitinglist.aspx">Enrolling at crèche</a> <span class="divider">/</span></li>
+              <li><a href="/Web/Side/waitinglist.aspx">Enroling at crèche</a> <span class="divider">/</span></li>
               <li class="active">Enrolment</li>
             </ul>
 

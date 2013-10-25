@@ -1,17 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddEvent.aspx.cs" Inherits="MCCSite.Web.Admin.AddEvent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddEvent.aspx.cs" Inherits="MCCSite.Web.Admin.AddEvent" %>
 <%@ MasterType VirtualPath="~/Site.Master" %>
 
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
-<asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-    <sbm:sidebar id="Sidebar1" runat="server" />
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
                 Add a Event item</h2>
             <p>
-                Fill out the form to add a event item to the site</p>
+                Fill out the form to add an event item to the site</p>
         </div>
     </div>
     <div class="row-fluid enrolment">

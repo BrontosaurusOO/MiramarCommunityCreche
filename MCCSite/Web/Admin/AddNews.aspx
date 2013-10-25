@@ -1,11 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
     CodeBehind="AddNews.aspx.cs" Inherits="MCCSite.Web.Admin.AddNews" %>
     
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
     <%@ MasterType VirtualPath="~/Site.Master" %>
-<asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-    <sbm:sidebar id="Sidebar1" runat="server" />
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row-fluid">
         <div class="span10">
