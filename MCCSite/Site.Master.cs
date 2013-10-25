@@ -11,7 +11,19 @@ using System.Web.UI.WebControls;
         public bool ShowAdminAction = false;
 
         protected void Page_Load(object sender, EventArgs e)
-        { }
+        {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                signout.Visible = true;
+            }
+            else
+            {
+                signin.Visible = true;
+            }
+            //signin.Visible = true;
+            //signout.Visible = true;
+
+        }
            
         protected void Page_PreRender(object sender, EventArgs e)
         {
@@ -21,7 +33,10 @@ using System.Web.UI.WebControls;
                 pageBody.Attributes.Add("class", String.Join(" ", pageBody.Attributes["class"].Split(' ').Except(new string[]{"","span10"})));       //.Concat(new string[]{"offset1"}).ToArray()) to add a class add this on the end 
             }
 
-            if (ShowAdminAction)
+            if (ShowAdminAction && (
+                 CurrentUserName == "miramar.creche@xtra.co.nz" ||
+                 CurrentUserName == "bronwyn.hopkin@hotmail.com")
+                 )
             {
                 adminPanel.Visible = true;
             }
@@ -59,5 +74,20 @@ using System.Web.UI.WebControls;
          public void AddTreeClass(string cssClass)
          {
              tree.Attributes.Add("class", cssClass);
+         }
+
+         public string CurrentUserName
+         {
+             get
+             {
+                 string userName = "null";
+
+                 if (HttpContext.Current.Request.IsAuthenticated)
+                 {
+                     userName = HttpContext.Current.User.Identity.Name.Split('|')[0];
+                 }
+
+                 return userName;
+             }
          }
     }

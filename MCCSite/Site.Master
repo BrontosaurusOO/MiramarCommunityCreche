@@ -11,6 +11,7 @@
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/Scripts/jquery.js"></script>
     <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="https://login.persona.org/include.js"></script>
     <link rel="shortcut icon" href="Images/favicon.ico" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
@@ -75,6 +76,50 @@
         </div>
     </div>
     </form>
+     <script type="text/javascript">
+         var signinLink = document.getElementById('signin');
+         if (signinLink) {
+             signinLink.onclick = function () { navigator.id.request(); };
+         }
+
+         var signoutLink = document.getElementById('signout');
+         if (signoutLink) {
+             signoutLink.onclick = function () { navigator.id.logout(); };
+         }
+
+         var currentUser = "<%=CurrentUserName %>";
+
+         navigator.id.watch({
+             loggedInUser: currentUser,
+             onlogin: function (assertion) {
+                 // A user has logged in! Here you need to:
+                 // 1. Send the assertion to your back end for verification and to create a session.
+                 // 2. Update your UI.
+                 $.ajax({ /* <-- This example uses jQuery, but you can use whatever you'd like */
+                     type: 'POST',
+                     url: 'http://bronwyntestsite.info/mccsite/auth/login.aspx?assert=' + assertion, // This is a URL on your website.
+                     data: { assertion: assertion },
+                     success: function (res, status, xhr) { },
+                     error: function (xhr, status, err) {
+                         navigator.id.logout();
+                         alert("Login failure: " + err + " User = " + currentUser);
+                     }
+                 });
+             },
+             onlogout: function () {
+                 // A user has logged out! Here you need to:
+                 // Tear down the user's session by redirecting the user or making a call to your backend.
+                 // Also, make sure loggedInUser will get set to null on the next page load.
+                 // (That's a literal JavaScript null. Not false, 0, or undefined. null.)
+                 $.ajax({
+                     type: 'POST',
+                     url: 'http://bronwyntestsite.info/mccsite/auth/logout.aspx', // This is a URL on your website.
+                     success: function (res, status, xhr) { },
+                     error: function (xhr, status, err) { alert("Logout failure: " + err + " User = " + currentUser); }
+                 });
+             }
+         });
+    </script>
     <asp:ContentPlaceHolder ID="JavascriptContent" runat="server" />
 </body>
 </html>

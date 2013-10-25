@@ -66,7 +66,7 @@ namespace MCCSite.Web.Admin
             }
             catch (Exception ex)
             {
-                // Master.AddErrorMessage("An error occurred retrieving the events. Please try again soon or contact the crèche for assistance.");
+                Master.AddErrorMessage("An error occurred retrieving the events. Please try again soon or contact the crèche for assistance.");
                 Console.WriteLine("The file could not be read.");
                 Console.WriteLine(ex.Message);
             }
@@ -77,7 +77,7 @@ namespace MCCSite.Web.Admin
         {
             AddEventItem();
             events.Clear();
-            //Regrab news items to show the new item =D
+            //Re-grab news items to show the new item =D
             GetEventItems();
             this.rptEvents.DataSource = events;
             this.rptEvents.DataBind();
