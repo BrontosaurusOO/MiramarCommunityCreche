@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Collections;
 using System.Text;
+using System.Net;
 
 namespace MCCSite.Web.Admin
 {
@@ -35,7 +36,7 @@ namespace MCCSite.Web.Admin
         public void GetEventItems()
         {
             //Read reviews into Arraylist 
-            string sAppPath = ""; //System.AppDomain.CurrentDomain.BaseDirectory;
+            string sAppPath = System.AppDomain.CurrentDomain.BaseDirectory;
             try
             {
                 using (StreamReader sr = new StreamReader(String.Format("{0}/Files/Events.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
@@ -75,7 +76,7 @@ namespace MCCSite.Web.Admin
 
         public void btnSubmit_Click(Object sender, EventArgs e)
         {
-            AddEventItem();
+            AddFTPEventItem();
             events.Clear();
             //Re-grab news items to show the new item =D
             GetEventItems();
@@ -137,6 +138,57 @@ namespace MCCSite.Web.Admin
             }
 
         }
+
+        public void AddFTPEventItem()
+        {
+            string filePath = "ftp://cca.849.myftpupload.com/files/";
+            string fName = "event.txt";
+            string fileUrl = filePath + fName;
+            string ftpUserName = "bronwynh";
+            string ftpPassword = "l0venerd5";
+            
+            try {
+                WebClient request = new WebClient();
+                request.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                Stream postStream = request.OpenWrite(fileUrl);
+
+                //Grab how many days the event spans
+                int days = 1;
+
+                //Convert the file string to Date
+                if (!string.IsNullOrEmpty(txtEventEndDate.Value))
+                {
+                    string[] format = { "dd/MM/yyyy" };
+                    DateTime dateStart;
+                    DateTime dateEnd;
+                    DateTime.TryParseExact(txtEventStartDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateStart);
+                    DateTime.TryParseExact(txtEventEndDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateEnd);
+
+                    days = (dateEnd - dateStart).Days;
+                }
+                //Create the new item
+                String line = string.Empty;
+                line += txtEventTitle.Value + "|";
+                line += txtEvent.Value + "|";
+                line += txtEventStartDate.Value.ToString() + "|";
+                line += days + "|";
+                line += "\r";
+
+                byte[] writeLine = Encoding.GetEncoding("iso-8859-1").GetBytes(line + "|");
+                postStream.Write(writeLine, 0, writeLine.Length);
+
+                postStream.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
         public void rptEvents_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)

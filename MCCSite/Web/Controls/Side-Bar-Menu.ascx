@@ -3,14 +3,14 @@
 
 <div class="side-bar-menu">
     <ul class="nav nav-list">
-      <li><a href="/Web/Side/Events.aspx"><i class="icon-calendar"></i>News & Events</a></li>
-      <li><a href="/Web/Side/DailyProgram.aspx"><i class="icon-tasks"></i>Daily Program</a></li>
-      <li><a href="/Web/Side/Profiles.aspx"><i class="icon-book"></i>Child Profiles</a></li>
-      <li><a href="/Web/Side/Fees.aspx"><i class="icon-gift"></i> Prices & fees</a></li>
-      <li><a href="/Web/Side/CHILDChats.aspx"><i class="icon-comment"></i> C.H.I.L.D Chats</a></li>
-      <li><a href="/Web/Side/WaitingList.aspx"><i class="icon-ok"></i> Enrolment</a></li>
-      <li><a href="/Web/Side/CrecheHire.aspx"><i class="icon-glass"></i> Crèche Hire</a></li>
-      <li><a href="/Web/Side/PhotoGallery.aspx"><i class="icon-picture"></i> Photo Gallery</a></li>
+      <li><a href="/web/side/events.aspx"><i class="icon-calendar"></i> News & Events</a></li>
+      <li><a href="/web/side/dailyprogram.aspx"><i class="icon-tasks"></i> Daily Program</a></li>
+      <li><a href="/web/side/profiles.aspx"><i class="icon-book"></i> Child Profiles</a></li>
+      <li><a href="/web/side/fees.aspx"><i class="icon-gift"></i> Prices & fees</a></li>
+      <li><a href="/web/side/childchats.aspx"><i class="icon-comment"></i> C.H.I.L.D Chats</a></li>
+      <li><a href="/web/side/waitinglist.aspx"><i class="icon-ok"></i> Enrolment</a></li>
+      <li><a href="/web/side/crechehire.aspx"><i class="icon-glass"></i> Crèche Hire</a></li>
+      <li><a href="/web/side/photogallery.aspx"><i class="icon-picture"></i> Photo Gallery</a></li>
     </ul>
 					
     <div class="social-links">
@@ -20,9 +20,5 @@
 		    <li><a href="http://nz-early-childhood.findthebest.co.nz/l/3298/Miramar-Community-Creche" title="Findthebest" target="_blank"><img src="/Images/logofindtb.png" alt=""/></a></li>
             <li><a href="https://plus.google.com/114287596053060543784/about" title="Google+" target="_blank"><img src="/Images/googleplusicon.png" alt=""/></a></li>
         </ul>
-    </div>
-
-    <div class="ad-holder">
-			
     </div>
 </div>

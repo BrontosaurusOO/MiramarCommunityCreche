@@ -13,15 +13,6 @@ namespace MCCSite.Web.Admin {
     public partial class AddPhotos {
         
         /// <summary>
-        /// Sidebar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Web.Controls.Side_Bar_Menu Sidebar1;
-        
-        /// <summary>
         /// lblFolder control.
         /// </summary>
         /// <remarks>
@@ -162,9 +153,9 @@ namespace MCCSite.Web.Admin {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new SiteMaster Master {
+        public new MCCSite.Administrator Master {
             get {
-                return ((SiteMaster)(base.Master));
+                return ((MCCSite.Administrator)(base.Master));
             }
         }
     }

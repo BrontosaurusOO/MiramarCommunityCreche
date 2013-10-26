@@ -7,94 +7,71 @@ using System.Web.UI.WebControls;
 
 public partial class SiteMaster : System.Web.UI.MasterPage
 {
-    public bool HideSideBar = false;
-    public bool ShowAdminAction = false;
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (HttpContext.Current.User.Identity.IsAuthenticated)
-        {
-            signout.Visible = true;
-        }
-        else
-        {
-            signin.Visible = true;
-        }
-        signin.Visible = true;
-        if (!String.IsNullOrEmpty(Request.QueryString["user"])) { 
-        AddSuccessMessage(Request.QueryString["user"]);
-        }
-
-    }
-
-    protected void Page_PreRender(object sender, EventArgs e)
-    {
-        if (HideSideBar)
-        {
-            sideBar.Visible = false;
-            pageBody.Attributes.Add("class", String.Join(" ", pageBody.Attributes["class"].Split(' ').Except(new string[] { "", "span10" })));       //.Concat(new string[]{"offset1"}).ToArray()) to add a class add this on the end 
-        }
-
-        if (ShowAdminAction && (
-            CurrentUserName == "BARAD-DUR\\bronwyn" ||
-             CurrentUserName == "miramar.creche@xtra.co.nz" ||
-             CurrentUserName == "bronwyn.hopkin@hotmail.com")
-             )
-        {
-            adminPanel.Visible = true;
-        }
-    }
-
     public void AddErrorMessage(string error)
     {
-        messageBar.Visible = true;
-        msgText.InnerText = error;
-        msgText.Attributes.Add("class", "alert-error");
+        Master.AddErrorMessage(error);
     }
 
     public void AddSuccessMessage(string msg)
     {
-        messageBar.Visible = true;
-        msgText.InnerText = msg;
-        msgText.Attributes.Add("class", "alert-success");
+        Master.AddSuccessMessage(msg);
     }
 
     public void EnlargeTree(int girth)
     {
-        tree.Width = girth;
+        Master.EnlargeTree(girth);
     }
 
     public void HideTree()
     {
-        tree.Visible = false;
+        Master.HideTree(); ;
     }
 
     public void AddPageClass(string cssClass)
     {
-        pageBody.Attributes.Add("class", cssClass);
+        Master.AddPageClass(cssClass);
     }
 
     public void AddTreeClass(string cssClass)
     {
-        tree.Attributes.Add("class", cssClass);
+        Master.AddTreeClass(cssClass);
     }
 
     public string CurrentUserName
     {
         get
         {
-            currentUser.Value = "null";
-
-            if (HttpContext.Current.Request.IsAuthenticated)
-            {
-                currentUser.Value = HttpContext.Current.User.Identity.Name.Split('|')[0];
-            }
-
-            return currentUser.Value;
+            return Master.CurrentUserName;
         }
         set
         {
-            currentUser.Value = value;
+            Master.CurrentUserName = value;
+        }
+
+    }
+
+    public bool HideSideBar
+    {
+        get
+        {
+            return Master.HideSideBar;
+        }
+        set
+        {
+            Master.HideSideBar = value;
+        }
+
+    }
+
+    public bool ShowAdminAction
+    {
+        get
+        {
+            return Master.ShowAdminAction;
+        }
+        set
+        {
+            Master.ShowAdminAction = value;
         }
 
     }

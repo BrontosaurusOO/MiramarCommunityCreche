@@ -1,12 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrator.master" AutoEventWireup="true"
     CodeBehind="AddPhotos.aspx.cs" Inherits="MCCSite.Web.Admin.AddPhotos" %>
 
-<%@ MasterType VirtualPath="~/Site.Master" %>
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
-<asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-    <sbm:Sidebar ID="Sidebar1" runat="server" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<%@ MasterType VirtualPath="~/Administrator.master" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
@@ -118,7 +114,7 @@
         </form>
     </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContentChild" runat="server">
     <script type="text/javascript">
         function displayCalendar() {
 

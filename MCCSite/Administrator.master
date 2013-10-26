@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Public.master" AutoEventWireup="true"
+    CodeBehind="Administrator.master.cs" Inherits="MCCSite.Administrator" %>
+
+<%@ MasterType VirtualPath="~/Public.master" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+    <link href="~/Styles/adminsite.css" rel="stylesheet" type="text/css" />
+    <div class="top-links pull-right">
+        <ul class="nav nav-pills">
+            <li><a href="/default.aspx">Miramar Community Crèche home</a></li>
+            <li><a href="/web/admin/addevent.aspx">Add an event item</a></li>
+            <li><a href="/web/admin/addnews.aspx">Add a news item </a></li>
+            <li><a href="/web/admin/addreview.aspx">Add a review </a></li>
+            <li><a href="/web/admin/addphotos.aspx">Add a photo </a></li>
+        </ul>
+    </div>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder ID="MainContentChild" runat="server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContent" runat="server">
+    <asp:ContentPlaceHolder ID="JavascriptContentChild" runat="server" />
+</asp:Content>

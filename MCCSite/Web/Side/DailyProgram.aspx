@@ -1,11 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="DailyProgram.aspx.cs" Inherits="Web.Side.DailyProgram" %>
 
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
-<asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-    <sbm:Sidebar ID="Sidebar1" runat="server" />
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
@@ -14,48 +10,46 @@
     </div>
     <div class="row-fluid">
         <div class="span4">
-            
-                <dl class="dl-horizontal" id="routine">
-                    <dt>8:45 am</dt>
-                    <dd>
-                        Free play activities</dd>
-                    <dt>9:50 am</dt>
-                    <dd>
-                        Tidy-up time</dd>
-                    <dd>
-                        Karakia</dd>
-                    <dt>10:00 am</dt>
-                    <dd>
-                        Morning tea</dd>
-                    <dd>
-                        Play resumes as children finish eating</dd>
-                    <dt>11.10 am</dt>
-                    <dd>
-                        Pipi Learning Group time</dd>
-                    <dt>11:40</dt>
-                    <dd>
-                        Mat time (Together Time)</dd>
-                    <dd>
-                        Karakia</dd>
-                    <dt>12:00 pm</dt>
-                    <dd>
-                        Lunch</dd>
-                    <dd>
-                        Play resumes as children finish eating</dd>
-                    <dt>12.30 pm</dt>
-                    <dd>
-                        News time</dd>
-                    <dt>12.45 pm</dt>
-                    <dd>
-                        Mako Learning Group time</dd>
-                    <dt>1:15 pm</dt>
-                    <dd>
-                        Tidy up time with children</dd>
-                    <dt>1.30 pm</dt>
-                    <dd>
-                        Session ends</dd>
-                </dl>
-            
+            <dl class="dl-horizontal" id="routine">
+                <dt>8:45 am</dt>
+                <dd>
+                    Free play activities</dd>
+                <dt>9:50 am</dt>
+                <dd>
+                    Tidy-up time</dd>
+                <dd>
+                    Karakia</dd>
+                <dt>10:00 am</dt>
+                <dd>
+                    Morning tea</dd>
+                <dd>
+                    Play resumes as children finish eating</dd>
+                <dt>11.10 am</dt>
+                <dd>
+                    Pipi Learning Group time</dd>
+                <dt>11:40</dt>
+                <dd>
+                    Mat time (Together Time)</dd>
+                <dd>
+                    Karakia</dd>
+                <dt>12:00 pm</dt>
+                <dd>
+                    Lunch</dd>
+                <dd>
+                    Play resumes as children finish eating</dd>
+                <dt>12.30 pm</dt>
+                <dd>
+                    News time</dd>
+                <dt>12.45 pm</dt>
+                <dd>
+                    Mako Learning Group time</dd>
+                <dt>1:15 pm</dt>
+                <dd>
+                    Tidy up time with children</dd>
+                <dt>1.30 pm</dt>
+                <dd>
+                    Session ends</dd>
+            </dl>
         </div>
         <div class="span6">
             <img alt="Karakia" src="/images/daily_program/gathering_karakia.jpg" />
@@ -63,49 +57,58 @@
     </div>
     <div class="row-fluid">
         <div class="span10">
-            <h4>Mat Time (Together Time)</h4>
+            <h4>
+                Mat Time (Together Time)</h4>
             <p>
                 We have a regular format to the sessions, which includes a “Together Time”. This
                 usually begins at 11.45am and although it is not compulsory we encourage all children
                 to participate. Our aim for “Together time” is to develop the children’s language,
                 literature, and listening skills through songs, stories, news, chats and introductions
-                of new children. Lunch time follows Together Time. We also offer <a href="#myModal" data-toggle="modal" class="text-large">‘Mako’ and ‘Pipi’</a>
-                groups which allow children in specific age groups to focus on an activity appropriate
-                to their age.</p>
- 
+                of new children. Lunch time follows Together Time. We also offer <a href="#myModal"
+                    data-toggle="modal" class="text-large">‘Mako’ and ‘Pipi’</a> groups which allow
+                children in specific age groups to focus on an activity appropriate to their age.</p>
             <!-- Modal -->
-            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">Groups</h3>
-              </div>
-              <div class="modal-body">
-                <p>We responded to parent feedback for the need to see value for 3 & 4 year olds.</p>
-                <p>We responded by planning two structured group times</p>
-                <dl class="dl-horizontal">
-                <dt>Pipi</dt>
-                <dd>under 3 year olds</dd>
-                <dt>Mako</dt>
-                <dd>3 year olds and older</dd>
-                </dl>
-                <p>The focus came from childrens interests interwebbed with our program planning:</p>
-                <strong>Lead's to children's:</strong>
-                <ul>
-                <li>Empowerment</li>
-                <li>Confidence</li>
-                <li>Self esteem</li>
-                <li>New extended skills and understanding</li>
-                <li>Full teacher focus for time of group activity</li>
-                <li>Deeper relationships and communication</li>
-                </ul>
-              </div>
-              <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-              </div>
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×</button>
+                    <h3 id="myModalLabel">
+                        Groups</h3>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        We responded to parent feedback for the need to see value for 3 & 4 year olds.</p>
+                    <p>
+                        We responded by planning two structured group times</p>
+                    <dl class="dl-horizontal">
+                        <dt>Pipi</dt>
+                        <dd>
+                            under 3 year olds</dd>
+                        <dt>Mako</dt>
+                        <dd>
+                            3 year olds and older</dd>
+                    </dl>
+                    <p>
+                        The focus came from children's interests inter-webbed with our program planning:</p>
+                    <strong>Lead's to children's:</strong>
+                    <ul>
+                        <li>Empowerment</li>
+                        <li>Confidence</li>
+                        <li>Self esteem</li>
+                        <li>New extended skills and understanding</li>
+                        <li>Full teacher focus for time of group activity</li>
+                        <li>Deeper relationships and communication</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">
+                        Close</button>
+                </div>
             </div>
         </div>
-        </div>
-            <div class="row-fluid">
+    </div>
+    <div class="row-fluid">
         <div class="span10">
             <h4>
                 Morning Tea</h4>
@@ -120,8 +123,8 @@
                 Please inform us if your child has any food allergies or any foods that you do not
                 want your child eating as we often do cooking activities with the children.</p>
         </div>
-        </div>
-           <div class="row-fluid">
+    </div>
+    <div class="row-fluid">
         <div class="span10">
             <h4>
                 News time</h4>
@@ -132,10 +135,10 @@
                 child arrives at crèche. The basket will be brought out during session by the teacher
                 and the children are invited to share their news on the mat, usually after lunch.
                 Once news time is finished we place the items back in the basket and put the basket
-                in the office for safe keeping of our children`s special items.</p>
+                in the office for safe keeping of our children's special items.</p>
         </div>
-        </div>
-            <div class="row-fluid">
+    </div>
+    <div class="row-fluid">
         <div class="span10">
             <h4>
                 Visitors to crèche</h4>
@@ -143,10 +146,10 @@
                 From time to time we organise special visitors to the crèche that enhance our programme
                 e.g. S.P.C.A., Fire engine & Officers, Ambulance, Police, Dental Nurse, Public Health
                 Nurses, etc. We monitor the presence of visitors to ensure that the children are
-                safe and there is a vistors book to sign.</p>
+                safe and there is a visitors book to sign.</p>
         </div>
-        </div>
-            <div class="row-fluid">
+    </div>
+    <div class="row-fluid">
         <div class="span10">
             <h4>
                 Te Whariki (Early childhood curriculum)</h4>
@@ -158,8 +161,5 @@
                 our guide for providing and achieving a quality programme appropriate for your child.
                 Copies of Te Whariki are available at the crèche for parents to take home to read.</p>
         </div>
-        </div>
     </div>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContent" runat="server">
 </asp:Content>

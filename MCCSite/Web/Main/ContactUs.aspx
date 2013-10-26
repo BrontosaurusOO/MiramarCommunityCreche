@@ -1,12 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="ContactUs.aspx.cs" Inherits="Web.Main.ContactUs" %>
 
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
-<%@ MasterType VirtualPath="~/Site.Master" %>
-<asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-    <sbm:Sidebar ID="Sidebar1" runat="server" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<%@ MasterType VirtualPath="~/Site.master" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
@@ -54,9 +50,9 @@
             <h3>
                 Our Details</h3>
             <address>
-            <p>
-                <strong>Opening hours</strong><br />
-                <strong>Monday - Friday</strong> 8.45am-1.30pm</p>
+                <p>
+                    <strong>Opening hours</strong><br />
+                    <strong>Monday - Friday</strong> 8.45am-1.30pm</p>
                 <p>
                     The Teachers are available from 8.30am before each session and until 2.00pm.</p>
             </address>
@@ -86,6 +82,4 @@
             </div>
         </div>
     </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
 </asp:Content>

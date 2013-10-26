@@ -1,11 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Fees.aspx.cs" Inherits="Web.Side.Fees" %>
 
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
-<asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-    <sbm:Sidebar ID="Sidebar1" runat="server" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
@@ -93,6 +89,4 @@
                 Teacher.</p>
         </div>
     </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
 </asp:Content>

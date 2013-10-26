@@ -1,11 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WaitingList.aspx.cs" Inherits="Web.Side.WaitingList" %>
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
 
- <asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-   <sbm:Sidebar id="Sidebar1" runat="server" />
-</asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
 <div class="row-fluid">
 <div class="span10">
 <h2>Enrolling at our crèche</h2>
@@ -26,7 +22,7 @@
     <li>Give our centre a <a href="/web/main/contactus.aspx" >call</a> and ask for the senior teacher or manager</li>
     <li>Come to visit and observe the centre in action upon arrangement</li>
     <li>Download the form and either post or email to go on to the Waiting list</li>
-    <li>Or click the 'Enrol Now button to fill out the form online</li>
+    <li>Or click the Enrol Now button to fill out the form online</li>
 </ul>
 
 <p >Feel free to ask any questions you've got by contacting the crèche after our session has finished at 1:30pm.</p>

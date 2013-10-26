@@ -12,119 +12,32 @@
 public partial class SiteMaster {
     
     /// <summary>
-    /// HeadContent control.
+    /// MainContentChild control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+    protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentChild;
     
     /// <summary>
-    /// sideBar control.
+    /// JavascriptContentChild control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl sideBar;
+    protected global::System.Web.UI.WebControls.ContentPlaceHolder JavascriptContentChild;
     
     /// <summary>
-    /// SideContent control.
+    /// Master property.
     /// </summary>
     /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
+    /// Auto-generated property.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder SideContent;
-    
-    /// <summary>
-    /// pageBody control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl pageBody;
-    
-    /// <summary>
-    /// messageBar control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl messageBar;
-    
-    /// <summary>
-    /// msgText control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgText;
-    
-    /// <summary>
-    /// MainContent control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-    
-    /// <summary>
-    /// tree control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlImage tree;
-    
-    /// <summary>
-    /// currentUser control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.HiddenField currentUser;
-    
-    /// <summary>
-    /// adminPanel control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl adminPanel;
-    
-    /// <summary>
-    /// signin control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlAnchor signin;
-    
-    /// <summary>
-    /// signout control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlAnchor signout;
-    
-    /// <summary>
-    /// JavascriptContent control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder JavascriptContent;
+    public new MCCSite.Public Master {
+        get {
+            return ((MCCSite.Public)(base.Master));
+        }
+    }
 }

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrator.master" AutoEventWireup="true"
     CodeBehind="AddReview.aspx.cs" Inherits="MCCSite.Web.Admin.AddReview" %>
 
-<%@ MasterType VirtualPath="~/Site.Master" %>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<%@ MasterType VirtualPath="~/Administrator.master" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
@@ -77,7 +77,7 @@
         </form>
     </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContentChild" runat="server">
     <script type="text/javascript">
         function displayCalendar() {
 

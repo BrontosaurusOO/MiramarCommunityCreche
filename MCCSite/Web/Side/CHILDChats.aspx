@@ -1,11 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CHILDChats.aspx.cs" Inherits="Web.Side.CHILDChats" %>
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
 
- <asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-   <sbm:Sidebar id="Sidebar1" runat="server" />
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
 
 <h2>C.H.I.L.D. Chats</h2>
 
@@ -32,7 +27,7 @@ what their interests at crèche are?</p>
 The Chat will be roughly 20 minutes long.</p>
 
 <p >
-<strong>The C.H.I.L.D. CHATs can be held either:</strong>
+<strong>The C.H.I.L.D. Chats can be held either:</strong>
 
 <ul>
     <li> At crèche or in your child’s home</li>
@@ -42,13 +37,12 @@ The Chat will be roughly 20 minutes long.</p>
 
 <p >
 The Teachers will share your child’s Individual Profile with you.
-Parents will be requested to fill out a “CHILD CHAT”
+Parents will be requested to fill out a “CHILD Chat”
 sheet before the get together.</p>
 
 <p >
 Please let one of the Teachers know if you are interested
-in setting up a C.H.I.L.D. CHAT time.</p>
+in setting up a C.H.I.L.D. Chat time.</p>
 
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
-</asp:Content>
+

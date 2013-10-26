@@ -7,19 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Main {
+namespace MCCSite {
     
     
-    public partial class Reviews {
+    public partial class Administrator {
         
         /// <summary>
-        /// rptTestimonials control.
+        /// MainContentChild control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptTestimonials;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentChild;
+        
+        /// <summary>
+        /// JavascriptContentChild control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder JavascriptContentChild;
         
         /// <summary>
         /// Master property.
@@ -27,9 +36,9 @@ namespace Web.Main {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new SiteMaster Master {
+        public new MCCSite.Public Master {
             get {
-                return ((SiteMaster)(base.Master));
+                return ((MCCSite.Public)(base.Master));
             }
         }
     }

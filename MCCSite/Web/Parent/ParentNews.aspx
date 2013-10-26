@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ParentNews.aspx.cs" Inherits="Web.Parent.ParentNews"%>
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
 
- <asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-   <sbm:Sidebar id="Sidebar1" runat="server" />
-</asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
 <div class="row-fluid">
 <div class="span10">
 <h2>For Parents</h2>

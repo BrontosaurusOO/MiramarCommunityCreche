@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrator.master" AutoEventWireup="true"
     CodeBehind="AddNews.aspx.cs" Inherits="MCCSite.Web.Admin.AddNews" %>
-    
-    <%@ MasterType VirtualPath="~/Site.Master" %>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+<%@ MasterType VirtualPath="~/Administrator.master" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
@@ -44,37 +44,40 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <asp:Button type="submit" cssclass="btn btn-primary" OnClick="btnSubmit_Click"  runat="server" id="btnSubmit" Text="Add News"/>
-                    <div class="clear bottom-50"  ></div>
+                    <asp:Button type="submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" runat="server"
+                        ID="btnSubmit" Text="Add News" />
+                    <div class="clear bottom-50">
+                    </div>
                 </div>
             </fieldset>
         </div>
         <div class="span6">
-             <fieldset>
+            <fieldset>
                 <legend>Latest News</legend>
-            <div class="news-list">
-                <asp:Repeater ID="rptNews" OnItemDataBound="rptNews_ItemDataBound" runat="server">
-                    <HeaderTemplate>
-                        <div class="news-card" id="newsCard">
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <p class="news-title" runat="server" id="newsTitle">
-                            Fish 'n Chip Evening Success</p>
-                        <p class="news-description" runat="server" id="newsDesc">
-                            Thank you to all the parents and whanu who came along it was a great night and helped
-                            raised $2500 for the crèche.</p>
-                        <p class="pull-right news-date" runat="server" id="newsDate">
-                            <small>Friday, 1 June 2013</small></p>
-                    </ItemTemplate>
-                    <FooterTemplate>
-                        </div>
-                    </FooterTemplate>
-                </asp:Repeater>
-            </div>
+                <div class="news-list">
+                    <asp:Repeater ID="rptNews" OnItemDataBound="rptNews_ItemDataBound" runat="server">
+                        <HeaderTemplate>
+                            <div class="news-card" id="newsCard">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <p class="news-title" runat="server" id="newsTitle">
+                                Fish 'n Chip Evening Success</p>
+                            <p class="news-description" runat="server" id="newsDesc">
+                                Thank you to all the parents and whanu who came along it was a great night and helped
+                                raised $2500 for the crèche.</p>
+                            <p class="pull-right news-date" runat="server" id="newsDate">
+                                <small>Friday, 1 June 2013</small></p>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </div>
+                        </FooterTemplate>
+                    </asp:Repeater>
+                </div>
         </div>
-    </form> </div>
+        </form>
+    </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContentChild" runat="server">
     <script type="text/javascript">
         function displayCalendar() {
 

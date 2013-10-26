@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Main {
+namespace MCCSite.Web.Admin {
     
     
-    public partial class Reviews {
-        
-        /// <summary>
-        /// rptTestimonials control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptTestimonials;
+    public partial class Dashboard {
         
         /// <summary>
         /// Master property.
@@ -27,9 +18,9 @@ namespace Web.Main {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new SiteMaster Master {
+        public new MCCSite.Administrator Master {
             get {
-                return ((SiteMaster)(base.Master));
+                return ((MCCSite.Administrator)(base.Master));
             }
         }
     }

@@ -28,8 +28,8 @@ namespace auth
                 // Build the data we're going to POST.
                 var data = new NameValueCollection();
                 data["assertion"] = assertion;
-                //data["audience"] = "http://localhost:1696/"; // Use your web site's URL here.   
-                data["audience"] = "http://bronwyntestsite.info/"; // Use your web site's URL here.   
+                data["audience"] = "http://localhost:1696/"; // Use your web site's URL here.   
+                //data["audience"] = "http://bronwyntestsite.info/"; // Use your web site's URL here.   
 
                 // POST the data to the Persona provider (in this case Mozilla)
                 var response = web.UploadValues("https://verifier.login.persona.org/verify", "POST", data);
@@ -43,7 +43,8 @@ namespace auth
                 {
                     string email = output.email; // Since this is dynamic, convert it to string.
                     FormsAuthentication.SetAuthCookie(email, true);
-                    Response.Redirect("/default.aspx?user=" + email);
+                    Master.CurrentUserName = email;
+                    Response.Redirect("/default.aspx");
                 }
                 else
                 {

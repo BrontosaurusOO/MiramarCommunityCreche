@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddEvent.aspx.cs" Inherits="MCCSite.Web.Admin.AddEvent" %>
-<%@ MasterType VirtualPath="~/Site.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrator.master" AutoEventWireup="true"
+    CodeBehind="AddEvent.aspx.cs" Inherits="MCCSite.Web.Admin.AddEvent" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<%@ MasterType VirtualPath="~/Administrator.master" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <h2>
@@ -56,36 +57,41 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <asp:Button type="submit" cssclass="btn btn-primary" OnClick="btnSubmit_Click"  runat="server" id="btnSubmit" Text="Add Event"/>
-                    <div class="clear bottom-50"  ></div>
+                    <asp:Button type="submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" runat="server"
+                        ID="btnSubmit" Text="Add Event" />
+                    <div class="clear bottom-50">
+                    </div>
                 </div>
             </fieldset>
         </div>
         <div class="span6">
-             <fieldset>
+            <fieldset>
                 <legend>Latest Events</legend>
-            <div class="event-list">
-<asp:Repeater ID="rptEvents" OnItemDataBound="rptEvents_ItemDataBound" runat="server">
-    <HeaderTemplate>
-            <div class="event-card " id="eventCard" >
-    </HeaderTemplate>   
-    <ItemTemplate>
-
-             <p class="news-title" runat="server" id="eventTitle">Fish 'n Chip Evening Success</p>
-             <p class="news-description" runat="server" id="eventDesc">Thank you to all the parents and whanu who came along it was a great night and helped raised $2500 for the crèche.</p>
-             <p class="pull-right news-date" runat="server" id="eventDate"><small>Friday, 1 June 2013</small></p>
-    
-    </ItemTemplate>
-    <FooterTemplate>
+                <div class="event-list">
+                    <asp:Repeater ID="rptEvents" OnItemDataBound="rptEvents_ItemDataBound" runat="server">
+                        <HeaderTemplate>
+                            <div class="event-card " id="eventCard">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <p class="news-title" runat="server" id="eventTitle">
+                                Fish 'n Chip Evening Success</p>
+                            <p class="news-description" runat="server" id="eventDesc">
+                                Thank you to all the parents and whanu who came along it was a great night and helped
+                                raised $2500 for the crèche.</p>
+                            <p class="pull-right news-date" runat="server" id="eventDate">
+                                <small>Friday, 1 June 2013</small></p>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </div>
+                        </FooterTemplate>
+                    </asp:Repeater>
+                </div>
+            </fieldset>
         </div>
-    </FooterTemplate>
-</asp:Repeater>
-</div>
-</fieldset>
-</div>
-    </form> </div>
+        </form>
+    </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContentChild" runat="server">
     <script type="text/javascript">
         function displayStartCalendar() {
 

@@ -108,9 +108,9 @@ namespace MCCSite.Web.Admin {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new SiteMaster Master {
+        public new MCCSite.Administrator Master {
             get {
-                return ((SiteMaster)(base.Master));
+                return ((MCCSite.Administrator)(base.Master));
             }
         }
     }

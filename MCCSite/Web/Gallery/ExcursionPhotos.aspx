@@ -1,11 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="ExcursionPhotos.aspx.cs" Inherits="Web.Gallery.ExcursionPhotos" %>
 
-<%@ Register TagPrefix="sbm" TagName="Sidebar" Src="/Web/Controls/Side-Bar-Menu.ascx" %>
-<asp:Content ID="SideContent" runat="server" ContentPlaceHolderID="SideContent">
-    <sbm:Sidebar ID="Sidebar1" runat="server" />
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <ul class="breadcrumb">
@@ -41,6 +37,4 @@
             </div>
         </div>
     </div>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContent" runat="server">
 </asp:Content>

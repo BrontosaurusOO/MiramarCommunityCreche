@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs"  MasterPageFile="~/Site.Master"  Inherits="_Default"%>
-<%@ MasterType VirtualPath="~/Site.Master" %>
+<%@ MasterType VirtualPath="~/Site.master" %>
 
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContentChild">
   <div class="row-fluid">
         <div class="span12 text-center">
            <h1 >Welcome to Miramar Community Crèche</h1>
@@ -73,5 +73,3 @@
           </div>
           </div>
     </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContent" runat="server">
-</asp:Content>
