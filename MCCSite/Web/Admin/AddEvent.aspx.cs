@@ -104,7 +104,7 @@ namespace MCCSite.Web.Admin
 
                 //Grab how many days the event spans
                 int days = 1;
-               
+
                 //Convert the file string to Date
                 if (!string.IsNullOrEmpty(txtEventEndDate.Value))
                 {
@@ -138,19 +138,51 @@ namespace MCCSite.Web.Admin
             }
 
         }
+        //        FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(ftpurl + "" + username + "_" + filename);
+        //ftpClient.Credentials = new System.Net.NetworkCredential(ftpusername, ftppassword);
+        //ftpClient.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+        //ftpClient.UseBinary = true;
+        //ftpClient.KeepAlive = true;
+        //System.IO.FileInfo fi = new System.IO.FileInfo(fileurl);
+        //ftpClient.ContentLength = fi.Length;
+        //byte[] buffer = new byte[4097];
+        //int bytes = 0;
+        //int total_bytes = (int)fi.Length;
+        //System.IO.FileStream fs = fi.OpenRead();
+        //System.IO.Stream rs = ftpClient.GetRequestStream();
+        //while (total_bytes > 0)
+        //{
+        //   bytes = fs.Read(buffer, 0, buffer.Length);
+        //   rs.Write(buffer, 0, bytes);
+        //   total_bytes = total_bytes - bytes;
+        //}
+        ////fs.Flush();
+        //fs.Close();
+        //rs.Close();
+        //FtpWebResponse uploadResponse = (FtpWebResponse)ftpClient.GetResponse();
+        //value = uploadResponse.StatusDescription;
+        //uploadResponse.Close();
 
         public void AddFTPEventItem()
         {
-            string filePath = "ftp://cca.849.myftpupload.com/files/";
-            string fName = "event.txt";
-            string fileUrl = filePath + fName;
+            string locPath = "/Files/Events.txt";
+            string fname = "Events.txt";
             string ftpUserName = "bronwynh";
-            string ftpPassword = "l0venerd5";
-            
-            try {
-                WebClient request = new WebClient();
-                request.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
-                Stream postStream = request.OpenWrite(fileUrl);
+            string ftpPassword = "Crazykids123!";
+            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
+            //ftp://bronwynh@cca.849.myftpupload.com/Files/Events.txt
+            try
+            {
+                FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(fileUrl);
+                ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                ftpClient.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+                ftpClient.UseBinary = true;
+                ftpClient.KeepAlive = true;
+                FileInfo fi = new FileInfo(fname);
+                ftpClient.ContentLength = fi.Length;
+
+                FileStream stream = fi.OpenRead();
+                Stream rStream = ftpClient.GetRequestStream();
 
                 //Grab how many days the event spans
                 int days = 1;
@@ -167,24 +199,25 @@ namespace MCCSite.Web.Admin
                     days = (dateEnd - dateStart).Days;
                 }
                 //Create the new item
-                String line = string.Empty;
+                string line = string.Empty;
                 line += txtEventTitle.Value + "|";
                 line += txtEvent.Value + "|";
                 line += txtEventStartDate.Value.ToString() + "|";
                 line += days + "|";
                 line += "\r";
 
-                byte[] writeLine = Encoding.GetEncoding("iso-8859-1").GetBytes(line + "|");
-                postStream.Write(writeLine, 0, writeLine.Length);
+                byte[] eventLine = Encoding.GetEncoding("iso-8859-1").GetBytes(line + "|");
 
-                postStream.Close();
+                int bytes = stream.Read(eventLine, 0, eventLine.Length);
+                rStream.Write(eventLine, 0, bytes);
+
+                rStream.Close();
+                stream.Close();
 
             }
             catch (Exception ex)
             {
                 Master.AddErrorMessage("There was an error adding a new item." + ex);
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(ex.Message);
             }
 
         }

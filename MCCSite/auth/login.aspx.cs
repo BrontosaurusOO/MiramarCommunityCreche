@@ -42,7 +42,7 @@ namespace auth
                 if (output.status == "okay")
                 {
                     string email = output.email; // Since this is dynamic, convert it to string.
-                    FormsAuthentication.SetAuthCookie(email, true);
+                    //FormsAuthentication.SetAuthCookie(email, true);
                     Master.CurrentUserName = email;
                     Response.Redirect("/default.aspx");
                 }
