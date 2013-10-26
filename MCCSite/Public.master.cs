@@ -17,7 +17,7 @@ namespace MCCSite
         protected void Page_Load(object sender, EventArgs e)
         {
             //Signin stuff - set the value on the page with the user
-            currentUser.Value = _user;
+            currentUser.Value = _user;  //the hidden value on the page so the javascript tells persona if user is logged in
             if (_user != null)
             {
                 signout.Visible = true;
@@ -37,8 +37,8 @@ namespace MCCSite
             }
 
             if (_showAdminAction && (
-                 CurrentUserName == "miramar.creche@xtra.co.nz" ||
-                 CurrentUserName == "bronwyn.hopkin@hotmail.com")
+                 UserName == "miramar.creche@xtra.co.nz" ||
+                 UserName == "bronwyn.hopkin@hotmail.com")
                  )
             {
                 adminPanel.Visible = true;
@@ -79,7 +79,7 @@ namespace MCCSite
             tree.Attributes.Add("class", cssClass);
         }
 
-        public string CurrentUserName
+        public string UserName
         {
             get
             {

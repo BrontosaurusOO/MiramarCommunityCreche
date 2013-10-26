@@ -13,6 +13,11 @@ using System.Web.UI.WebControls;
             Master.HideSideBar = true;
             Master.ShowAdminAction = true;
             Master.AddTreeClass("transparent-tree");
+
+            if (!string.IsNullOrEmpty(Request.QueryString["badAdmin"]))
+            {
+                Master.AddErrorMessage("Only users with permission can access admin.");
+            }
         }
     }
 

@@ -121,15 +121,6 @@ namespace MCCSite {
         protected global::System.Web.UI.HtmlControls.HtmlImage tree;
         
         /// <summary>
-        /// currentUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField currentUser;
-        
-        /// <summary>
         /// adminPanel control.
         /// </summary>
         /// <remarks>
@@ -155,6 +146,15 @@ namespace MCCSite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor signout;
+        
+        /// <summary>
+        /// currentUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField currentUser;
         
         /// <summary>
         /// JavascriptContent control.

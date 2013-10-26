@@ -41,11 +41,11 @@ public partial class SiteMaster : System.Web.UI.MasterPage
     {
         get
         {
-            return Master.CurrentUserName;
+            return Master.UserName;
         }
         set
         {
-            Master.CurrentUserName = value;
+            Master.UserName = value;
         }
 
     }
