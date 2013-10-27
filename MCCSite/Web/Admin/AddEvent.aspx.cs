@@ -14,11 +14,18 @@ namespace MCCSite.Web.Admin
     public partial class AddEvent : System.Web.UI.Page
     {
         private ArrayList events = new ArrayList();
+        private string eventFile = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             GetEventItems();
-            this.rptEvents.DataSource = events;
+
+            //Show the top 10 events
+            if (events.Count > 10)
+                this.rptEvents.DataSource = events.GetRange(0, 10);  
+            else
+                this.rptEvents.DataSource = events;
+
             this.rptEvents.DataBind();
         }
 
@@ -46,6 +53,9 @@ namespace MCCSite.Web.Admin
                         String line = sr.ReadLine();
                         if (!string.IsNullOrEmpty(line))
                         {
+                            //Add it to the file string
+                            eventFile += line + System.Environment.NewLine;
+
                             string[] array;
                             array = line.Split('|');
 
@@ -94,14 +104,12 @@ namespace MCCSite.Web.Admin
             txtEventEndDate.Value = "";
         }
 
-        public void AddEventItem()
+        public string AddEventItem()
         {
-            //Read reviews into Arraylist 
-            string sAppPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            //Make the event into the format to save 
+
             try
             {
-                StreamWriter sw = new StreamWriter(String.Format("{0}/Files/Events.txt", sAppPath), true);
-
                 //Grab how many days the event spans
                 int days = 1;
 
@@ -122,102 +130,62 @@ namespace MCCSite.Web.Admin
                 line += txtEvent.Value + "|";
                 line += txtEventStartDate.Value.ToString() + "|";
                 line += days + "|";
-                line += "\r";
+                line += System.Environment.NewLine;
 
-                //Add it
-                sw.WriteLine(line);
-
-                //Clean up 
-                sw.Close();
+                return line;
             }
             catch (Exception ex)
             {
                 Master.AddErrorMessage("There was an error adding a new item." + ex);
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(ex.Message);
+
+                return "||||";
             }
 
         }
-        //        FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(ftpurl + "" + username + "_" + filename);
-        //ftpClient.Credentials = new System.Net.NetworkCredential(ftpusername, ftppassword);
-        //ftpClient.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
-        //ftpClient.UseBinary = true;
-        //ftpClient.KeepAlive = true;
-        //System.IO.FileInfo fi = new System.IO.FileInfo(fileurl);
-        //ftpClient.ContentLength = fi.Length;
-        //byte[] buffer = new byte[4097];
-        //int bytes = 0;
-        //int total_bytes = (int)fi.Length;
-        //System.IO.FileStream fs = fi.OpenRead();
-        //System.IO.Stream rs = ftpClient.GetRequestStream();
-        //while (total_bytes > 0)
-        //{
-        //   bytes = fs.Read(buffer, 0, buffer.Length);
-        //   rs.Write(buffer, 0, bytes);
-        //   total_bytes = total_bytes - bytes;
-        //}
-        ////fs.Flush();
-        //fs.Close();
-        //rs.Close();
-        //FtpWebResponse uploadResponse = (FtpWebResponse)ftpClient.GetResponse();
-        //value = uploadResponse.StatusDescription;
-        //uploadResponse.Close();
 
         public void AddFTPEventItem()
         {
             string locPath = "/Files/Events.txt";
-            string fname = "Events.txt";
             string ftpUserName = "bronwynh";
             string ftpPassword = "Crazykids123!";
             string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
-            //ftp://bronwynh@cca.849.myftpupload.com/Files/Events.txt
             try
             {
+                //Set up the ftp client
                 FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(fileUrl);
                 ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
                 ftpClient.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
                 ftpClient.UseBinary = true;
                 ftpClient.KeepAlive = true;
-                FileInfo fi = new FileInfo(fname);
-                ftpClient.ContentLength = fi.Length;
 
-                FileStream stream = fi.OpenRead();
+                //Read the file we are writing to
+                byte[] fileContents = Encoding.GetEncoding("iso-8859-1").GetBytes(eventFile);
+
+                ftpClient.ContentLength = (int)fileContents.Length;
                 Stream rStream = ftpClient.GetRequestStream();
 
-                //Grab how many days the event spans
-                int days = 1;
+                //Grab the new data to add
+                string eventData = AddEventItem();
 
-                //Convert the file string to Date
-                if (!string.IsNullOrEmpty(txtEventEndDate.Value))
-                {
-                    string[] format = { "dd/MM/yyyy" };
-                    DateTime dateStart;
-                    DateTime dateEnd;
-                    DateTime.TryParseExact(txtEventStartDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateStart);
-                    DateTime.TryParseExact(txtEventEndDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateEnd);
+                if (eventData == "||||")
+                    return;
 
-                    days = (dateEnd - dateStart).Days;
-                }
-                //Create the new item
-                string line = string.Empty;
-                line += txtEventTitle.Value + "|";
-                line += txtEvent.Value + "|";
-                line += txtEventStartDate.Value.ToString() + "|";
-                line += days + "|";
-                line += "\r";
+                byte[] eventLine = Encoding.GetEncoding("iso-8859-1").GetBytes(eventData);
 
-                byte[] eventLine = Encoding.GetEncoding("iso-8859-1").GetBytes(line + "|");
+                //Write it all back to the file
+                rStream.Write(fileContents, 0, fileContents.Length);
+                rStream.Write(eventLine, 0, eventLine.Length);
 
-                int bytes = stream.Read(eventLine, 0, eventLine.Length);
-                rStream.Write(eventLine, 0, bytes);
-
+                //Clean up
                 rStream.Close();
-                stream.Close();
 
+                Master.AddSuccessMessage("A new event item was successfully created");
             }
             catch (Exception ex)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new event item." + ex);
             }
 
         }

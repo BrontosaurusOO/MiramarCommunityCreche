@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Public.master" AutoEventWireup="true"
     CodeBehind="Site.master.cs" Inherits="SiteMaster" %>
-    <%@ MasterType VirtualPath="~/Public.master" %>
+
+<%@ MasterType VirtualPath="~/Public.master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
     <div class="top-links pull-right">
         <ul class="nav nav-pills">
