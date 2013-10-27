@@ -33,6 +33,7 @@ namespace Web.Main
             {
                 using (StreamReader sr = new StreamReader(String.Format("{0}/Files/Testimonials.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
                 {
+                    int count = 0;
                     while (sr.Peek() >= 0)
                     {
                         String line = sr.ReadLine();
@@ -46,8 +47,9 @@ namespace Web.Main
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            Testimonal t = new Testimonal(array[0], array[1], date);
+                            Testimonal t = new Testimonal(count, array[0], array[1], date);
                             testimonials.Add(t);
+                            ++count;
                         }
                     }
                 }
@@ -56,7 +58,7 @@ namespace Web.Main
             }
             catch (Exception ex)
             {
-                Master.AddErrorMessage("There was a problem fetching the reivews. Please try again later.");
+                Master.AddErrorMessage("There was a problem fetching the reviews. Please try again later.");
                 Console.WriteLine(ex.Message);
             }
 

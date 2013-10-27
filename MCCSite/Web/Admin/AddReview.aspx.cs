@@ -13,6 +13,7 @@ namespace MCCSite.Web.Admin
     public partial class AddReview : System.Web.UI.Page
     {
         private ArrayList testimonials = new ArrayList();
+        private string reviewFile = string.Empty;
 
             protected void Page_Load(object sender, EventArgs e)
             {
@@ -36,11 +37,15 @@ namespace MCCSite.Web.Admin
             {
                 using (StreamReader sr = new StreamReader(String.Format("{0}/Files/Testimonials.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
                 {
+                    int count = 0;
                     while (sr.Peek() >= 0)
                     {
                         String line = sr.ReadLine();
                         if (!string.IsNullOrEmpty(line))
                         {
+                            //Add it to the file string
+                            reviewFile += line + System.Environment.NewLine;
+
                             string[] array;
                             array = line.Split('|');
 
@@ -49,8 +54,9 @@ namespace MCCSite.Web.Admin
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            Testimonal t = new Testimonal(array[0], array[1], date);
+                            Testimonal t = new Testimonal(count, array[0], array[1], date);
                             testimonials.Add(t);
+                            ++count;
                         }
                     }
                 }
@@ -59,7 +65,7 @@ namespace MCCSite.Web.Admin
             }
             catch (Exception ex)
             {
-                Master.AddErrorMessage("There was a problem fetching the reivews. Please try again later.");
+                Master.AddErrorMessage("There was a problem fetching the reviews. Please try again later.");
                 Console.WriteLine(ex.Message);
             }
 
@@ -85,7 +91,7 @@ namespace MCCSite.Web.Admin
             {
                 AddReviewItem();
                 testimonials.Clear();
-                //Regrab review items to show the new item =D
+                //Re-grab review items to show the new item =D
                 GetTestimonials();
                 this.rptTestimonials.DataSource = testimonials;
                 this.rptTestimonials.DataBind();

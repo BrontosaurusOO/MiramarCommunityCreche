@@ -13,6 +13,15 @@ namespace MCCSite.Web.Admin {
     public partial class AddEvent {
         
         /// <summary>
+        /// txtHiddenId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtHiddenId;
+        
+        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtEventEndDate;
         
         /// <summary>
-        /// A1 control.
+        /// linkEndCal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor linkEndCal;
         
         /// <summary>
         /// calEventEndDate control.
@@ -121,13 +130,22 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.WebControls.Calendar calEventEndDate;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// rptEvents control.

@@ -21,11 +21,22 @@ namespace Web.Side
 
             //Populate the repeaters
             GetNewsItems();
-            this.rptNews.DataSource = news;
+            
+            //Show the top 10 events
+            if (news.Count > 10)
+                this.rptNews.DataSource = news.GetRange(0, 10);
+            else
+                this.rptNews.DataSource = news;
+            
             this.rptNews.DataBind();
 
             GetEventItems();
-            this.rptEvents.DataSource = events;
+            //Show the top 10 events
+            if (events.Count > 10)
+                this.rptEvents.DataSource = events.GetRange(0, 10);
+            else
+                this.rptEvents.DataSource = events;
+            
             this.rptEvents.DataBind();
 
         }
@@ -38,6 +49,7 @@ namespace Web.Side
             {
                 using (StreamReader sr = new StreamReader(String.Format("{0}/Files/News.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
                 {
+                    int count = 0;
                     while (sr.Peek() >= 0)
                     {
                         String line = sr.ReadLine();
@@ -51,8 +63,9 @@ namespace Web.Side
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            News t = new News(array[0], array[1], date);
+                            News t = new News(count, array[0], array[1], date);
                             news.Add(t);
+                            ++count;
                         }
                     }
                 }
@@ -77,6 +90,7 @@ namespace Web.Side
                 {
                     while (sr.Peek() >= 0)
                     {
+                        int count = 0;
                         String line = sr.ReadLine();
                         if (!string.IsNullOrEmpty(line))
                         {
@@ -92,8 +106,9 @@ namespace Web.Side
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            EventItem t = new EventItem(array[0], array[1], days, date);
+                            EventItem t = new EventItem(count, array[0], array[1], days, date);
                             events.Add(t);
+                            ++count;
                         }
                     }
                 }
@@ -101,7 +116,7 @@ namespace Web.Side
             }
             catch (Exception ex)
             {
-                // Master.AddErrorMessage("An error occured retrieving the events. Please try again soon or contact the crèche for assisstance.");
+                Master.AddErrorMessage("An error occurred retrieving the events. Please try again soon or contact the crèche for assistance.");
                 Console.WriteLine("The file could not be read.");
                 Console.WriteLine(ex.Message);
             }

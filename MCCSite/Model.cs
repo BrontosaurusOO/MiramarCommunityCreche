@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections;
 
-class Testimonal
+public class Testimonal
 {
+    public int Id { get; set; }
     public string Text { get; set; }
     public string Name { get; set; }
     public DateTime Date { get; set; }
 
-    public Testimonal(string text, string name, DateTime date)
+    public Testimonal(int eyeD, string text, string name, DateTime date)
     {
+        Id = eyeD;
         Text = text;
         Name = name;
         Date = date;
     }
 }
 
-class TestimonalComparer : IComparer
+public class TestimonalComparer : IComparer
 {
     public int Compare(object x, object y)
     {
@@ -26,15 +28,17 @@ class TestimonalComparer : IComparer
     }
 }
 
-class EventItem
+public class EventItem
 {
+    public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public int Days { get; set; }
     public DateTime Date { get; set; }
 
-    public EventItem(string title, string desc, int days, DateTime date)
+    public EventItem(int eyeD, string title, string desc, int days, DateTime date)
     {
+        Id = eyeD;
         Title = title;
         Description = desc;
         Days = days;
@@ -44,7 +48,7 @@ class EventItem
 }
 
 
-class EventComparer : IComparer
+public class EventComparer : IComparer
 {
     public int Compare(object x, object y)
     {
@@ -55,21 +59,23 @@ class EventComparer : IComparer
     }
 }
 
-class News
+public class News
 {
+    public int Id { get; set; }
     public string Description { get; set; }
     public string Title { get; set; }
     public DateTime Date { get; set; }
 
-    public News(string title, string desc, DateTime date)
+    public News(int eyeD, string title, string desc, DateTime date)
     {
+        Id = eyeD;
         Description = desc;
         Title = title;
         Date = date;
     }
 }
 
-class NewsComparer : IComparer
+public class NewsComparer : IComparer
 {
     public int Compare(object x, object y)
     {
@@ -80,8 +86,9 @@ class NewsComparer : IComparer
     }
 }
 
-class Photo
+public class Photo
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Caption { get; set; }
     public string Folder { get; set; }
@@ -99,8 +106,9 @@ class Photo
         Themed
     }
 
-    public Photo(string f, string name, string desc, string w, string h, DateTime d)
+    public Photo(int eyeD, string f, string name, string desc, string w, string h, DateTime d)
     {
+        Id = eyeD;
         Name = name;
         Caption = desc;
         Folder = f;
@@ -111,7 +119,7 @@ class Photo
 
 }
 
-class PhotoComparer : IComparer
+public class PhotoComparer : IComparer
 {
     public int Compare(object x, object y)
     {

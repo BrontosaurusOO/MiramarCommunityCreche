@@ -13,6 +13,7 @@ namespace MCCSite.Web.Admin
     public partial class AddNews : System.Web.UI.Page
     {
         private ArrayList news = new ArrayList();
+        private string newsFile = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,11 +36,15 @@ namespace MCCSite.Web.Admin
             {
                 using (StreamReader sr = new StreamReader(String.Format("{0}/Files/News.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
                 {
+                    int count = 0;
                     while (sr.Peek() >= 0)
                     {
                         String line = sr.ReadLine();
                         if (!string.IsNullOrEmpty(line))
                         {
+                            //Add it to the file string
+                            newsFile += line + System.Environment.NewLine;
+
                             string[] array;
                             array = line.Split('|');
 
@@ -48,8 +53,9 @@ namespace MCCSite.Web.Admin
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            News t = new News(array[0], array[1], date);
+                            News t = new News(count, array[0], array[1], date);
                             news.Add(t);
+                            ++count;
                         }
                     }
                 }
