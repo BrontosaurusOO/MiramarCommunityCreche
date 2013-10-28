@@ -13,6 +13,15 @@ namespace MCCSite.Web.Admin {
     public partial class AddEvent {
         
         /// <summary>
+        /// titleControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titleControl;
+        
+        /// <summary>
         /// txtHiddenId control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace MCCSite.Web.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtEvent;
+        
+        /// <summary>
+        /// dateControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateControl;
         
         /// <summary>
         /// lblStartDate control.

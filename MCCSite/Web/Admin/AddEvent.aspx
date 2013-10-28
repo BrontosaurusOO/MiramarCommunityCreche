@@ -16,7 +16,7 @@
         <div class="span6">
             <fieldset>
                 <legend>Event item</legend>
-                <div class="control-group enrolment">
+                <div class="control-group enrolment" id="titleControl" runat="server">
                     <input type="hidden" id="txtHiddenId" runat="server" />
                     <label id="lblTitle" for="txtEventTitle" runat="server" class="control-label">
                         Event title:</label>
@@ -31,13 +31,13 @@
                         <textarea id="txtEvent" placeholder="Type something…" runat="server" rows="5" cols="6"></textarea>
                     </div>
                 </div>
-                <div class="control-group enrolment">
+                <div class="control-group enrolment" id="dateControl" runat="server">
                     <label id="lblStartDate" for="txtEventStartDate" runat="server">
                         Event Start Date:</label>
                     <div class="controls">
                         <input type="text" placeholder="Please enter a date in this format dd/MM/YYYY" id="txtEventStartDate" runat="server" rows="6" />
-                        <a href="javascript:void(0);" id="linkCal" onclick="displayStartCalendar()" runat="server">
-                            <i class="icon-calendar icon-large" style="padding-left: 6px;"></i></a>
+                        <a href="javascript:void(0);" id="linkCal" onclick="displayStartCalendar()" runat="server" class="btn btn-info">
+                            <i class="icon-calendar icon-large icon-white"></i>Calendar</a>
                         <div id="dateStartPicker" style="display: none;">
                             <asp:Calendar ID="calEventStartDate" OnSelectionChanged="calEventStartDate_SelectionChanged"
                                 runat="server" />
@@ -49,8 +49,8 @@
                         Event End Date: (optional if the event spans multiple days)</label>
                     <div class="controls">
                         <input type="text" id="txtEventEndDate" placeholder="Please enter a date in this format dd/MM/YYYY" runat="server" rows="6" />
-                        <a href="javascript:void(0);" id="linkEndCal" onclick="displayEndCalendar()" runat="server">
-                            <i class="icon-calendar icon-large" style="padding-left: 6px;"></i></a>
+                        <a href="javascript:void(0);" id="linkEndCal" onclick="displayEndCalendar()" runat="server" class="btn btn-info">
+                            <i class="icon-calendar icon-large icon-white"></i> Calendar</a>
                         <div id="dateEndPicker" style="display: none;">
                             <asp:Calendar ID="calEventEndDate" OnSelectionChanged="calEventEndDate_SelectionChanged"
                                 runat="server" />

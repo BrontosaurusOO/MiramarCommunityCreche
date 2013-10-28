@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="row-fluid">
-        <div class="span4">
+        <div class="span3">
             <h3>
                 Any questions or queries?</h3>
             <form class="form-horizontal" action="/web/main/contactus.aspx">
@@ -69,7 +69,7 @@
                     <strong>Email:</strong> <a href="mailto:miramar.creche@xtra.co.nz">miramar.creche@xtra.co.nz</a></p>
             </address>
         </div>
-        <div class="span5">
+        <div class="span4">
             <h3>
                 Drop in...</h3>
             <div class="map">

@@ -36,17 +36,46 @@ namespace MCCSite.Web.Admin
         }
         public void btnEdit_Click(Object sender, EventArgs e)
         {
-            EditItemFromForm();
-            UpdateEventFileString();
-            AddFTPEventItem(true);
-            RefreshPageItems();
+            if (string.IsNullOrEmpty(txtEventTitle.Value) || string.IsNullOrEmpty(txtEventStartDate.Value))
+            {
+                Master.AddErrorMessage("Please make sure the two required fields title & start date have been supplied.");
+                if (string.IsNullOrEmpty(txtEventTitle.Value))
+                    titleControl.Attributes.Add("class"," error");
+
+                if (string.IsNullOrEmpty(txtEventStartDate.Value))
+                    dateControl.Attributes.Add("class", " error");
+
+                return;
+            }
+            else
+            {
+                EditItemFromForm();
+                UpdateEventFileString();
+                AddFTPEventItem("edit");
+                RefreshPageItems();
+            }
         }
         public void btnAdd_Click(Object sender, EventArgs e)
         {
-            AddFTPEventItem(false);
-            //Re-grab news items to show the new item =D
-            RefreshPageItems();
+            //Quick validation
+            if (string.IsNullOrEmpty(txtEventTitle.Value) || string.IsNullOrEmpty(txtEventStartDate.Value))
+            {
+                Master.AddErrorMessage("Please make sure the two required fields title & start date have been supplied.");
+                if (string.IsNullOrEmpty(txtEventTitle.Value))
+                    titleControl.Attributes.Add("class", " error");
 
+                if (string.IsNullOrEmpty(txtEventStartDate.Value))
+                    dateControl.Attributes.Add("class", " error");
+
+                return;
+            }
+            else
+            {
+                CreateFileEventItemFromPage();
+                AddFTPEventItem("add");
+                //Re-grab news items to show the new item =D
+                RefreshPageItems();
+            }
         }
 
         protected void GetEventItems()
@@ -119,6 +148,8 @@ namespace MCCSite.Web.Admin
 
             this.rptEvents.DataBind();
             ClearForm();
+            btnAdd.Visible = true;
+            btnSave.Visible = false;
         }
 
         protected void ClearForm()
@@ -134,14 +165,14 @@ namespace MCCSite.Web.Admin
             txtHiddenId.Value = index.ToString();
             txtEvent.Value = card.Description;
             txtEventTitle.Value = card.Title;
-            txtEventStartDate.Value = card.Date.ToString("dd/M/yyyy");
+            txtEventStartDate.Value = card.Date.ToString("dd/MM/yyyy");
 
 
             if (card.Days > 1)
             {
                 DateTime dateEnd;
                 dateEnd = card.Date.AddDays((double)card.Days);
-                txtEventEndDate.Value = dateEnd.ToString("dd/M/yyyy");
+                txtEventEndDate.Value = dateEnd.ToString("dd/MM/yyyy");
             }
         }
 
@@ -169,6 +200,7 @@ namespace MCCSite.Web.Admin
 
                     //Edit the event item by replacing it with this nice new one
                     EventItem card = new EventItem(id, txtEventTitle.Value, txtEvent.Value, days, dateStart);
+                    events.RemoveAt(id);
                     events.Insert(id, card);
                 }
             }
@@ -178,7 +210,7 @@ namespace MCCSite.Web.Admin
             }
         }
 
-        protected string CreateFileEventItemFromPage()
+        protected void CreateFileEventItemFromPage()
         {
             //Make the event into the format to save 
             try
@@ -186,13 +218,14 @@ namespace MCCSite.Web.Admin
                 //Grab how many days the event spans
                 int days = 1;
 
+                DateTime dateStart;
+                string[] format = { "dd/MM/yyyy" };
+                DateTime.TryParseExact(txtEventStartDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateStart);
+
                 //Convert the file string to Date
                 if (!string.IsNullOrEmpty(txtEventEndDate.Value))
                 {
-                    string[] format = { "dd/MM/yyyy" };
-                    DateTime dateStart;
                     DateTime dateEnd;
-                    DateTime.TryParseExact(txtEventStartDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateStart);
                     DateTime.TryParseExact(txtEventEndDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateEnd);
 
                     days = (dateEnd - dateStart).Days;
@@ -201,16 +234,18 @@ namespace MCCSite.Web.Admin
                 String line = string.Empty;
                 line += txtEventTitle.Value + "|";
                 line += txtEvent.Value + "|";
-                line += txtEventStartDate.Value.ToString() + "|";
+                line += dateStart.ToString("dd/MM/yyyy") + "|";
                 line += days + "|";
                 line += System.Environment.NewLine;
 
-                return line;
+                UpdateEventFileString();
+
+                eventFile += line;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
-                return "||||";
+                Master.AddErrorMessage("There was an error adding a new item.");
+                return;
             }
 
         }
@@ -223,7 +258,7 @@ namespace MCCSite.Web.Admin
                 String line = string.Empty;
                 line += card.Title + "|";
                 line += card.Description + "|";
-                line += card.Date.ToString("dd/M/yyyy") + "|";
+                line += card.Date.ToString("dd/MM/yyyy") + "|";
                 line += card.Days.ToString() + "|";
                 line += System.Environment.NewLine;
 
@@ -238,7 +273,7 @@ namespace MCCSite.Web.Admin
             return string.Empty;
         }
 
-        protected void AddFTPEventItem(bool isEdit)
+        protected void AddFTPEventItem(string action)
         {
             string locPath = "/Files/Events.txt";
             string ftpUserName = "bronwynh";
@@ -259,27 +294,19 @@ namespace MCCSite.Web.Admin
                 ftpClient.ContentLength = (int)fileContents.Length;
                 Stream rStream = ftpClient.GetRequestStream();
 
-                if (!isEdit)
-                {
-                    //Grab the new data to add
-                    string eventData = CreateFileEventItemFromPage();
-
-                    if (eventData == "||||")
-                        return;
-
-                    byte[] eventLine = Encoding.GetEncoding("iso-8859-1").GetBytes(eventData);
-                    rStream.Write(eventLine, 0, eventLine.Length);
-                }
-
                 //Write it all back to the file
                 rStream.Write(fileContents, 0, fileContents.Length);
 
                 //Clean up
                 rStream.Close();
 
-                if (!isEdit)
+                if (action == "add")
                 {
                     Master.AddSuccessMessage("A new event item was successfully created.");
+                }
+                else if (action == "del")
+                {
+                    Master.AddSuccessMessage("An event item was successfully deleted.");
                 }
                 else
                 {
@@ -330,12 +357,13 @@ namespace MCCSite.Web.Admin
                 // item in the control.
                 if (!string.IsNullOrEmpty((string)e.CommandArgument))
                 {
-                    int index = Convert.ToInt32((string)e.CommandArgument);
+                    int index = Convert.ToInt32((int)e.Item.ItemIndex);
                     EventItem card = (EventItem)events[index];
 
                     ShowItemInForm(index, card);
 
                     btnSave.Visible = true;
+                    btnAdd.Visible = false;
                 }
             }
 
@@ -345,10 +373,10 @@ namespace MCCSite.Web.Admin
                 // item in the control.
                 if (!string.IsNullOrEmpty((string)e.CommandArgument))
                 {
-                    int index = Convert.ToInt32((string)e.CommandArgument);
+                    int index = Convert.ToInt32((int)e.Item.ItemIndex);
                     events.RemoveAt(index);
                     UpdateEventFileString();
-                    AddFTPEventItem(true);
+                    AddFTPEventItem("del");
                     RefreshPageItems();
                 }
             }
