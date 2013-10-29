@@ -8,6 +8,7 @@ using System.IO;
 using System.Collections;
 using System.Text;
 using System.Net;
+using System.Configuration;
 
 namespace MCCSite.Web.Admin
 {
@@ -276,8 +277,10 @@ namespace MCCSite.Web.Admin
         protected void AddFTPEventItem(string action)
         {
             string locPath = "/Files/Events.txt";
-            string ftpUserName = "bronwynh";
-            string ftpPassword = "Crazykids123!";
+            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
+            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
             string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
             try
             {

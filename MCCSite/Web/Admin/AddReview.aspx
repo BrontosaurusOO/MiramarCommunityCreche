@@ -8,43 +8,46 @@
             <h2>
                 Add a Review item</h2>
             <p>
-                Fill out the form to add a review item to the site</p>
+                Fill out the form to add a review to the site</p>
         </div>
     </div>
-    <div class="row-fluid enrolment">
+    <div class="row-fluid">
         <form action="/web/admin/addreview.aspx" method="post" class="form-horizontal">
         <div class="span6">
             <fieldset>
                 <legend>Review</legend>
-                <div class="control-group">
-                    <label id="lblTitle" for="txtFrom" runat="server" class="control-label">
-                        From:</label>
-                    <div class="controls">
-                        <input type="text" id="txtFrom" placeholder="Type something…" runat="server" />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label id="lblNews" for="txtReview" runat="server">
+                <div class="control-group enrolment" id="reviewControl" runat="server">
+                    <input type="hidden" id="txtHiddenId" runat="server" />
+                    <label id="lblReview" for="txtReview" runat="server">
                         Review:</label>
                     <div class="controls">
                         <textarea id="txtReview" placeholder="Type something…" runat="server" rows="5" cols="6"></textarea>
                     </div>
                 </div>
-                <div class="control-group">
+                <div class="control-group enrolment">
+                    <label id="lblName" for="txtFrom" runat="server" class="control-label">
+                        From:</label>
+                    <div class="controls">
+                        <input type="text" id="txtFrom" placeholder="Type something or Anon Parent" runat="server" />
+                    </div>
+                </div>
+                <div class="control-group enrolment" id="dateControl" runat="server">
                     <label id="lblDate" for="txtDate" runat="server">
                         Review Date:</label>
                     <div class="controls">
-                        <input type="text" id="txtDate" runat="server" rows="6" />
-                        <a href="javascript:void(0);" id="linkCal" onclick="displayCalendar()" runat="server">
-                            <i class="icon-calendar icon-large" style="padding-left: 6px;"></i></a>
+                        <input type="text" id="txtDate" runat="server" rows="6" placeholder="Please enter a date in this format dd/MM/YYYY"/>
+                        <a href="javascript:void(0);" id="linkCal" onclick="displayCalendar()" runat="server"
+                            class="btn btn-info"><i class="icon-calendar icon-large icon-white"></i></a>
                         <div id="datePicker" style="display: none;">
                             <asp:Calendar ID="calDate" OnSelectionChanged="calDate_SelectionChanged" runat="server" />
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                    <asp:Button type="submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" runat="server"
-                        ID="btnSubmit" Text="Add Review" />
+                    <asp:Button CssClass="btn btn-primary" OnClick="btnAdd_Click" runat="server" ID="btnAdd"
+                        Text="Add review" />
+                    <asp:Button CssClass="btn btn-info" OnClick="btnEdit_Click" runat="server" ID="btnSave"
+                        Text="Save review" Visible="false" />
                     <div class="clear bottom-50">
                     </div>
                 </div>
@@ -53,19 +56,24 @@
         <div class="span6">
             <fieldset>
                 <legend>Latest Reviews</legend>
-                <div id="testimonialList">
-                    <asp:Repeater ID="rptTestimonials" OnItemDataBound="rptTestimonials_ItemDataBound"
+                <div id="reviewList">
+                    <asp:Repeater ID="rptReviews" OnItemDataBound="rptReviews_ItemDataBound" OnItemCommand="rptReviews_ItemCommand"
                         runat="server">
                         <HeaderTemplate>
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <div class="testimonial-card" id="testCard">
+                            <div class="review-card" id="reviewCard">
                                 <p>
                                     <span class="inline text-error testimonial-text apos">‘</span><span class="testimonial-text inline"
-                                        runat="server" id="testText">I love your crèche!</span><span class=" testimonial-text inline text-error apos">’</span></p>
+                                        runat="server" id="reviewText">I love your crèche!</span><span class=" testimonial-text inline text-error apos">’</span></p>
                                 <p>
-                                    <span class="testimonial-name" runat="server" id="testName">Anonomous</span><span
-                                        class="inline pull-right test-date" runat="server" id="testDate">Monday, 6 May 2013</span></p>
+                                    <span class="testimonial-name" runat="server" id="reviewFrom">Anonymous</span><span
+                                        class="inline pull-right test-date" runat="server" id="reviewDate">Monday, 6 May
+                                        2013</span></p>
+                                <div class="button-holder">
+                                    <asp:Button CssClass="btn btn-info" runat="server" ID="btnEdit" Text="Edit review" />
+                                    <asp:Button CssClass="btn btn-danger" runat="server" ID="btnDelete" Text="Delete review" />
+                                </div>
                             </div>
                         </ItemTemplate>
                         <FooterTemplate>

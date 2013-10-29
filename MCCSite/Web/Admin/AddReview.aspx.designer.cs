@@ -13,13 +13,49 @@ namespace MCCSite.Web.Admin {
     public partial class AddReview {
         
         /// <summary>
-        /// lblTitle control.
+        /// reviewControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl reviewControl;
+        
+        /// <summary>
+        /// txtHiddenId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtHiddenId;
+        
+        /// <summary>
+        /// lblReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReview;
+        
+        /// <summary>
+        /// txtReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtReview;
+        
+        /// <summary>
+        /// lblName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblName;
         
         /// <summary>
         /// txtFrom control.
@@ -31,22 +67,13 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtFrom;
         
         /// <summary>
-        /// lblNews control.
+        /// dateControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblNews;
-        
-        /// <summary>
-        /// txtReview control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtReview;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateControl;
         
         /// <summary>
         /// lblDate control.
@@ -85,22 +112,31 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.WebControls.Calendar calDate;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
-        /// rptTestimonials control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptTestimonials;
+        protected global::System.Web.UI.WebControls.Button btnSave;
+        
+        /// <summary>
+        /// rptReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptReviews;
         
         /// <summary>
         /// Master property.

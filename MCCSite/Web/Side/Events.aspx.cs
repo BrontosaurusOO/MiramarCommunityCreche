@@ -63,7 +63,7 @@ namespace Web.Side
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            News t = new News(count, array[0], array[1], date);
+                            NewsItem t = new NewsItem(count, array[0], array[1], date);
                             news.Add(t);
                             ++count;
                         }
@@ -148,7 +148,7 @@ namespace Web.Side
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                News card = ((News)e.Item.DataItem);
+                NewsItem card = ((NewsItem)e.Item.DataItem);
 
                 System.Web.UI.HtmlControls.HtmlGenericControl newsTitle = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("newsTitle");
                 System.Web.UI.HtmlControls.HtmlGenericControl newsDescription = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("newsDesc");

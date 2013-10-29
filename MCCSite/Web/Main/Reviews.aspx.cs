@@ -47,14 +47,14 @@ namespace Web.Main
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            Testimonal t = new Testimonal(count, array[0], array[1], date);
+                            Review t = new Review(count, array[0], array[1], date);
                             testimonials.Add(t);
                             ++count;
                         }
                     }
                 }
                 //Sort the reviews items by latest date
-                testimonials.Sort(new TestimonalComparer());
+                testimonials.Sort(new ReviewComparer());
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace Web.Main
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                Testimonal card = ((Testimonal)e.Item.DataItem);
+                Review card = ((Review)e.Item.DataItem);
 
                 System.Web.UI.HtmlControls.HtmlGenericControl testimonialText = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("testText");
                 System.Web.UI.HtmlControls.HtmlGenericControl testimonialName = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("testName");

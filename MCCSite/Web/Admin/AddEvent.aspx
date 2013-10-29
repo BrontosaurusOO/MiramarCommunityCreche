@@ -59,9 +59,9 @@
                 </div>
                 <div class="text-center">
                     <asp:Button CssClass="btn btn-primary" OnClick="btnAdd_Click" runat="server" ID="btnAdd"
-                        Text="Add Event" />
+                        Text="Add event" />
                     <asp:Button CssClass="btn btn-info" OnClick="btnEdit_Click" runat="server" ID="btnSave"
-                        Text="Save Event" Visible="false" />
+                        Text="Save event" Visible="false" />
                     <div class="clear bottom-50">
                     </div>
                 </div>

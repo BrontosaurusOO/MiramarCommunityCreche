@@ -169,7 +169,7 @@
     <Content Include="Web\Side\Enrolment.aspx" />
     <Content Include="Web\Side\Events.aspx" />
     <Content Include="Web\Side\Fees.aspx" />
-    <Content Include="Files\Testimonials.txt" />
+    <Content Include="Files\Reviews.txt" />
     <Content Include="Web\Gallery\EventPhotos.aspx" />
     <Content Include="Web\Gallery\ExcursionPhotos.aspx" />
     <Content Include="Web\Gallery\InsidePhotos.aspx" />

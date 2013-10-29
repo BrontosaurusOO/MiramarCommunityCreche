@@ -13,6 +13,24 @@ namespace MCCSite.Web.Admin {
     public partial class AddNews {
         
         /// <summary>
+        /// titleControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titleControl;
+        
+        /// <summary>
+        /// txtHiddenId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtHiddenId;
+        
+        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>
@@ -49,13 +67,22 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtNews;
         
         /// <summary>
-        /// lblStartDate control.
+        /// dateControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblStartDate;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateControl;
+        
+        /// <summary>
+        /// lblDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDate;
         
         /// <summary>
         /// txtNewsDate control.
@@ -85,13 +112,22 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.WebControls.Calendar calNewsDate;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// rptNews control.

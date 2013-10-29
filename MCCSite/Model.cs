@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections;
 
-public class Testimonal
+public class Review
 {
     public int Id { get; set; }
     public string Text { get; set; }
     public string Name { get; set; }
     public DateTime Date { get; set; }
 
-    public Testimonal(int eyeD, string text, string name, DateTime date)
+    public Review(int eyeD, string text, string name, DateTime date)
     {
         Id = eyeD;
         Text = text;
@@ -17,12 +17,12 @@ public class Testimonal
     }
 }
 
-public class TestimonalComparer : IComparer
+public class ReviewComparer : IComparer
 {
     public int Compare(object x, object y)
     {
-        Testimonal testX = x as Testimonal;
-        Testimonal testY = y as Testimonal;
+        Review testX = x as Review;
+        Review testY = y as Review;
 
         return testY.Date.CompareTo(testX.Date);
     }
@@ -59,14 +59,14 @@ public class EventComparer : IComparer
     }
 }
 
-public class News
+public class NewsItem
 {
     public int Id { get; set; }
     public string Description { get; set; }
     public string Title { get; set; }
     public DateTime Date { get; set; }
 
-    public News(int eyeD, string title, string desc, DateTime date)
+    public NewsItem(int eyeD, string title, string desc, DateTime date)
     {
         Id = eyeD;
         Description = desc;
@@ -79,8 +79,8 @@ public class NewsComparer : IComparer
 {
     public int Compare(object x, object y)
     {
-        News newsX = x as News;
-        News newsY = y as News;
+        NewsItem newsX = x as NewsItem;
+        NewsItem newsY = y as NewsItem;
 
         return newsY.Date.CompareTo(newsX.Date);
     }

@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Collections;
 using System.Text;
+using System.Net;
+using System.Configuration;
 
 namespace MCCSite.Web.Admin
 {
@@ -17,9 +19,10 @@ namespace MCCSite.Web.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetNewsItems();
-            this.rptNews.DataSource = news;
-            this.rptNews.DataBind();
+            if (!IsPostBack)
+            {
+                RefreshPageItems();
+            }
         }
 
         protected void calNewsDate_SelectionChanged(object sender, EventArgs e)
@@ -53,7 +56,7 @@ namespace MCCSite.Web.Admin
                             DateTime date;
                             DateTime.TryParseExact(array[2], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            News t = new News(count, array[0], array[1], date);
+                            NewsItem t = new NewsItem(count, array[0], array[1], date);
                             news.Add(t);
                             ++count;
                         }
@@ -70,67 +73,270 @@ namespace MCCSite.Web.Admin
 
         }
 
-        public void btnSubmit_Click(Object sender, EventArgs e)
-        {
-            AddNewsItem();
-            news.Clear();
-            //Re-grab news items to show the new item =D
-            GetNewsItems();
-            this.rptNews.DataSource = news;
-            this.rptNews.DataBind();
-            clearForm();
-
-        }
-
-        private void clearForm()
+        private void ClearForm()
         {
             txtNews.Value = "";
             txtNewsTitle.Value = "";
             txtNewsDate.Value = "";
         }
 
-        public void AddNewsItem()
+        public void btnEdit_Click(Object sender, EventArgs e)
         {
-            //Read reviews into Arraylist 
-            string sAppPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            if (string.IsNullOrEmpty(txtNewsTitle.Value) || string.IsNullOrEmpty(txtNewsDate.Value))
+            {
+                Master.AddErrorMessage("Please make sure the two required fields title & date have been supplied.");
+                if (string.IsNullOrEmpty(txtNewsTitle.Value))
+                    titleControl.Attributes.Add("class", " error");
+
+                if (string.IsNullOrEmpty(txtNewsDate.Value))
+                    dateControl.Attributes.Add("class", " error");
+
+                return;
+            }
+            else
+            {
+                EditItemFromForm();
+                UpdateNewsFileString();
+                AddFTPNewsItem("edit");
+                RefreshPageItems();
+            }
+        }
+        public void btnAdd_Click(Object sender, EventArgs e)
+        {
+            //Quick validation
+            if (string.IsNullOrEmpty(txtNewsTitle.Value) || string.IsNullOrEmpty(txtNewsDate.Value))
+            {
+                Master.AddErrorMessage("Please make sure the two required fields title & start date have been supplied.");
+                if (string.IsNullOrEmpty(txtNewsTitle.Value))
+                    titleControl.Attributes.Add("class", " error");
+
+                if (string.IsNullOrEmpty(txtNewsDate.Value))
+                    dateControl.Attributes.Add("class", " error");
+
+                return;
+            }
+            else
+            {
+                CreateFileNewsItemFromPage();
+                AddFTPNewsItem("add");
+                //Re-grab news items to show the new item =D
+                RefreshPageItems();
+            }
+        }
+
+        protected void UpdateNewsFileString()
+        {
+            newsFile = string.Empty;
+            int count = 0;
+            foreach (Object card in news)
+            {
+                newsFile += CreateNewsLineStringFromNewsItem(count, (NewsItem)card);
+                ++count;
+            }
+        }
+
+        private void RefreshPageItems()
+        {
+            //Re-grab news items to show the edited item =D
+            news.Clear();
+            GetNewsItems();
+            //Show the top 10 News
+            if (news.Count > 10)
+                this.rptNews.DataSource = news.GetRange(0, 10);
+            else
+                this.rptNews.DataSource = news;
+
+            this.rptNews.DataBind();
+            ClearForm();
+            btnAdd.Visible = true;
+            btnSave.Visible = false;
+        }
+
+        protected void ShowItemInForm(int index, NewsItem card)
+        {
+            txtHiddenId.Value = index.ToString();
+            txtNews.Value = card.Description;
+            txtNewsTitle.Value = card.Title;
+            txtNewsDate.Value = card.Date.ToString("dd/MM/yyyy");
+        }
+
+        protected void EditItemFromForm()
+        {
+            int id = Convert.ToInt32(txtHiddenId.Value);
             try
             {
-                StreamWriter sw = new StreamWriter(String.Format("{0}/Files/News.txt", sAppPath),true);
+                //Convert the file string to Date
+                if (!string.IsNullOrEmpty(txtNewsDate.Value))
+                {
+                    string[] format = { "dd/MM/yyyy" };
+                    DateTime date;
+                    DateTime.TryParseExact(txtNewsDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                //Create the new item
-                    String line = string.Empty;
-                    line += txtNewsTitle.Value + "|";
-                    line += txtNews.Value + "|";
-                    line += txtNewsDate.Value.ToString() + "|";
-                    line += "\r";
-
-                //Add it
-                sw.WriteLine(line);
-
-                //Clean up 
-                sw.Close();
+                    //Edit the News item by replacing it with this nice new one
+                    NewsItem card = new NewsItem(id, txtNewsTitle.Value, txtNews.Value, date);
+                    news.RemoveAt(id);
+                    news.Insert(id, card);
+                }
             }
             catch (Exception ex)
             {
-                Master.AddErrorMessage("There was an Error adding a new item.");
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(ex.Message);
+                Master.AddErrorMessage("There was an error adding a new item." + ex);
+            }
+        }
+
+        protected void CreateFileNewsItemFromPage()
+        {
+            //Make the News into the format to save 
+            try
+            {
+                DateTime date;
+                string[] format = { "dd/MM/yyyy" };
+                DateTime.TryParseExact(txtNewsDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
+
+                //Create the new item
+                String line = string.Empty;
+                line += txtNewsTitle.Value + "|";
+                line += txtNews.Value + "|";
+                line += date.ToString("dd/MM/yyyy") + "|";
+                line += System.Environment.NewLine;
+
+                UpdateNewsFileString();
+
+                newsFile += line;
+            }
+            catch (Exception)
+            {
+                Master.AddErrorMessage("There was an error adding a new item.");
+                return;
             }
 
         }
-        public void rptNews_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
+
+        protected string CreateNewsLineStringFromNewsItem(int id, NewsItem card)
+        {
+            try
+            {
+                //Create the new item
+                String line = string.Empty;
+                line += card.Title + "|";
+                line += card.Description + "|";
+                line += card.Date.ToString("dd/MM/yyyy") + "|";
+                line += System.Environment.NewLine;
+
+                //Edit the News item by replacing it with this nice new one
+                return line;
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error adding a new item." + ex);
+
+            }
+            return string.Empty;
+        }
+
+        protected void AddFTPNewsItem(string action)
+        {
+            string locPath = "/Files/News.txt";
+            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
+            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
+            try
+            {
+                //Set up the ftp client
+                FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(fileUrl);
+                ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                ftpClient.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+                ftpClient.UseBinary = true;
+                ftpClient.KeepAlive = true;
+
+                //Read the file we are writing to
+                byte[] fileContents = Encoding.GetEncoding("iso-8859-1").GetBytes(newsFile);
+
+                ftpClient.ContentLength = (int)fileContents.Length;
+                Stream rStream = ftpClient.GetRequestStream();
+
+                //Write it all back to the file
+                rStream.Write(fileContents, 0, fileContents.Length);
+
+                //Clean up
+                rStream.Close();
+
+                if (action == "add")
+                {
+                    Master.AddSuccessMessage("A new News item was successfully created.");
+                }
+                else if (action == "del")
+                {
+                    Master.AddSuccessMessage("A News item was successfully deleted.");
+                }
+                else
+                {
+                    Master.AddSuccessMessage("A News item was successfully edited.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error adding a new News item." + ex);
+            }
+
+        }
+
+        protected void rptNews_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                News card = ((News)e.Item.DataItem);
+                NewsItem card = (NewsItem)e.Item.DataItem;
 
                 System.Web.UI.HtmlControls.HtmlGenericControl newsTitle = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("newsTitle");
                 System.Web.UI.HtmlControls.HtmlGenericControl newsDescription = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("newsDesc");
                 System.Web.UI.HtmlControls.HtmlGenericControl newsDate = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("newsDate");
+                System.Web.UI.WebControls.Button NewsEditBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnEdit");
+                System.Web.UI.WebControls.Button NewsDeleteBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnDelete");
 
                 newsTitle.InnerText = card.Title;
                 newsDescription.InnerText = card.Description;
                 newsDate.InnerText = card.Date.ToLongDateString();
+
+                NewsEditBtn.CommandName = "Edit";
+                NewsEditBtn.CommandArgument = card.Id.ToString();
+
+                NewsDeleteBtn.CommandName = "Delete";
+                NewsDeleteBtn.CommandArgument = card.Id.ToString();
+            }
+        }
+
+        protected void rptNews_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Edit")
+            {
+                // Use the value of e.Item.ItemIndex to retrieve the data 
+                // item in the control.
+                if (!string.IsNullOrEmpty((string)e.CommandArgument))
+                {
+                    int index = Convert.ToInt32((int)e.Item.ItemIndex);
+                    NewsItem card = (NewsItem)news[index];
+
+                    ShowItemInForm(index, card);
+
+                    btnSave.Visible = true;
+                    btnAdd.Visible = false;
+                }
+            }
+
+            if (e.CommandName == "Delete")
+            {
+                // Use the value of e.Item.ItemIndex to retrieve the data 
+                // item in the control.
+                if (!string.IsNullOrEmpty((string)e.CommandArgument))
+                {
+                    int index = Convert.ToInt32((int)e.Item.ItemIndex);
+                    news.RemoveAt(index);
+                    UpdateNewsFileString();
+                    AddFTPNewsItem("del");
+                    RefreshPageItems();
+                }
             }
         }
     }
