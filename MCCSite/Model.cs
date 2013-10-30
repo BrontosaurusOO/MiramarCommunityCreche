@@ -86,7 +86,7 @@ public class NewsComparer : IComparer
     }
 }
 
-public class Photo
+public class PhotoItem
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -98,15 +98,15 @@ public class Photo
 
     public enum PhotoFolders
     {
-        Event,
-        Trips,
-        Guest,
-        Inside,
-        Outside,
-        Themed
+        Event = 0,
+        Trips = 1,
+        Guest = 2,
+        Inside = 3,
+        Outside = 4,
+        Themed = 5
     }
 
-    public Photo(int eyeD, string f, string name, string desc, string w, string h, DateTime d)
+    public PhotoItem(int eyeD, string f, string name, string desc, string w, string h, DateTime d)
     {
         Id = eyeD;
         Name = name;
@@ -117,14 +117,22 @@ public class Photo
         Date = d;
     }
 
+    public PhotoItem(int eyeD, string f, string name, string desc, DateTime d)
+    {
+        Id = eyeD;
+        Name = name;
+        Caption = desc;
+        Folder = f;
+        Date = d;
+    }
 }
 
-public class PhotoComparer : IComparer
+public class PhotoItemComparer : IComparer
 {
     public int Compare(object x, object y)
     {
-        Photo photoX = x as Photo;
-        Photo photoY = y as Photo;
+        PhotoItem photoX = x as PhotoItem;
+        PhotoItem photoY = y as PhotoItem;
 
         return photoY.Date.CompareTo(photoX.Date);
     }

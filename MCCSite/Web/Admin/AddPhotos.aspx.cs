@@ -7,19 +7,27 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Collections;
 using System.Text;
+using System.Net;
+using System.Configuration;
 
 namespace MCCSite.Web.Admin
 {
     public partial class AddPhotos : System.Web.UI.Page
     {
         private static ArrayList photos = new ArrayList();
+        private static ArrayList folderPhotos = new ArrayList();
         private string photoFile = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetPhotos();
-            this.rptPhotos.DataSource = photos;
-            this.rptPhotos.DataBind();
+            if (!string.IsNullOrEmpty(Request.QueryString["f"])){
+                ddlFolder.SelectedIndex = Convert.ToInt32(Request.QueryString["f"]);
+            }
+
+            if (!IsPostBack)
+            {
+                RefreshPageItems();
+            }
         }
 
         public void GetPhotos()
@@ -41,19 +49,26 @@ namespace MCCSite.Web.Admin
 
                             string[] array;
                             array = line.Split('|');
-                       
+
                             //Convert the file string to Date
                             string[] format = { "dd/MM/yyyy" };
                             DateTime date;
                             DateTime.TryParseExact(array[5], format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
 
-                            Photo t = new Photo(count, array[0], array[1], array[2], array[3], array[4], date);
+                            PhotoItem t = new PhotoItem(count, array[0], array[1], array[2], array[3], array[4], date);
                             photos.Add(t);
                             ++count;
                         }
                     }
                 }
-                photos.Sort(new PhotoComparer());
+                photos.Sort(new PhotoItemComparer());
+                foreach (PhotoItem p in photos)
+                {
+                    if (p.Folder.Equals(ddlFolder.Value))
+                    {
+                        folderPhotos.Add(p);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -64,19 +79,7 @@ namespace MCCSite.Web.Admin
 
         }
 
-        public void btnSubmit_Click(Object sender, EventArgs e)
-        {
-            AddPhoto();
-            photos.Clear();
-            //Re-grab photos to show the new item =D
-            GetPhotos();
-            this.rptPhotos.DataSource = photos;
-            this.rptPhotos.DataBind();
-            clearForm();
-
-        }
-
-        private void clearForm()
+        private void ClearForm()
         {
             ddlFolder.SelectedIndex = 0;
             txtPhotoName.Value = "";
@@ -84,59 +87,18 @@ namespace MCCSite.Web.Admin
             txtPhotoDate.Value = "";
         }
 
-        public void AddPhoto()
-        {
-            //Read reviews into Arraylist 
-            string sAppPath = System.AppDomain.CurrentDomain.BaseDirectory;
-            try
-            {
-                StreamWriter sw = new StreamWriter(String.Format("{0}/Files/Events.txt", sAppPath), true);
-
-                //Convert the file string to Date
-                if (!string.IsNullOrEmpty(txtPhotoDate.Value))
-                {
-                    string[] format = { "dd/MM/yyyy" };
-                    DateTime date;
-                    DateTime.TryParseExact(txtPhotoDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
-                }
-
-                //Create the new item
-                String line = string.Empty;
-                line += ddlFolder.Value + "|";
-                line += txtPhotoName.Value + "|";
-                line += txtCaption.Value + "|";
-                line += "|";
-                line += "|";
-                line += txtPhotoDate.Value.ToString() + "|";
-                line += "\r";
-
-                //Add it
-                sw.WriteLine(line);
-
-                //Clean up 
-                sw.Close();
-            }
-            catch (Exception ex)
-            {
-                Master.AddErrorMessage("There was an Error adding a new photo.");
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(ex.Message);
-            }
-
-        }
-
         int count = 0;
         public void rptPhotos_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                Photo card = (Photo)e.Item.DataItem;
+                PhotoItem card = (PhotoItem)e.Item.DataItem;
 
-                if (card.Folder.Equals(ddlSelectedFolder.Value))
-                {
                     System.Web.UI.HtmlControls.HtmlImage photo = (System.Web.UI.HtmlControls.HtmlImage)e.Item.FindControl("image");
                     System.Web.UI.HtmlControls.HtmlGenericControl photoCaption = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("caption");
                     System.Web.UI.HtmlControls.HtmlGenericControl holder = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("itemHolder");
+                    System.Web.UI.WebControls.Button photoEditBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnEdit");
+                    System.Web.UI.WebControls.Button photoDeleteBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnDelete");
 
                     photo.Src = String.Format("/Images/gallery/{0}/{1}", card.Folder.ToLower(), card.Name);
                     photoCaption.InnerText = card.Caption;
@@ -145,7 +107,14 @@ namespace MCCSite.Web.Admin
                     string activeClass = (count < 1 ? " active" : " ");
                     holder.Attributes["class"] += activeClass;
                     indicators.InnerHtml += String.Format(@"<li data-target=""#myCarousel"" data-slide-to=""{0}"" class=""{1}""></li>", count.ToString(), activeClass);
-                }
+
+                    photoEditBtn.CommandName = "Edit";
+                    photoEditBtn.CommandArgument = card.Id.ToString();
+
+                    photoDeleteBtn.CommandName = "Delete";
+                    photoDeleteBtn.CommandArgument = card.Id.ToString();
+
+                    ++count;
             }
         }
 
@@ -157,8 +126,245 @@ namespace MCCSite.Web.Admin
 
         protected void ddlFolderSelected_SelectionChanged(object sender, EventArgs e)
         {
-            //Re-bind and display the correct data
+            Response.Redirect("/web/admin/addphotos.aspx?f=" + ddlFolder.SelectedIndex);
+        }
+
+        public void btnEdit_Click(Object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPhotoName.Value) || string.IsNullOrEmpty(txtPhotoDate.Value))
+            {
+                Master.AddErrorMessage("Please make sure the two required fields title & date have been supplied.");
+                if (string.IsNullOrEmpty(txtPhotoName.Value))
+                    titleControl.Attributes.Add("class", " error");
+
+                if (string.IsNullOrEmpty(txtPhotoDate.Value))
+                    dateControl.Attributes.Add("class", " error");
+
+                return;
+            }
+            else
+            {
+                EditItemFromForm();
+                UpdatePhotoFileString();
+                AddFTPPhotoItem("edit");
+                RefreshPageItems();
+            }
+        }
+        public void btnAdd_Click(Object sender, EventArgs e)
+        {
+            //Quick validation
+            if (string.IsNullOrEmpty(txtPhotoName.Value) || string.IsNullOrEmpty(txtPhotoDate.Value))
+            {
+                Master.AddErrorMessage("Please make sure the two required fields title & start date have been supplied.");
+                if (string.IsNullOrEmpty(txtPhotoName.Value))
+                    titleControl.Attributes.Add("class", " error");
+
+                if (string.IsNullOrEmpty(txtPhotoDate.Value))
+                    dateControl.Attributes.Add("class", " error");
+
+                return;
+            }
+            else
+            {
+                CreateFilePhotoItemFromPage();
+                AddFTPPhotoItem("add");
+                //Re-grab photo items to show the new item =D
+                RefreshPageItems();
+            }
+        }
+
+        protected void UpdatePhotoFileString()
+        {
+            photoFile = string.Empty;
+            int count = 0;
+            foreach (Object card in photos)
+            {
+                photoFile += CreatePhotoLineStringFromPhotoItem(count, (PhotoItem)card);
+                ++count;
+            }
+        }
+
+        private void RefreshPageItems()
+        {
+            //Re-grab photo items to show the edited item =D
+            photos.Clear();
+            folderPhotos.Clear();
+            GetPhotos();
+            this.rptPhotos.DataSource = folderPhotos;
             this.rptPhotos.DataBind();
+            ClearForm();
+            btnAdd.Visible = true;
+            btnSave.Visible = false;
+        }
+
+        protected void ShowItemInForm(int index, PhotoItem card)
+        {
+            txtHiddenId.Value = index.ToString();
+            txtPhotoName.Value = card.Name;
+            txtCaption.Value = card.Caption;
+            txtPhotoDate.Value = card.Date.ToString("dd/MM/yyyy");
+        }
+
+        protected void EditItemFromForm()
+        {
+            int id = Convert.ToInt32(txtHiddenId.Value);
+            try
+            {
+                //Convert the file string to Date
+                if (!string.IsNullOrEmpty(txtPhotoDate.Value))
+                {
+                    string[] format = { "dd/MM/yyyy" };
+                    DateTime date;
+                    DateTime.TryParseExact(txtPhotoDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
+
+                    //Edit the photo item by replacing it with this nice new one
+                    PhotoItem card = new PhotoItem(id, ddlFolder.Value, txtPhotoName.Value, txtCaption.Value, date);
+                    photos.RemoveAt(id);
+                    photos.Insert(id, card);
+                }
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error adding a new item." + ex);
+            }
+        }
+
+        protected void CreateFilePhotoItemFromPage()
+        {
+            //Make the photo into the format to save 
+            try
+            {
+                DateTime date;
+                string[] format = { "dd/MM/yyyy" };
+                DateTime.TryParseExact(txtPhotoDate.Value.ToString(), format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
+
+                //Create the new item
+                String line = string.Empty;
+                line += ddlFolder.Value + "|";
+                line += txtPhotoName.Value + "|";
+                line += txtCaption.Value + "|";
+                line += "|";
+                line += "|";
+                line += txtPhotoDate.Value.ToString() + "|";
+                line += System.Environment.NewLine;
+
+                UpdatePhotoFileString();
+
+                photoFile += line;
+            }
+            catch (Exception)
+            {
+                Master.AddErrorMessage("There was an error adding a new photo item.");
+                return;
+            }
+
+        }
+
+        protected string CreatePhotoLineStringFromPhotoItem(int id, PhotoItem card)
+        {
+            try
+            {
+                //Create the new item
+                String line = string.Empty;
+                line += card.Folder + "|";
+                line += card.Name + "|";
+                line += card.Caption + "|";
+                line += card.Height + "|";
+                line += card.Width + "|";
+                line += card.Date.ToString() + "|";
+                line += System.Environment.NewLine;
+
+                //Edit the photo item by replacing it with this nice new one
+                return line;
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error adding a new item." + ex);
+
+            }
+            return string.Empty;
+        }
+
+        protected void AddFTPPhotoItem(string action)
+        {
+            string locPath = "/Files/Photos.txt";
+            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
+            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
+            try
+            {
+                //Set up the ftp client
+                FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(fileUrl);
+                ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                ftpClient.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+                ftpClient.UseBinary = true;
+                ftpClient.KeepAlive = true;
+
+                //Read the file we are writing to
+                byte[] fileContents = Encoding.GetEncoding("iso-8859-1").GetBytes(photoFile);
+
+                ftpClient.ContentLength = (int)fileContents.Length;
+                Stream rStream = ftpClient.GetRequestStream();
+
+                //Write it all back to the file
+                rStream.Write(fileContents, 0, fileContents.Length);
+
+                //Clean up
+                rStream.Close();
+
+                if (action == "add")
+                {
+                    Master.AddSuccessMessage("A new photo item was successfully created.");
+                }
+                else if (action == "del")
+                {
+                    Master.AddSuccessMessage("A photo item was successfully deleted.");
+                }
+                else
+                {
+                    Master.AddSuccessMessage("A photo item was successfully edited.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error adding a new photo item." + ex);
+            }
+
+        }
+
+        protected void rptPhotos_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Edit")
+            {
+                // Use the value of e.Item.ItemIndex to retrieve the data 
+                // item in the control.
+                if (!string.IsNullOrEmpty((string)e.CommandArgument))
+                {
+                    int index = Convert.ToInt32((int)e.Item.ItemIndex);
+                    PhotoItem card = (PhotoItem)folderPhotos[index];
+
+                    ShowItemInForm(index, card);
+
+                    btnSave.Visible = true;
+                    btnAdd.Visible = false;
+                }
+            }
+
+            if (e.CommandName == "Delete")
+            {
+                // Use the value of e.Item.ItemIndex to retrieve the data 
+                // item in the control.
+                if (!string.IsNullOrEmpty((string)e.CommandArgument))
+                {
+                    int index = Convert.ToInt32((int)e.Item.ItemIndex);
+                    photos.Remove((PhotoItem)folderPhotos[index]);
+                    UpdatePhotoFileString();
+                    AddFTPPhotoItem("del");
+                    RefreshPageItems();
+                }
+            }
         }
     }
 }

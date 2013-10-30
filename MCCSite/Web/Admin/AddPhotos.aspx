@@ -13,12 +13,13 @@
             </p>
         </div>
     </div>
-    <div class="row-fluid enrolment">
+    <div class="row-fluid">
         <form method="post" class="form-horizontal">
         <div class="span6">
             <fieldset>
                 <legend>Photo item</legend>
-                <div class="control-group">
+                <div class="control-group enrolment">
+                    <input type="hidden" id="txtHiddenId" runat="server" />
                     <label id="lblFolder" class="inline" runat="server">
                         Folder / Page:</label>
                     <div class="controls">
@@ -32,27 +33,27 @@
                         </select>
                     </div>
                 </div>
-                <div class="control-group">
+                <div class="control-group enrolment" id="titleControl" runat="server">
                     <label id="lblTitle" for="txtPhotoName" runat="server" class="control-label">
                         Photo name:</label>
                     <div class="controls">
                         <input type="text" id="txtPhotoName" placeholder="Type something…" runat="server" />
                     </div>
                 </div>
-                <div class="control-group">
+                <div class="control-group enrolment">
                     <label id="lblCaption" for="txtCaption" runat="server">
                         Photo caption:</label>
                     <div class="controls">
                         <textarea id="txtCaption" placeholder="Type something…" runat="server" rows="5" cols="6"></textarea>
                     </div>
                 </div>
-                <div class="control-group">
+                <div class="control-group enrolment" id="dateControl" runat="server">
                     <label id="lblStartDate" for="txtPhotoDate" runat="server">
                         Photo Date:</label>
                     <div class="controls">
                         <input type="text" id="txtPhotoDate" runat="server" rows="6" />
                         <a href="javascript:void(0);" id="linkCal" onclick="displayCalendar()" runat="server">
-                            <i class="icon-calendar icon-large icon-white" ></i>Calendar</a>
+                            <i class="icon-calendar icon-large icon-white"></i>Calendar</a>
                         <div id="datePicker" style="display: none;">
                             <asp:Calendar ID="calPhotoDate" OnSelectionChanged="calPhotoDate_SelectionChanged"
                                 runat="server" />
@@ -60,8 +61,10 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <asp:Button type="submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" runat="server"
-                        ID="btnSubmit" Text="Add Photo" />
+                    <asp:Button CssClass="btn btn-primary" OnClick="btnAdd_Click" runat="server" ID="btnAdd"
+                        Text="Add photo" />
+                    <asp:Button CssClass="btn btn-info" OnClick="btnEdit_Click" runat="server" ID="btnSave"
+                        Text="Save photo" Visible="false" />
                     <div class="clear bottom-50">
                     </div>
                 </div>
@@ -90,13 +93,18 @@
                         <ol class="carousel-indicators" runat="server" id="indicators">
                         </ol>
                         <div class="carousel-inner">
-                            <asp:Repeater ID="rptPhotos" OnItemDataBound="rptPhotos_ItemDataBound" runat="server">
+                            <asp:Repeater ID="rptPhotos" OnItemDataBound="rptPhotos_ItemDataBound" OnItemCommand="rptPhotos_ItemCommand"
+                                runat="server">
                                 <ItemTemplate>
                                     <div class="item" runat="server" id="itemHolder">
-                                        <img src="" alt="" runat="server" id="image" />
+                                        <img src=" " alt=" " runat="server" id="image" />
                                         <div class="carousel-caption">
                                             <p runat="server" id="caption">
-                                                Test caption</p>
+                                                </p>
+                                        </div>
+                                        <div class="button-holder top-15">
+                                            <asp:Button CssClass="btn btn-info" runat="server" ID="btnEdit" Text="Edit event" />
+                                            <asp:Button CssClass="btn btn-danger" runat="server" ID="btnDelete" Text="Delete event" />
                                         </div>
                                     </div>
                                 </ItemTemplate>

@@ -13,6 +13,15 @@ namespace MCCSite.Web.Admin {
     public partial class AddPhotos {
         
         /// <summary>
+        /// txtHiddenId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtHiddenId;
+        
+        /// <summary>
         /// lblFolder control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace MCCSite.Web.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect ddlFolder;
+        
+        /// <summary>
+        /// titleControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titleControl;
         
         /// <summary>
         /// lblTitle control.
@@ -67,6 +85,15 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtCaption;
         
         /// <summary>
+        /// dateControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateControl;
+        
+        /// <summary>
         /// lblStartDate control.
         /// </summary>
         /// <remarks>
@@ -103,13 +130,22 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.WebControls.Calendar calPhotoDate;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// photoGalleryTitle control.

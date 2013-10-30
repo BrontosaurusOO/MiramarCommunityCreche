@@ -24,9 +24,6 @@
                     <li data-target="#myCarousel" data-slide-to="1" class=""></li>
                     <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="4" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="5" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="6" class=""></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
