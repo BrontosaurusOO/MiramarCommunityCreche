@@ -14,7 +14,7 @@ namespace MCCSite.Web.Admin
 {
     public partial class AddNews : System.Web.UI.Page
     {
-        private ArrayList news = new ArrayList();
+        private static ArrayList news = new ArrayList();
         private string newsFile = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)

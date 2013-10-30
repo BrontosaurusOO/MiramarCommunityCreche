@@ -14,7 +14,7 @@ namespace MCCSite.Web.Admin
 {
     public partial class AddReview : System.Web.UI.Page
     {
-        private ArrayList reviews = new ArrayList();
+        private static ArrayList reviews = new ArrayList();
         private string reviewFile = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace MCCSite.Web.Admin
 
         protected void AddFTPReview(string action)
         {
-            string locPath = "/Files/reviews.txt";
+            string locPath = "/Files/Reviews.txt";
             string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
             string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
             //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();

@@ -37,7 +37,7 @@
                     <div class="controls">
                         <input type="text" id="txtNewsDate" placeholder="Please enter a date in this format dd/MM/YYYY" runat="server" rows="6" />
                         <a href="javascript:void(0);" id="linkCal" onclick="displayCalendar()" runat="server" class="btn btn-info">
-                            <i class="icon-calendar icon-large icon-white"></i></a>
+                            <i class="icon-calendar icon-large icon-white"></i>Calendar</a>
                         <div id="datePicker" style="display: none;">
                             <asp:Calendar ID="calNewsDate" OnSelectionChanged="calNewsDate_SelectionChanged"
                                 runat="server" />

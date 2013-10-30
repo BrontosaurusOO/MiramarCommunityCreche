@@ -52,7 +52,7 @@
                     <div class="controls">
                         <input type="text" id="txtPhotoDate" runat="server" rows="6" />
                         <a href="javascript:void(0);" id="linkCal" onclick="displayCalendar()" runat="server">
-                            <i class="icon-calendar icon-large" style="padding-left: 6px;"></i></a>
+                            <i class="icon-calendar icon-large icon-white" ></i>Calendar</a>
                         <div id="datePicker" style="display: none;">
                             <asp:Calendar ID="calPhotoDate" OnSelectionChanged="calPhotoDate_SelectionChanged"
                                 runat="server" />

@@ -12,7 +12,7 @@ namespace MCCSite.Web.Admin
 {
     public partial class AddPhotos : System.Web.UI.Page
     {
-        private ArrayList photos = new ArrayList();
+        private static ArrayList photos = new ArrayList();
         private string photoFile = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
