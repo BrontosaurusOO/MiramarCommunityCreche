@@ -14,7 +14,6 @@
         </div>
     </div>
     <div class="row-fluid">
-        <form method="post" class="form-horizontal">
         <div class="span6">
             <fieldset>
                 <legend>Photo item</legend>
@@ -52,13 +51,16 @@
                         Photo Date:</label>
                     <div class="controls">
                         <input type="text" id="txtPhotoDate" runat="server" rows="6" />
-                        <a href="javascript:void(0);" id="linkCal" onclick="displayCalendar()" runat="server">
-                            <i class="icon-calendar icon-large icon-white"></i>Calendar</a>
+                        <a href="javascript:void(0);" id="linkCal" onclick="displayCalendar()" runat="server"
+                            class="btn btn-info"><i class="icon-calendar icon-large icon-white"></i>Calendar</a>
                         <div id="datePicker" style="display: none;">
                             <asp:Calendar ID="calPhotoDate" OnSelectionChanged="calPhotoDate_SelectionChanged"
                                 runat="server" />
                         </div>
                     </div>
+                </div>
+                <div class="control-group enrolment" id="photoUploadControl" runat="server">
+                    <input type="file" id="photoUploadFile" name="photoUploadFile" runat="server" text="Choose a photo" class="btn btn-info"/>
                 </div>
                 <div class="text-center">
                     <asp:Button CssClass="btn btn-primary" OnClick="btnAdd_Click" runat="server" ID="btnAdd"
@@ -77,8 +79,7 @@
                     <label class="inline">
                         Folder / Page:</label>
                     <div class="controls">
-                        <select id="ddlSelectedFolder" onselectionchanged="ddlSelectedfolder_SelectionChanged"
-                            runat="server">
+                        <select id="ddlSelectedFolder" runat="server">
                             <option>Events</option>
                             <option>Guests</option>
                             <option>Inside</option>
@@ -100,7 +101,7 @@
                                         <img src=" " alt=" " runat="server" id="image" />
                                         <div class="carousel-caption">
                                             <p runat="server" id="caption">
-                                                </p>
+                                            </p>
                                         </div>
                                         <div class="button-holder top-15">
                                             <asp:Button CssClass="btn btn-info" runat="server" ID="btnEdit" Text="Edit event" />
@@ -119,11 +120,16 @@
                 </div>
             </fieldset>
         </div>
-        </form>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="JavascriptContentChild" runat="server">
     <script type="text/javascript">
+        var selectEl = document.getElementById('MainContent_MainContentChild_ddlSelectedFolder');
+
+        selectEl.onchange = function () {
+            window.location = "/web/admin/addphotos.aspx?f=" + this.value;
+        };
+
         function displayCalendar() {
 
             var cal = document.getElementById('datePicker');

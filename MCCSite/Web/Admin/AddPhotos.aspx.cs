@@ -9,6 +9,7 @@ using System.Collections;
 using System.Text;
 using System.Net;
 using System.Configuration;
+using System.Web.UI.HtmlControls;
 
 namespace MCCSite.Web.Admin
 {
@@ -20,9 +21,12 @@ namespace MCCSite.Web.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["f"])){
-                ddlFolder.SelectedIndex = Convert.ToInt32(Request.QueryString["f"]);
+            if (!string.IsNullOrEmpty(Request.QueryString["f"]))
+            {
+                ddlFolder.Value = ddlFolder.Value = Request.QueryString["f"];
             }
+
+            Form.Enctype = "multipart/form-data";
 
             if (!IsPostBack)
             {
@@ -94,27 +98,27 @@ namespace MCCSite.Web.Admin
             {
                 PhotoItem card = (PhotoItem)e.Item.DataItem;
 
-                    System.Web.UI.HtmlControls.HtmlImage photo = (System.Web.UI.HtmlControls.HtmlImage)e.Item.FindControl("image");
-                    System.Web.UI.HtmlControls.HtmlGenericControl photoCaption = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("caption");
-                    System.Web.UI.HtmlControls.HtmlGenericControl holder = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("itemHolder");
-                    System.Web.UI.WebControls.Button photoEditBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnEdit");
-                    System.Web.UI.WebControls.Button photoDeleteBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnDelete");
+                System.Web.UI.HtmlControls.HtmlImage photo = (System.Web.UI.HtmlControls.HtmlImage)e.Item.FindControl("image");
+                System.Web.UI.HtmlControls.HtmlGenericControl photoCaption = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("caption");
+                System.Web.UI.HtmlControls.HtmlGenericControl holder = (System.Web.UI.HtmlControls.HtmlGenericControl)e.Item.FindControl("itemHolder");
+                System.Web.UI.WebControls.Button photoEditBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnEdit");
+                System.Web.UI.WebControls.Button photoDeleteBtn = (System.Web.UI.WebControls.Button)e.Item.FindControl("btnDelete");
 
-                    photo.Src = String.Format("/Images/gallery/{0}/{1}", card.Folder.ToLower(), card.Name);
-                    photoCaption.InnerText = card.Caption;
+                photo.Src = String.Format("/Images/gallery/{0}/{1}", card.Folder.ToLower(), card.Name);
+                photoCaption.InnerText = card.Caption;
 
-                    //if this is the first photo set it to active
-                    string activeClass = (count < 1 ? " active" : " ");
-                    holder.Attributes["class"] += activeClass;
-                    indicators.InnerHtml += String.Format(@"<li data-target=""#myCarousel"" data-slide-to=""{0}"" class=""{1}""></li>", count.ToString(), activeClass);
+                //if this is the first photo set it to active
+                string activeClass = (count < 1 ? " active" : " ");
+                holder.Attributes["class"] += activeClass;
+                indicators.InnerHtml += String.Format(@"<li data-target=""#myCarousel"" data-slide-to=""{0}"" class=""{1}""></li>", count.ToString(), activeClass);
 
-                    photoEditBtn.CommandName = "Edit";
-                    photoEditBtn.CommandArgument = card.Id.ToString();
+                photoEditBtn.CommandName = "Edit";
+                photoEditBtn.CommandArgument = card.Id.ToString();
 
-                    photoDeleteBtn.CommandName = "Delete";
-                    photoDeleteBtn.CommandArgument = card.Id.ToString();
+                photoDeleteBtn.CommandName = "Delete";
+                photoDeleteBtn.CommandArgument = card.Id.ToString();
 
-                    ++count;
+                ++count;
             }
         }
 
@@ -122,11 +126,6 @@ namespace MCCSite.Web.Admin
         {
             DateTime date = calPhotoDate.SelectedDate;
             txtPhotoDate.Value = String.Format("{0:dd/MM/yyyy}", date);
-        }
-
-        protected void ddlFolderSelected_SelectionChanged(object sender, EventArgs e)
-        {
-            Response.Redirect("/web/admin/addphotos.aspx?f=" + ddlFolder.SelectedIndex);
         }
 
         public void btnEdit_Click(Object sender, EventArgs e)
@@ -153,24 +152,48 @@ namespace MCCSite.Web.Admin
         public void btnAdd_Click(Object sender, EventArgs e)
         {
             //Quick validation
+            string fname = string.Empty;
             if (string.IsNullOrEmpty(txtPhotoName.Value) || string.IsNullOrEmpty(txtPhotoDate.Value))
             {
                 Master.AddErrorMessage("Please make sure the two required fields title & start date have been supplied.");
                 if (string.IsNullOrEmpty(txtPhotoName.Value))
-                    titleControl.Attributes.Add("class", " error");
+                    titleControl.Attributes.Add("class", " has-error");
 
                 if (string.IsNullOrEmpty(txtPhotoDate.Value))
-                    dateControl.Attributes.Add("class", " error");
+                    dateControl.Attributes.Add("class", " has-error");
 
                 return;
             }
+            if ((photoUploadFile.PostedFile != null) && (photoUploadFile.PostedFile.ContentLength > 0))
+            {
+                String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
+                String fileExtension = System.IO.Path.GetExtension(photoUploadFile.PostedFile.FileName).ToLower();
+                bool fileOK = false;
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (fileExtension == allowedExtensions[i])
+                    {
+                        fileOK = true;
+                    }
+                }
+                if (!fileOK)
+                {
+                    Master.AddErrorMessage("This photo is not in the correct format. Please make sure it is (ends with) any of the following formats: .gif, .png, .jpeg, .jpg ");
+                    photoUploadControl.Attributes.Add("class", " has-error");
+                    return;
+                }
+            }
             else
             {
-                CreateFilePhotoItemFromPage();
-                AddFTPPhotoItem("add");
-                //Re-grab photo items to show the new item =D
-                RefreshPageItems();
+                Master.AddErrorMessage("Please select a file to upload.");
             }
+
+            CreateFilePhotoItemFromPage();
+            AddFTPPhotoItem("add");
+            AddFTPPhoto(photoUploadFile);
+            //Re-grab photo items to show the new item =D
+            RefreshPageItems();
+
         }
 
         protected void UpdatePhotoFileString()
@@ -334,6 +357,47 @@ namespace MCCSite.Web.Admin
 
         }
 
+        protected void AddFTPPhoto(HtmlInputFile photo)
+        {
+            string basePath = "Images/Gallery";
+            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
+            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com/{1}/{2}/{3}", ftpUserName, basePath, ddlFolder.Value, photo.PostedFile.FileName);
+            try
+            {
+                //Set up the ftp client
+                FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(fileUrl);
+                ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                ftpClient.Method = System.Net.WebRequestMethods.Ftp.UploadFile;
+                ftpClient.UseBinary = true;
+                ftpClient.KeepAlive = true;
+
+                byte[] image = new byte[photo.PostedFile.ContentLength];
+
+                Stream pStream;
+                pStream = photo.PostedFile.InputStream;
+                pStream.Read(image, 0, photo.PostedFile.ContentLength);
+
+                ftpClient.ContentLength = (int)photo.PostedFile.ContentLength;
+                Stream rStream = ftpClient.GetRequestStream();
+
+                //Write it all back to the file
+                rStream.Write(image, 0, image.Length);
+
+                //Clean up
+                rStream.Close();
+                Master.AddSuccessMessage("A photo was successfully uploaded.");
+
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error uploading a new photo" + ex);
+            }
+
+        }
+
         protected void rptPhotos_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Edit")
@@ -362,8 +426,49 @@ namespace MCCSite.Web.Admin
                     photos.Remove((PhotoItem)folderPhotos[index]);
                     UpdatePhotoFileString();
                     AddFTPPhotoItem("del");
+                    DeleteFTPPhoto();
                     RefreshPageItems();
                 }
+            }
+        }
+
+        private void DeleteFTPPhoto()
+        {
+            string basePath = "Images/Gallery";
+            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
+            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com/{1}/{2}/{3}", ftpUserName, basePath, ddlFolder.Value, photo.PostedFile.FileName);
+            try
+            {
+                //Set up the ftp client
+                FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(fileUrl);
+                ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
+                ftpClient.Method = System.Net.WebRequestMethods.Ftp.DeleteFile;
+                ftpClient.UseBinary = true;
+                ftpClient.KeepAlive = true;
+
+                byte[] image = new byte[photo.PostedFile.ContentLength];
+
+                Stream pStream;
+                pStream = photo.PostedFile.InputStream;
+                pStream.Read(image, 0, photo.PostedFile.ContentLength);
+
+                ftpClient.ContentLength = (int)photo.PostedFile.ContentLength;
+                Stream rStream = ftpClient.GetRequestStream();
+
+                //Write it all back to the file
+                rStream.Write(image, 0, image.Length);
+
+                //Clean up
+                rStream.Close();
+                Master.AddSuccessMessage("A photo was successfully uploaded.");
+
+            }
+            catch (Exception ex)
+            {
+                Master.AddErrorMessage("There was an error uploading a new photo" + ex);
             }
         }
     }

@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="Images/favicon.ico" />
 </head>
 <body>
-    <form id="Form1" runat="server">
+    <form id="form1" method="post" runat="server" >
     <div class="row-fluid header">
         <div class="span12 header-top">
             <asp:Image ID="Image1" src="/images/ribbon1.gif" CssClass="ribbon" runat="server"

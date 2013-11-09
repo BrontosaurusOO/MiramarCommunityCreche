@@ -130,6 +130,24 @@ namespace MCCSite.Web.Admin {
         protected global::System.Web.UI.WebControls.Calendar calPhotoDate;
         
         /// <summary>
+        /// photoUploadControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl photoUploadControl;
+        
+        /// <summary>
+        /// photoUploadFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile photoUploadFile;
+        
+        /// <summary>
         /// btnAdd control.
         /// </summary>
         /// <remarks>
