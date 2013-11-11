@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="ExcursionPhotos.aspx.cs" Inherits="Web.Gallery.ExcursionPhotos" %>
-
+    <%@ MasterType VirtualPath="~/Site.master" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -19,21 +19,27 @@
     <div class="row-fluid">
         <div class="span10">
             <div id="myCarousel" class="carousel slide">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <ol class="carousel-indicators" runat="server" id="indicators">
                 </ol>
                 <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="/Images/gallery/trips/walk_supermarket.jpg" alt="" />
-                        <div class="carousel-caption">
-                            <p>
-                                A spontaneous trip to the supermarket for Mako group children</p>
-                        </div>
-                    </div>
+                    <asp:Repeater ID="rptPhotos" OnItemDataBound="rptPhotos_ItemDataBound"
+                        runat="server">
+                        <ItemTemplate>
+                            <div class="item" runat="server" id="itemHolder">
+                                <img src=" " alt=" " runat="server" id="image" />
+                                <div class="carousel-caption">
+                                    <p runat="server" id="caption">
+                                    </p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev">
+                            </span></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+                                class="icon-next"></span></a>
+                        </FooterTemplate>
+                    </asp:Repeater>
                 </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev">
-                </span></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><span
-                    class="icon-next"></span></a>
             </div>
         </div>
     </div>

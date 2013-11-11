@@ -60,7 +60,8 @@
                     </div>
                 </div>
                 <div class="control-group enrolment" id="photoUploadControl" runat="server">
-                    <input type="file" id="photoUploadFile" name="photoUploadFile" runat="server" text="Choose a photo" class="btn btn-info"/>
+                    <input type="file" id="photoUploadFile" name="photoUploadFile" runat="server" text="Choose a photo"
+                        class="btn btn-info" />
                 </div>
                 <div class="text-center">
                     <asp:Button CssClass="btn btn-primary" OnClick="btnAdd_Click" runat="server" ID="btnAdd"
@@ -103,9 +104,9 @@
                                             <p runat="server" id="caption">
                                             </p>
                                         </div>
-                                        <div class="button-holder top-15">
-                                            <asp:Button CssClass="btn btn-info" runat="server" ID="btnEdit" Text="Edit event" />
-                                            <asp:Button CssClass="btn btn-danger" runat="server" ID="btnDelete" Text="Delete event" />
+                                        <div class="button-holder centered top-15">
+                                            <asp:Button CssClass="btn btn-info" runat="server" ID="btnEdit" Text="Edit photo" />
+                                            <asp:Button CssClass="btn btn-danger" runat="server" ID="btnDelete" Text="Delete photo" />
                                         </div>
                                     </div>
                                 </ItemTemplate>

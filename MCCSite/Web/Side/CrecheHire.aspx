@@ -27,7 +27,7 @@
                 <span class="label label-warning">Warning</span> If the key is not returned the
                 hirer is liable for a $50.00 replacement cost.</div>
             <p>
-                See the form for terms and conditions of hireage.</p>
+                See the form for terms and conditions of hirage.</p>
             <a href="/files/crechehireform.doc" class="btn btn-warning">Download Hire form</a>
         </div>
         </form>

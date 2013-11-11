@@ -23,7 +23,7 @@ namespace MCCSite.Web.Admin
         {
             if (!string.IsNullOrEmpty(Request.QueryString["f"]))
             {
-                ddlFolder.Value = ddlFolder.Value = Request.QueryString["f"];
+                ddlFolder.Value = ddlSelectedFolder.Value = Request.QueryString["f"];
             }
 
             Form.Enctype = "multipart/form-data";
@@ -242,8 +242,9 @@ namespace MCCSite.Web.Admin
 
                     //Edit the photo item by replacing it with this nice new one
                     PhotoItem card = new PhotoItem(id, ddlFolder.Value, txtPhotoName.Value, txtCaption.Value, date);
-                    photos.RemoveAt(id);
-                    photos.Insert(id, card);
+                    PhotoItem p = (PhotoItem)folderPhotos[id];
+                    photos.Remove(p);
+                    photos.Insert(0, card);
                 }
             }
             catch (Exception ex)
@@ -426,49 +427,35 @@ namespace MCCSite.Web.Admin
                     photos.Remove((PhotoItem)folderPhotos[index]);
                     UpdatePhotoFileString();
                     AddFTPPhotoItem("del");
-                    DeleteFTPPhoto();
+                    DeleteFTPPhoto(ddlFolder.Value, (PhotoItem)folderPhotos[index]);
                     RefreshPageItems();
                 }
             }
         }
 
-        private void DeleteFTPPhoto()
+        private void DeleteFTPPhoto(string folder, PhotoItem p)
         {
             string basePath = "Images/Gallery";
             string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
             string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
             //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
             //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
-            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com/{1}/{2}/{3}", ftpUserName, basePath, ddlFolder.Value, photo.PostedFile.FileName);
+            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com/{1}/{2}/{3}", ftpUserName, basePath, folder, p.Name);
             try
             {
                 //Set up the ftp client
                 FtpWebRequest ftpClient = (FtpWebRequest)FtpWebRequest.Create(fileUrl);
                 ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
                 ftpClient.Method = System.Net.WebRequestMethods.Ftp.DeleteFile;
-                ftpClient.UseBinary = true;
-                ftpClient.KeepAlive = true;
-
-                byte[] image = new byte[photo.PostedFile.ContentLength];
-
-                Stream pStream;
-                pStream = photo.PostedFile.InputStream;
-                pStream.Read(image, 0, photo.PostedFile.ContentLength);
-
-                ftpClient.ContentLength = (int)photo.PostedFile.ContentLength;
-                Stream rStream = ftpClient.GetRequestStream();
-
-                //Write it all back to the file
-                rStream.Write(image, 0, image.Length);
 
                 //Clean up
-                rStream.Close();
-                Master.AddSuccessMessage("A photo was successfully uploaded.");
+
+                Master.AddSuccessMessage("A photo was successfully deleted.");
 
             }
             catch (Exception ex)
             {
-                Master.AddErrorMessage("There was an error uploading a new photo" + ex);
+                Master.AddErrorMessage("There was an error deleting a photo");
             }
         }
     }

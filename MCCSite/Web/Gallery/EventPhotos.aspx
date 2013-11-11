@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="EventPhotos.aspx.cs" Inherits="Web.Gallery.EventPhotos" %>
-
+    <%@ MasterType VirtualPath="~/Site.master" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -19,52 +19,27 @@
     <div class="row-fluid">
         <div class="span10">
             <div id="myCarousel" class="carousel slide">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+                <ol class="carousel-indicators" runat="server" id="indicators">
                 </ol>
                 <div class="carousel-inner">
-                    <div class="item">
-                        <img src="/Images/gallery/events/working_bee.jpg" alt="" />
-                        <div class="carousel-caption">
-                            <p>
-                                Working bee. Families, committee members, teachers and children all lending a hand
-                                to fix up the crèche.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/Images/gallery/events/Taniwha_building.jpg" alt="" />
-                        <div class="carousel-caption">
-                            <p>
-                                Our Taniwha we created in our outside area.</p>
-                        </div>
-                    </div>
-                    <div class="item active">
-                        <img src="/Images/gallery/events/fish_chip_evening_2.jpg" alt="" />
-                        <div class="carousel-caption">
-                            <p>
-                                Fish n Chip evening. Families meeting socially with teachers and other families.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/Images/gallery/events/fish_chip_evening.jpg" alt="" />
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/Images/gallery/events/boy_birthday_cake.jpg" alt="" width="390" />
-                        <div class="carousel-caption">
-                            <p>
-                                Birthday celebrations at the crèche</p>
-                        </div>
-                    </div>
+                    <asp:Repeater ID="rptPhotos" OnItemDataBound="rptPhotos_ItemDataBound"
+                        runat="server">
+                        <ItemTemplate>
+                            <div class="item" runat="server" id="itemHolder">
+                                <img src=" " alt=" " runat="server" id="image" />
+                                <div class="carousel-caption">
+                                    <p runat="server" id="caption">
+                                    </p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev">
+                            </span></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+                                class="icon-next"></span></a>
+                        </FooterTemplate>
+                    </asp:Repeater>
                 </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev">
-                </span></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><span
-                    class="icon-next"></span></a>
             </div>
         </div>
     </div>
