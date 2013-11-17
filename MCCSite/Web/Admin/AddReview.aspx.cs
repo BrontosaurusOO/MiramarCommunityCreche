@@ -246,10 +246,8 @@ namespace MCCSite.Web.Admin
         protected void AddFTPReview(string action)
         {
             string locPath = "/Files/Reviews.txt";
-            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
-            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
-            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
-            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+            string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
             string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
             try
             {

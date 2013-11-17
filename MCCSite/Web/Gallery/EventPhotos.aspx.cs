@@ -16,10 +16,13 @@ namespace Web.Gallery
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetPhotos();
-            this.rptPhotos.DataSource = photos;
-            this.rptPhotos.DataBind();
-
+            if (!IsPostBack)
+            {
+                photos.Clear();
+                GetPhotos();
+                this.rptPhotos.DataSource = photos;
+                this.rptPhotos.DataBind();
+            }
         }
 
         public void GetPhotos()

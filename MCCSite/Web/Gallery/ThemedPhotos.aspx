@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="ThemedPhotos.aspx.cs" Inherits="Web.Gallery.ThemedPhotos" %>
-    <%@ MasterType VirtualPath="~/Site.master" %>
+
+<%@ MasterType VirtualPath="~/Site.master" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -22,8 +23,7 @@
                 <ol class="carousel-indicators" runat="server" id="indicators">
                 </ol>
                 <div class="carousel-inner">
-                    <asp:Repeater ID="rptPhotos" OnItemDataBound="rptPhotos_ItemDataBound"
-                        runat="server">
+                    <asp:Repeater ID="rptPhotos" OnItemDataBound="rptPhotos_ItemDataBound" runat="server">
                         <ItemTemplate>
                             <div class="item" runat="server" id="itemHolder">
                                 <img src=" " alt=" " runat="server" id="image" />
@@ -33,13 +33,11 @@
                                 </div>
                             </div>
                         </ItemTemplate>
-                        <FooterTemplate>
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev">
-                            </span></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><span
-                                class="icon-next"></span></a>
-                        </FooterTemplate>
                     </asp:Repeater>
                 </div>
+                <a class=" carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev">
+                </span></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+                    class="icon-next"></span></a>
             </div>
         </div>
     </div>

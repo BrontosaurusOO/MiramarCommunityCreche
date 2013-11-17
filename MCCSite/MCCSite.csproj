@@ -187,8 +187,6 @@
     <Content Include="Web\Main\Reviews.aspx" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Web\Main\Staff.aspx" />
-    <Content Include="Styles\jquery.image-gallery.css" />
-    <Content Include="Styles\jquery.image-gallery.min.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />

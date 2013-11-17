@@ -16,10 +16,13 @@ namespace Web.Gallery
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetPhotos();
-            this.rptPhotos.DataSource = photos;
-            this.rptPhotos.DataBind();
-
+            if (!IsPostBack)
+            {
+                photos.Clear();
+                GetPhotos();
+                this.rptPhotos.DataSource = photos;
+                this.rptPhotos.DataBind();
+            }
         }
 
         public void GetPhotos()
@@ -57,7 +60,7 @@ namespace Web.Gallery
             }
             catch (Exception ex)
             {
-                Master.AddErrorMessage("An error occurred retrieving the photos. Please try again soon or contact the crèche for assistance.");
+                Master.AddErrorMessage("An error occurred retrieving the photos. Please try again soon or contact the crèche for assistance." + "\r\n" + ex.ToString());
             }
 
         }
