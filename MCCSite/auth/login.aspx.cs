@@ -50,9 +50,6 @@ namespace auth
                 {
                     Response.Redirect("/auth/logout.aspx");
                 }
-
-                // Example JSON response.
-                /*{"status":"okay","email":"johndoe@smith.com","audience":"http://localhost:1696/","expires":1349141963794,"issuer":"login.persona.org"}*/
             }
         }
     }
