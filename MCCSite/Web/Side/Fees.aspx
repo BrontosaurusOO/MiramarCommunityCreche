@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Fees.aspx.cs" Inherits="Web.Side.Fees" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Fees</title>
+    <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="payment, fees, prices, standard fees, WINZ, subsidy, donations,work and income, help, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/fees" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -19,8 +25,8 @@
             <p>
                 Crèche fees are payable if a Teacher Only Day should fall on a day that the crèche
                 would normally be open.</p>
-
-                <div class="alert alert-info"><span class="label label-info">Please note:</span> All all fees include GST.</div>
+            <div class="alert alert-info">
+                <span class="label label-info">Please note:</span> All all fees include GST.</div>
         </div>
     </div>
     <div class="row-fluid">
@@ -49,7 +55,8 @@
                     your payment. Alternatively you can post your payment to the Miramar Community Crèche,
                     P O Box 15-054, Miramar.</li>
             </ul>
-            <h3>Receipts</h3>
+            <h3>
+                Receipts</h3>
             <p>
                 Receipts will be issued as requested. If you would rather have one receipt at the
                 end of the financial year (for tax purposes) we are only too happy to do this. Simply
@@ -70,8 +77,8 @@
                 The current fee per 4.75 hour session (8.45am to 1.30 pm) is $31.50</p>
             <strong>For children over 3 years of age, receiving 20 hours ECE</strong>
             <p>
-                An optional charge of $9.75 per 4.75 hour session (8.45am to 1.30pm)
-                Plus $6.53 per unattested hour, over and above 20 hours per week</p>
+                An optional charge of $9.75 per 4.75 hour session (8.45am to 1.30pm) Plus $6.53
+                per unattested hour, over and above 20 hours per week</p>
             <h3>
                 Work and Income NZ</h3>
             <p>
@@ -81,10 +88,10 @@
                 the difference or credit the next invoice.
             </p>
             <p>
-                It is the parents responsiblitity to inform WINZ of any changes to their childs
+                It is the parents responsibility to inform WINZ of any changes to their child's
                 crèche attendance.</p>
             <p>
-                Please talk to the Senior teacher if you require further information eligilbity
+                Please talk to the Senior teacher if you require further information eligibility
                 for the Childcare subsidy. The application form needs to be signed by the Senior
                 Teacher.</p>
         </div>

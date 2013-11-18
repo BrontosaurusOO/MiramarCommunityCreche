@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Community.aspx.cs" Inherits="Web.Parent.Community" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Community</title>
+    <meta name="description" content="Miramar Community Creche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="grounds maintenance,donations,collage,resource,contribution,parent information,parent, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/parents/community" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">

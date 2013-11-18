@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Profiles.aspx.cs" Inherits="Web.Side.Profiles" %>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Child Profiles</title>
+    <meta name="description" content="Miramar Community Creche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="miramar community creche, creche miramar, child profile, profile, child book, individual profile,education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/child-profiles" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -22,19 +28,18 @@
                 of artwork – pictures or paintings, anecdotal observations, Learning stories, the
                 ‘Me Sheet’, photos of their work, e.g.; block construction. The Teachers hope to
                 record information in your child's profile at least every six weeks. These records
-                will be about your child's progress and how they are developing.
+                will be about your child's progress and how they are developing. For example, particular
+                events, situations or happenings, examples of their language, their social interactions
+                and development e.g. co-operative, parallel, their physical skills, any humorous
+                anecdotes.
             </p>
             <p>
-                For example, particular events, situations or happenings, examples of their language,
-                their social interaction for instance of which stage of social development e.g.
-                co-operative, parallel, their physical skills, any humorous anecdotes. This will
-                not be an opportunity for criticisms or comparisons, rather an opportunity to focus
-                on the uniqueness of each child and their skills that are developing and emerging.</p>
-            <p>
-                The Teachers endeavour to do ongoing assessment/observations on each child. These
-                observations form the basis of our programme so that we can meet the needs of your
-                children at this particular crèche. Each Teacher has a "focus group" of children
-                to observe.</p>
+                This will not be an opportunity for criticisms or comparisons, rather an opportunity
+                to focus on the uniqueness of each child and their skills that are developing and
+                emerging. The teachers endeavour to do ongoing assessment/observations on each child.
+                These observations form the basis of our programme so that we can meet the needs
+                of your children at this particular crèche. Each Teacher has a "focus group" of
+                children to observe.</p>
             <p>
                 The teachers will share these observations with the child's parents for their input
                 and guidance. We welcome feedback from parents/whanau using the Parents/Whanau Voice
@@ -46,8 +51,7 @@
                 Any queries please chat to one of the teachers</p>
             <p>
                 <a href="#myModal" data-toggle="modal" class="text-large">Click here</a> to see
-                a brief example of a <a href="#myModal" data-toggle="modal" class="text-large">Child's
-                    Individual profile</a>.</p>
+                a brief example of a Child's Individual profile.</p>
             <!-- Modal -->
             <div id="myModal" class="modal hide fade wide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                 aria-hidden="true">

@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Philosophy.aspx.cs" Inherits="Web.Main.Philosophy" %>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Philosophy</title>
+    <meta name="description" content="Miramar Community Creche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="philosophy, mission statement, guiding principles, what we stand for, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/philosophy" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">

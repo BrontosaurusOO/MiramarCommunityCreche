@@ -2,6 +2,14 @@
     CodeBehind="ContactUs.aspx.cs" Inherits="Web.Main.ContactUs" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Contact us</title>
+    <meta name="description" content="Miramar Community Creche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="contact, opening hours, address, queries, map, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/contact-us" rel="canonical" />
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -12,10 +20,9 @@
         </div>
     </div>
     <div class="row-fluid">
-        <div class="span3">
+        <div class="span4">
             <h3>
                 Any questions or queries?</h3>
-            <form class="form-horizontal" action="/web/main/contactus.aspx">
             <div class="control-group">
                 <label class="control-label" for="txtName">
                     Name</label>
@@ -44,9 +51,9 @@
                 <asp:Button type="submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" runat="server"
                     ID="btnSubmit" Text="Send" />
             </div>
-            </form>
+
         </div>
-        <div class="span3">
+        <div class="span4">
             <h3>
                 Our Details</h3>
             <address>

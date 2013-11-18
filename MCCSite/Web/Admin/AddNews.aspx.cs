@@ -65,10 +65,9 @@ namespace MCCSite.Web.Admin
                 //Sort the news items by latest date
                 news.Sort(new NewsComparer());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(ex.Message);
+
             }
 
         }
@@ -178,9 +177,9 @@ namespace MCCSite.Web.Admin
                     news.Insert(id, card);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
             }
         }
 
@@ -226,9 +225,9 @@ namespace MCCSite.Web.Admin
                 //Edit the News item by replacing it with this nice new one
                 return line;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
 
             }
             return string.Empty;
@@ -274,9 +273,9 @@ namespace MCCSite.Web.Admin
                     Master.AddSuccessMessage("A News item was successfully edited.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new News item." + ex);
+                Master.AddErrorMessage("There was an error adding a new News item.");
             }
 
         }

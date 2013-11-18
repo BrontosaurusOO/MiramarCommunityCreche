@@ -2,6 +2,12 @@
     CodeBehind="Reviews.aspx.cs" Inherits="Web.Main.Reviews" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Reviews</title>
+    <meta name="description" content="Miramar Community Creche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="reviews, testimonials, feedback, like, parents, thanks, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/reviews" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">

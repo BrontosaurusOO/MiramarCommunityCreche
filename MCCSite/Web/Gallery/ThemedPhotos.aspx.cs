@@ -58,9 +58,9 @@ namespace Web.Gallery
                 }
                 photos.Sort(new PhotoItemComparer());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("An error occurred retrieving the photos. Please try again soon or contact the crèche for assistance." + "\r\n" + ex.ToString());
+                Master.AddErrorMessage("An error occurred retrieving the photos. Please try again soon or contact the crèche for assistance.");
             }
 
         }

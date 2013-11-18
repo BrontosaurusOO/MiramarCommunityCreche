@@ -2,8 +2,10 @@
     CodeBehind="Administrator.master.cs" Inherits="MCCSite.Administrator" %>
 
 <%@ MasterType VirtualPath="~/Public.master" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="PageMetaContent" runat="server">
+    <title>Miramar Community Crèche | Admin</title>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="~/Styles/adminsite.css" rel="stylesheet" type="text/css" />
     <div class="top-links pull-right">
         <ul class="nav nav-pills">
             <li><a href="/default.aspx">Miramar Community Crèche home</a></li>

@@ -492,7 +492,9 @@
     <None Include="Files\ChildChat.doc" />
     <None Include="Files\Crechefees.doc" />
     <None Include="Files\CrecheGuide.doc" />
-    <None Include="Files\Individual profile sheet.docx" />
+    <None Include="Files\Emergencyprocedandplan.doc" />
+    <None Include="Files\hirageform.doc" />
+    <None Include="Files\Individualprofilesheet.docx" />
     <None Include="Files\Philosophy2012.doc" />
     <None Include="Files\StrategicPlan2011-2015.doc" />
     <None Include="Files\WhanauFamilyVoice.docx" />

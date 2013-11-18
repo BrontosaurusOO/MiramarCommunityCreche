@@ -2,8 +2,13 @@
     CodeBehind="Events.aspx.cs" Inherits="Web.Side.Events" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | News & Events</title>
+    <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="current news, current events, latest events, latest news, news, events, what is happening, coming up, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/news-and-events" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
-    <form method="post" class="form-horizontal">
     <div class="row-fluid">
         <div class="span10">
             <h2>

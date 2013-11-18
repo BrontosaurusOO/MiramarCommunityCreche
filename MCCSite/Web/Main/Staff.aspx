@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Staff.aspx.cs" Inherits="Web.Main.Staff" %>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Staff</title>
+    <meta name="description" content="Miramar Community Creche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="teachers, staff, qualifications, experience,training, years,knowledge,manager, senior teacher,photos, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/staff" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <h2>
         Staff</h2>
@@ -100,7 +106,8 @@
                             <p class="staff-attributes">
                                 <strong>Qualifications:</strong> Certificate Playcentre</p>
                             <p class="staff-attributes">
-                                <strong>Years of service:</strong>1 year </p>
+                                <strong>Years of service:</strong>1 year
+                            </p>
                         </div>
                     </li>
                 </ul>

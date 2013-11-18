@@ -2,17 +2,22 @@
     CodeBehind="Site.master.cs" Inherits="SiteMaster" %>
 
 <%@ MasterType VirtualPath="~/Public.master" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="PageMetaContent" runat="server">
+    <asp:ContentPlaceHolder ID="PageMetaContentChild" runat="server">
+            </asp:ContentPlaceHolder>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
     <div class="top-links pull-right">
         <ul class="nav nav-pills">
-            <li><a href="/default.aspx"><i class="icon-home icon-white"></i>Home</a></li>
-            <li><a href="/web/main/about.aspx"><i class="icon-question-sign icon-white"></i>About
+            <li><a href="/default.aspx"><i class="icon-home icon-white"></i> Home</a></li>
+            <li><a href="/web/main/about.aspx"><i class="icon-question-sign icon-white"></i> About
                 Us</a></li>
-            <li><a href="/web/main/philosophy.aspx"><i class="icon-info-sign icon-white"></i>Philosophy</a></li>
-            <li><a href="/web/main/staff.aspx"><i class="icon-user icon-white"></i>Staff</a></li>
-            <li><a href="/web/parent/parentNews.aspx"><i class="icon-star icon-white"></i>For Parents</a></li>
-            <li><a href="/web/main/reviews.aspx"><i class="icon-thumbs-up icon-white"></i>Reviews</a></li>
-            <li><a href="/web/main/contactus.aspx"><i class="icon-map-marker icon-white"></i>Contact
+            <li><a href="/web/main/philosophy.aspx"><i class="icon-info-sign icon-white"></i> Philosophy</a></li>
+            <li><a href="/web/main/staff.aspx"><i class="icon-user icon-white"></i> Staff</a></li>
+            <li><a href="/web/parent/parentNews.aspx"><i class="icon-star icon-white"></i> For Parents</a></li>
+            <li><a href="/web/main/reviews.aspx"><i class="icon-thumbs-up icon-white"></i> Reviews</a></li>
+            <li><a href="/web/main/contactus.aspx"><i class="icon-map-marker icon-white"></i> Contact
                 Us</a></li>
         </ul>
     </div>

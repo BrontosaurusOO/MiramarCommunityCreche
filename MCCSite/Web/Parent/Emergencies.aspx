@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Emergencies.aspx.cs" Inherits="Web.Parent.Emergencies" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Emergencies</title>
+    <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="civil defence,evacuation earthquake procedures,earthquake procedures,medical information,safety information,parent information,parent, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/parents/emergencies" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -33,13 +39,18 @@
             <h4>
                 Earthquake & Evacuation procedures</h4>
             <p>
-                We hold regular fire and earthquake drills with the children as required by the
-                NZ Fire Service. We have a procedure displayed to inform parents what action we
-                would take in a civil emergency. In a civil defence emergency we will remain at
-                the crèche until parents come to collect their child unless the evacuation is due
-                to a Tsunami. If we need to evacuate a sign will be left on the door and we will
-                alert all parents by text as soon as we reach a safe destination. Please refer to
-                our policy folder for more details.</p>
+                Please see our <a href="/Files/Emergencyprocedandplan.doc" > Emergency Plan & Procedures Policy</a>, to see how well prepared we are
+                for a Civil Defence Emergency. In the event of an earthquake, teachers will call
+                out “Drop, Cover, Hold” and role model the correct position for the children to
+                copy. If an emergency evacuation is deemed necessary, the CD Warden will quickly
+                assess if the planned evacuation route is free from hazards and inform staff of
+                evacuation action to be taken. The aim is to get all children and staff to the suggested
+                nearest tsunami safe zone, halfway up the hill path from Miramar Avenue to Otaki
+                Street. Once there, the CD Warden will assess if there is a need to continue to
+                even higher ground. We have provisions stored at a teachers home in Athens St, just
+                in case they are needed. A notice notifying authorities and families of the exact
+                evacuation location will be posted on the door at crèche, also at each subsequent
+                evacuation location, if it is necessary to move again.</p>
         </div>
         <div class="span10">
             <h4>

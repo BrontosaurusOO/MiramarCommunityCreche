@@ -2,6 +2,12 @@
     CodeBehind="EventPhotos.aspx.cs" Inherits="Web.Gallery.EventPhotos" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Event photos</title>
+    <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="events, occasions,photos, photo, gallery, photo gallery, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/gallery/event-photos" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">

@@ -4,9 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
-    <title>Miramar Community Crèche</title>
-    <meta name="description" content="Miramar Community Creche is a small not for profit creche on Chelsea street. MCC embraces all of the wonderful cultures of all children who attend." />
-    <meta name="keywords" content="nz, new zealand, nz early childhood education, education, kindergarden, preschool, early childhood, child development, preschools, early childhood, childhood education,early childhood education,elementary education,preschool activities,child education,child development center,early childhood development,preschool education,kindergartens,child daycare,preschool resources, nz preschools, new zealand preschools, new zealand kindergarden, nz kindergardens "/>
+<asp:ContentPlaceHolder ID="PageMetaContent" runat="server">
+            </asp:ContentPlaceHolder>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="~/Styles/bootstrap-responsive.css" rel="stylesheet" />

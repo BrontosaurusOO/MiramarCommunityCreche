@@ -116,11 +116,9 @@ namespace MCCSite.Web.Admin
                 }
                 events.Sort(new EventComparer());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Master.AddErrorMessage("An error occurred retrieving the events. Please try again soon or contact the crèche for assistance.");
-                Console.WriteLine("The file could not be read.");
-                Console.WriteLine(ex.Message);
             }
 
         }
@@ -205,9 +203,9 @@ namespace MCCSite.Web.Admin
                     events.Insert(id, card);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
             }
         }
 
@@ -266,9 +264,9 @@ namespace MCCSite.Web.Admin
                 //Edit the event item by replacing it with this nice new one
                 return line;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
 
             }
             return string.Empty;
@@ -314,9 +312,9 @@ namespace MCCSite.Web.Admin
                     Master.AddSuccessMessage("An event item was successfully edited.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new event item." + ex);
+                Master.AddErrorMessage("There was an error adding a new event item.");
             }
 
         }

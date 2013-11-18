@@ -65,10 +65,9 @@ namespace MCCSite.Web.Admin
                 //Sort the reviews items by latest date
                 reviews.Sort(new ReviewComparer());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Master.AddErrorMessage("There was a problem fetching the reviews. Please try again later.");
-                Console.WriteLine(ex.Message);
             }
 
         }
@@ -185,9 +184,9 @@ namespace MCCSite.Web.Admin
                     reviews.Insert(id, card);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
             }
         }
 
@@ -235,9 +234,9 @@ namespace MCCSite.Web.Admin
                 //Edit the reviews item by replacing it with this nice new one
                 return line;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
 
             }
             return string.Empty;
@@ -283,9 +282,9 @@ namespace MCCSite.Web.Admin
                     Master.AddSuccessMessage("A review was successfully edited.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new review." + ex);
+                Master.AddErrorMessage("There was an error adding a new review.");
             }
 
         }

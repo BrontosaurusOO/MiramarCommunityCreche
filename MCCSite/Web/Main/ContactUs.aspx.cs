@@ -83,7 +83,7 @@ namespace Web.Main
                 Master.AddSuccessMessage("Your message was sent successfully. ");
                 clearAllFields();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Master.AddErrorMessage("Sorry, an error occurred. Please try again later or feel free to give us a call.");
             }

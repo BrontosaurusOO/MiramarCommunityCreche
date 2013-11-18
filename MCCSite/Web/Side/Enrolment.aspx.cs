@@ -80,7 +80,7 @@ namespace Web.Side
                 Master.AddSuccessMessage("Your enrollment was sent successfully. ");
                 clearAllFields();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Master.AddErrorMessage("Sorry, an error occurred. Please try again later or download the form and bring it in to us.");
             }

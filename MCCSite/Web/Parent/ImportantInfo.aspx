@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="ImportantInfo.aspx.cs" Inherits="Web.Parent.ImportantInfo" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Important information</title>
+    <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="change of phone number,change of address,allergies,behaviour management,withdrawal,absentees,sleeping,illness,iportant information,parent information,parent, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/parents/important-information"
+        rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
@@ -58,11 +65,11 @@
                 If your child is going to be absent from any session please telephone the crèche
                 as soon as possible and preferably before 8.45am. on that day. Please refer to the
                 “Payment of Fees” terms and conditions for information regarding payment of sessions
-                when children are absent. If your child is going to be absent for longer than 3
-                weeks please talk to the Senior Teacher if you wish your child to remain on the
-                roll as we require you to pay your usual child`s crèche fees and the Ministry of
-                Education funding rate in respect of your child for the remainder of their absence
-                (beyond three weeks).</p>
+                when children are absent. If your child is going to be away for longer than 3 weeks
+                please come and talk to the Senior teacher or manager if you wish your child to
+                remain on the roll. For more information see our <a href="/web/side/fees.aspx">crèche
+                    fees terms and conditions</a>.
+            </p>
         </div>
         <div class="span10">
             <h4>

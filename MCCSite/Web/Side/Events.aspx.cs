@@ -72,10 +72,9 @@ namespace Web.Side
                 //Sort the news items by latest date
                 news.Sort(new NewsComparer());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(ex.Message);
+                Master.AddErrorMessage("An error occurred retrieving the news. Please try again soon or contact the crèche for assistance.");
             }
 
         }
@@ -114,11 +113,9 @@ namespace Web.Side
                 }
                 events.Sort(new EventComparer());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Master.AddErrorMessage("An error occurred retrieving the events. Please try again soon or contact the crèche for assistance.");
-                Console.WriteLine("The file could not be read.");
-                Console.WriteLine(ex.Message);
             }
 
         }

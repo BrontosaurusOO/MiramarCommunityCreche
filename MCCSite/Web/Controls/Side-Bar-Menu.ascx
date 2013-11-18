@@ -12,13 +12,4 @@
       <li><a href="/web/side/crechehire.aspx"><i class="icon-glass"></i> Crèche Hire</a></li>
       <li><a href="/web/side/photogallery.aspx"><i class="icon-picture"></i> Photo Gallery</a></li>
     </ul>
-					
-    <div class="social-links">
-	    <div class="follow-us">Follow us</div>
-	    <ul id="socialLinks" class="unstyled">
-		    <li class="first"><a href="https://www.facebook.com/pages/Miramar-Community-Creche/527844043924578" title="Facebook" target="_blank"><img src="/Images/logofacebook.png" alt=""/></a></li>
-		    <li><a href="http://nz-early-childhood.findthebest.co.nz/l/3298/Miramar-Community-Creche" title="Findthebest" target="_blank"><img src="/Images/logofindtb.png" alt=""/></a></li>
-            <li><a href="https://plus.google.com/114287596053060543784/about" title="Google+" target="_blank"><img src="/Images/googleplusicon.png" alt=""/></a></li>
-        </ul>
-    </div>
 </div>

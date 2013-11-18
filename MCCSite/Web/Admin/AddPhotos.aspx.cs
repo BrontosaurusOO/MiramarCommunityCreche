@@ -74,11 +74,9 @@ namespace MCCSite.Web.Admin
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Master.AddErrorMessage("An error occurred retrieving the photos. Please try again soon or contact the crèche for assistance.");
-                Console.WriteLine("The file could not be read.");
-                Console.WriteLine(ex.Message);
+               Master.AddErrorMessage("An error occurred retrieving the photos. Please try again soon or contact the crèche for assistance.");
             }
 
         }
@@ -146,6 +144,7 @@ namespace MCCSite.Web.Admin
                 EditItemFromForm();
                 UpdatePhotoFileString();
                 AddFTPPhotoItem("edit");
+                photoUploadControl.Attributes.Add("style", "display:none;");
                 RefreshPageItems();
             }
         }
@@ -214,6 +213,7 @@ namespace MCCSite.Web.Admin
             folderPhotos.Clear();
             GetPhotos();
             this.rptPhotos.DataSource = folderPhotos;
+            indicators.InnerHtml = string.Empty;
             this.rptPhotos.DataBind();
             ClearForm();
             btnAdd.Visible = true;
@@ -247,9 +247,9 @@ namespace MCCSite.Web.Admin
                     photos.Insert(0, card);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
             }
         }
 
@@ -301,9 +301,9 @@ namespace MCCSite.Web.Admin
                 //Edit the photo item by replacing it with this nice new one
                 return line;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new item." + ex);
+                Master.AddErrorMessage("There was an error adding a new item.");
 
             }
             return string.Empty;
@@ -312,10 +312,8 @@ namespace MCCSite.Web.Admin
         protected void AddFTPPhotoItem(string action)
         {
             string locPath = "/Files/Photos.txt";
-            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
-            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
-            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
-            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+            string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
             string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
             try
             {
@@ -351,9 +349,9 @@ namespace MCCSite.Web.Admin
                     Master.AddSuccessMessage("A photo item was successfully edited.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new photo item." + ex);
+                Master.AddErrorMessage("There was an error adding a new photo item.");
             }
 
         }
@@ -390,9 +388,9 @@ namespace MCCSite.Web.Admin
                 Master.AddSuccessMessage("A photo was successfully uploaded.");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Master.AddErrorMessage("There was an error uploading a new photo" + ex);
+                Master.AddErrorMessage("There was an error uploading a new photo");
             }
 
         }
@@ -411,6 +409,7 @@ namespace MCCSite.Web.Admin
                     ShowItemInForm(index, card);
 
                     btnSave.Visible = true;
+                    photoUploadControl.Attributes.Add("style", "display:inline-block;");
                     btnAdd.Visible = false;
                 }
             }
@@ -434,10 +433,8 @@ namespace MCCSite.Web.Admin
         private void DeleteFTPPhoto(string folder, PhotoItem p)
         {
             string basePath = "Images/Gallery";
-            string ftpUserName = ConfigurationManager.AppSettings["testFtpUsername"].ToString();
-            string ftpPassword = ConfigurationManager.AppSettings["testFtpPassword"].ToString();
-            //string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
-            //string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+            string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
+            string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
             string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com/{1}/{2}/{3}", ftpUserName, basePath, folder, p.Name);
             try
             {
@@ -446,12 +443,9 @@ namespace MCCSite.Web.Admin
                 ftpClient.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
                 ftpClient.Method = System.Net.WebRequestMethods.Ftp.DeleteFile;
 
-                //Clean up
-
                 Master.AddSuccessMessage("A photo was successfully deleted.");
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Master.AddErrorMessage("There was an error deleting a photo");
             }

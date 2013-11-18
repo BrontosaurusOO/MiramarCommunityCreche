@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="CrecheHire.aspx.cs" Inherits="Web.Side.CrecheHire" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
+    <title>Miramar Community Crèche | Crèche hire</title>
+    <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
+    <meta name="keywords" content="creche hire,venue hire, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/creche-hire" rel="canonical" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <form class="form-horizontal" action="/web/side/crechehire.aspx">
@@ -28,7 +34,7 @@
                 hirer is liable for a $50.00 replacement cost.</div>
             <p>
                 See the form for terms and conditions of hirage.</p>
-            <a href="/files/crechehireform.doc" class="btn btn-warning">Download Hire form</a>
+            <a href="/files/hirageform.doc" class="btn btn-warning">Download Hire form</a>
         </div>
         </form>
     </div>

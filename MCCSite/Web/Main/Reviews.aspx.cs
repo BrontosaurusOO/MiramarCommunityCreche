@@ -31,7 +31,7 @@ namespace Web.Main
             string sAppPath = System.AppDomain.CurrentDomain.BaseDirectory;
             try
             {
-                using (StreamReader sr = new StreamReader(String.Format("{0}/Files/Testimonials.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
+                using (StreamReader sr = new StreamReader(String.Format("{0}/Files/Reviews.txt", sAppPath), Encoding.GetEncoding("iso-8859-1")))
                 {
                     int count = 0;
                     while (sr.Peek() >= 0)
@@ -56,10 +56,9 @@ namespace Web.Main
                 //Sort the reviews items by latest date
                 testimonials.Sort(new ReviewComparer());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Master.AddErrorMessage("There was a problem fetching the reviews. Please try again later.");
-                Console.WriteLine(ex.Message);
             }
 
         }
