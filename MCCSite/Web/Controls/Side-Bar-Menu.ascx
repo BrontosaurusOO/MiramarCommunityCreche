@@ -3,13 +3,13 @@
 
 <div class="side-bar-menu">
     <ul class="nav nav-list">
-      <li><a href="/web/side/events.aspx"><i class="icon-calendar"></i> News & Events</a></li>
-      <li><a href="/web/side/dailyprogram.aspx"><i class="icon-tasks"></i> Daily Program</a></li>
-      <li><a href="/web/side/profiles.aspx"><i class="icon-book"></i> Child Profiles</a></li>
-      <li><a href="/web/side/fees.aspx"><i class="icon-gift"></i> Prices & fees</a></li>
-      <li><a href="/web/side/childchats.aspx"><i class="icon-comment"></i> C.H.I.L.D Chats</a></li>
-      <li><a href="/web/side/waitinglist.aspx"><i class="icon-ok"></i> Enrolment</a></li>
-      <li><a href="/web/side/crechehire.aspx"><i class="icon-glass"></i> Crèche Hire</a></li>
-      <li><a href="/web/side/photogallery.aspx"><i class="icon-picture"></i> Photo Gallery</a></li>
+      <li><a href="/news-and-events.aspx"><i class="icon-calendar"></i> News & Events</a></li>
+      <li><a href="/daily-program.aspx"><i class="icon-tasks"></i> Daily Program</a></li>
+      <li><a href="/profiles.aspx"><i class="icon-book"></i> Child Profiles</a></li>
+      <li><a href="/fees.aspx"><i class="icon-gift"></i> Prices & fees</a></li>
+      <li><a href="/child-chats.aspx"><i class="icon-comment"></i> C.H.I.L.D Chats</a></li>
+      <li><a href="/waiting-list.aspx"><i class="icon-ok"></i> Enrolment</a></li>
+      <li><a href="/creche-hire.aspx"><i class="icon-glass"></i> Crèche Hire</a></li>
+      <li><a href="/photo-gallery.aspx"><i class="icon-picture"></i> Photo Gallery</a></li>
     </ul>
 </div>

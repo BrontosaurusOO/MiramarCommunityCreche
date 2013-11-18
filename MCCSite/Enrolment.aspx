@@ -6,13 +6,13 @@
     <title>Miramar Community Crèche | Enrolment</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="enrolment,waiting list, enrolment online, enrolment form, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/enrolment" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/enrolment.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <ul class="breadcrumb">
-                <li><a href="/Web/Side/waitinglist.aspx">Enroling at crèche</a> <span class="divider">
+                <li><a href="/waiting-list.aspx">Enroling at crèche</a> <span class="divider">
                     /</span></li>
                 <li class="active">Enrolment</li>
             </ul>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="row-fluid enrolment">
-        <form action="/web/side/enrolment.aspx" method="post" class="form-horizontal">
+        <form action="/enrolment.aspx" method="post" class="form-horizontal">
         <div class="span6">
             <fieldset>
                 <legend>Child's Details</legend>

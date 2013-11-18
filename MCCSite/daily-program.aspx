@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="DailyProgram.aspx.cs" Inherits="Web.Side.DailyProgram" %>
+    CodeBehind="daily-program.aspx.cs" Inherits="Web.Side.DailyProgram" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
     <title>Miramar Community Crèche | Daily program</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="show and tell, visitors, te whariki,news time,together time,mat time, karakia, activities, mako pipi groups,daily programme, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/daily-program" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/daily-program.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">

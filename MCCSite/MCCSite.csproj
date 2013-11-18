@@ -13,7 +13,7 @@
     <RootNamespace>MCCSite</RootNamespace>
     <AssemblyName>MCCSite</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -153,40 +153,40 @@
     <Content Include="Web\Admin\AddPhotos.aspx" />
     <Content Include="Web\Admin\AddReview.aspx" />
     <Content Include="Web\Admin\Dashboard.aspx" />
-    <Content Include="Web\Main\About.aspx" />
-    <Content Include="Web\Parent\CollectingYourChild.aspx" />
-    <Content Include="Web\Parent\Community.aspx" />
-    <Content Include="Web\Parent\DayAtCreche.aspx" />
-    <Content Include="Web\Parent\Emergencies.aspx" />
-    <Content Include="Web\Parent\HandoutForms.aspx" />
-    <Content Include="Web\Parent\ImportantInfo.aspx" />
-    <Content Include="Web\Parent\ParentNews.aspx" />
-    <Content Include="Web\Side\CHILDChats.aspx" />
-    <Content Include="Web\Main\ContactUs.aspx" />
+    <Content Include="about-us.aspx" />
+    <Content Include="Parent\collecting-your-child.aspx" />
+    <Content Include="Parent\Community.aspx" />
+    <Content Include="Parent\a-day-at-creche.aspx" />
+    <Content Include="Parent\Emergencies.aspx" />
+    <Content Include="Parent\handout-forms.aspx" />
+    <Content Include="Parent\important-information.aspx" />
+    <Content Include="Parent\parent-news.aspx" />
+    <Content Include="child-chats.aspx" />
+    <Content Include="Contact-us.aspx" />
     <Content Include="Web\Controls\Side-Bar-Menu.ascx" />
-    <Content Include="Web\Side\CrecheHire.aspx" />
-    <Content Include="Web\Side\DailyProgram.aspx" />
-    <Content Include="Web\Side\Enrolment.aspx" />
-    <Content Include="Web\Side\Events.aspx" />
-    <Content Include="Web\Side\Fees.aspx" />
+    <Content Include="creche-hire.aspx" />
+    <Content Include="daily-program.aspx" />
+    <Content Include="Enrolment.aspx" />
+    <Content Include="news-and-events.aspx" />
+    <Content Include="Fees.aspx" />
     <Content Include="Files\Reviews.txt" />
-    <Content Include="Web\Gallery\EventPhotos.aspx" />
-    <Content Include="Web\Gallery\ExcursionPhotos.aspx" />
-    <Content Include="Web\Gallery\InsidePhotos.aspx" />
-    <Content Include="Web\Gallery\OutsidePhotos.aspx" />
-    <Content Include="Web\Gallery\GuestPhotos.aspx" />
-    <Content Include="Web\Gallery\ThemedPhotos.aspx" />
+    <Content Include="Gallery\event-photos.aspx" />
+    <Content Include="Gallery\trip-photos.aspx" />
+    <Content Include="Gallery\inside-photos.aspx" />
+    <Content Include="Gallery\outside-photos.aspx" />
+    <Content Include="Gallery\guest-photos.aspx" />
+    <Content Include="Gallery\themed-photos.aspx" />
     <Content Include="Images\ero-logo.png" />
     <Content Include="Images\logofindthebest.png" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\tree.png" />
-    <Content Include="Web\Main\Philosophy.aspx" />
-    <Content Include="Web\Side\PhotoGallery.aspx" />
-    <Content Include="Web\Side\Profiles.aspx" />
-    <Content Include="Web\Main\Reviews.aspx" />
+    <Content Include="Philosophy.aspx" />
+    <Content Include="photo-gallery.aspx" />
+    <Content Include="Profiles.aspx" />
+    <Content Include="Reviews.aspx" />
     <Content Include="Scripts\jquery.js" />
-    <Content Include="Web\Main\Staff.aspx" />
+    <Content Include="Staff.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -199,7 +199,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Web\Side\WaitingList.aspx" />
+    <Content Include="waiting-list.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrator.master.cs">
@@ -265,75 +265,75 @@
     <Compile Include="Web\Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Main\About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="about-us.aspx.cs">
+      <DependentUpon>about-us.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Main\About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="about-us.aspx.designer.cs">
+      <DependentUpon>about-us.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Parent\CollectingYourChild.aspx.cs">
-      <DependentUpon>CollectingYourChild.aspx</DependentUpon>
+    <Compile Include="Parent\collecting-your-child.aspx.cs">
+      <DependentUpon>collecting-your-child.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Parent\CollectingYourChild.aspx.designer.cs">
-      <DependentUpon>CollectingYourChild.aspx</DependentUpon>
+    <Compile Include="Parent\collecting-your-child.aspx.designer.cs">
+      <DependentUpon>collecting-your-child.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Parent\Community.aspx.cs">
+    <Compile Include="Parent\Community.aspx.cs">
       <DependentUpon>Community.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Parent\Community.aspx.designer.cs">
+    <Compile Include="Parent\Community.aspx.designer.cs">
       <DependentUpon>Community.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Parent\DayAtCreche.aspx.cs">
-      <DependentUpon>DayAtCreche.aspx</DependentUpon>
+    <Compile Include="Parent\a-day-at-creche.aspx.cs">
+      <DependentUpon>a-day-at-creche.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Parent\DayAtCreche.aspx.designer.cs">
-      <DependentUpon>DayAtCreche.aspx</DependentUpon>
+    <Compile Include="Parent\a-day-at-creche.aspx.designer.cs">
+      <DependentUpon>a-day-at-creche.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Parent\Emergencies.aspx.cs">
+    <Compile Include="Parent\Emergencies.aspx.cs">
       <DependentUpon>Emergencies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Parent\Emergencies.aspx.designer.cs">
+    <Compile Include="Parent\Emergencies.aspx.designer.cs">
       <DependentUpon>Emergencies.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Parent\HandoutForms.aspx.cs">
-      <DependentUpon>HandoutForms.aspx</DependentUpon>
+    <Compile Include="Parent\handout-forms.aspx.cs">
+      <DependentUpon>handout-forms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Parent\HandoutForms.aspx.designer.cs">
-      <DependentUpon>HandoutForms.aspx</DependentUpon>
+    <Compile Include="Parent\handout-forms.aspx.designer.cs">
+      <DependentUpon>handout-forms.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Parent\ImportantInfo.aspx.cs">
-      <DependentUpon>ImportantInfo.aspx</DependentUpon>
+    <Compile Include="Parent\important-information.aspx.cs">
+      <DependentUpon>important-information.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Parent\ImportantInfo.aspx.designer.cs">
-      <DependentUpon>ImportantInfo.aspx</DependentUpon>
+    <Compile Include="Parent\important-information.aspx.designer.cs">
+      <DependentUpon>important-information.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Parent\ParentNews.aspx.cs">
-      <DependentUpon>ParentNews.aspx</DependentUpon>
+    <Compile Include="Parent\parent-news.aspx.cs">
+      <DependentUpon>parent-news.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Parent\ParentNews.aspx.designer.cs">
-      <DependentUpon>ParentNews.aspx</DependentUpon>
+    <Compile Include="Parent\parent-news.aspx.designer.cs">
+      <DependentUpon>parent-news.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\CHILDChats.aspx.cs">
-      <DependentUpon>CHILDChats.aspx</DependentUpon>
+    <Compile Include="child-chats.aspx.cs">
+      <DependentUpon>child-chats.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\CHILDChats.aspx.designer.cs">
-      <DependentUpon>CHILDChats.aspx</DependentUpon>
+    <Compile Include="child-chats.aspx.designer.cs">
+      <DependentUpon>child-chats.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Main\ContactUs.aspx.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
+    <Compile Include="Contact-us.aspx.cs">
+      <DependentUpon>Contact-us.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Main\ContactUs.aspx.designer.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
+    <Compile Include="Contact-us.aspx.designer.cs">
+      <DependentUpon>Contact-us.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Controls\Side-Bar-Menu.ascx.cs">
       <DependentUpon>Side-Bar-Menu.ascx</DependentUpon>
@@ -342,19 +342,19 @@
     <Compile Include="Web\Controls\Side-Bar-Menu.ascx.designer.cs">
       <DependentUpon>Side-Bar-Menu.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\CrecheHire.aspx.cs">
-      <DependentUpon>CrecheHire.aspx</DependentUpon>
+    <Compile Include="creche-hire.aspx.cs">
+      <DependentUpon>creche-hire.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\CrecheHire.aspx.designer.cs">
-      <DependentUpon>CrecheHire.aspx</DependentUpon>
+    <Compile Include="creche-hire.aspx.designer.cs">
+      <DependentUpon>creche-hire.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\DailyProgram.aspx.cs">
-      <DependentUpon>DailyProgram.aspx</DependentUpon>
+    <Compile Include="daily-program.aspx.cs">
+      <DependentUpon>daily-program.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\DailyProgram.aspx.designer.cs">
-      <DependentUpon>DailyProgram.aspx</DependentUpon>
+    <Compile Include="daily-program.aspx.designer.cs">
+      <DependentUpon>daily-program.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -363,100 +363,100 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\Enrolment.aspx.cs">
+    <Compile Include="Enrolment.aspx.cs">
       <DependentUpon>Enrolment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\Enrolment.aspx.designer.cs">
+    <Compile Include="Enrolment.aspx.designer.cs">
       <DependentUpon>Enrolment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\Events.aspx.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
+    <Compile Include="news-and-events.aspx.cs">
+      <DependentUpon>news-and-events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\Events.aspx.designer.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
+    <Compile Include="news-and-events.aspx.designer.cs">
+      <DependentUpon>news-and-events.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\Fees.aspx.cs">
+    <Compile Include="Fees.aspx.cs">
       <DependentUpon>Fees.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\Fees.aspx.designer.cs">
+    <Compile Include="Fees.aspx.designer.cs">
       <DependentUpon>Fees.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Gallery\EventPhotos.aspx.cs">
-      <DependentUpon>EventPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\event-photos.aspx.cs">
+      <DependentUpon>event-photos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Gallery\EventPhotos.aspx.designer.cs">
-      <DependentUpon>EventPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\event-photos.aspx.designer.cs">
+      <DependentUpon>event-photos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Gallery\ExcursionPhotos.aspx.cs">
-      <DependentUpon>ExcursionPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\trip-photos.aspx.cs">
+      <DependentUpon>trip-photos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Gallery\ExcursionPhotos.aspx.designer.cs">
-      <DependentUpon>ExcursionPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\trip-photos.aspx.designer.cs">
+      <DependentUpon>trip-photos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Gallery\InsidePhotos.aspx.cs">
-      <DependentUpon>InsidePhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\inside-photos.aspx.cs">
+      <DependentUpon>inside-photos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Gallery\InsidePhotos.aspx.designer.cs">
-      <DependentUpon>InsidePhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\inside-photos.aspx.designer.cs">
+      <DependentUpon>inside-photos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Gallery\OutsidePhotos.aspx.cs">
-      <DependentUpon>OutsidePhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\outside-photos.aspx.cs">
+      <DependentUpon>outside-photos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Gallery\OutsidePhotos.aspx.designer.cs">
-      <DependentUpon>OutsidePhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\outside-photos.aspx.designer.cs">
+      <DependentUpon>outside-photos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Gallery\GuestPhotos.aspx.cs">
-      <DependentUpon>GuestPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\guest-photos.aspx.cs">
+      <DependentUpon>guest-photos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Gallery\GuestPhotos.aspx.designer.cs">
-      <DependentUpon>GuestPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\guest-photos.aspx.designer.cs">
+      <DependentUpon>guest-photos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Gallery\ThemedPhotos.aspx.cs">
-      <DependentUpon>ThemedPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\themed-photos.aspx.cs">
+      <DependentUpon>themed-photos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Gallery\ThemedPhotos.aspx.designer.cs">
-      <DependentUpon>ThemedPhotos.aspx</DependentUpon>
+    <Compile Include="Gallery\themed-photos.aspx.designer.cs">
+      <DependentUpon>themed-photos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
-    <Compile Include="Web\Main\Philosophy.aspx.cs">
+    <Compile Include="Philosophy.aspx.cs">
       <DependentUpon>Philosophy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Main\Philosophy.aspx.designer.cs">
+    <Compile Include="Philosophy.aspx.designer.cs">
       <DependentUpon>Philosophy.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\PhotoGallery.aspx.cs">
-      <DependentUpon>PhotoGallery.aspx</DependentUpon>
+    <Compile Include="photo-gallery.aspx.cs">
+      <DependentUpon>photo-gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\PhotoGallery.aspx.designer.cs">
-      <DependentUpon>PhotoGallery.aspx</DependentUpon>
+    <Compile Include="photo-gallery.aspx.designer.cs">
+      <DependentUpon>photo-gallery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\Profiles.aspx.cs">
+    <Compile Include="Profiles.aspx.cs">
       <DependentUpon>Profiles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\Profiles.aspx.designer.cs">
+    <Compile Include="Profiles.aspx.designer.cs">
       <DependentUpon>Profiles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web\Main\Reviews.aspx.cs">
+    <Compile Include="Reviews.aspx.cs">
       <DependentUpon>Reviews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Main\Reviews.aspx.designer.cs">
+    <Compile Include="Reviews.aspx.designer.cs">
       <DependentUpon>Reviews.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.master.cs">
@@ -466,19 +466,19 @@
     <Compile Include="Site.master.designer.cs">
       <DependentUpon>Site.master</DependentUpon>
     </Compile>
-    <Compile Include="Web\Main\Staff.aspx.cs">
+    <Compile Include="Staff.aspx.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Main\Staff.aspx.designer.cs">
+    <Compile Include="Staff.aspx.designer.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Side\WaitingList.aspx.cs">
-      <DependentUpon>WaitingList.aspx</DependentUpon>
+    <Compile Include="waiting-list.aspx.cs">
+      <DependentUpon>waiting-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Side\WaitingList.aspx.designer.cs">
-      <DependentUpon>WaitingList.aspx</DependentUpon>
+    <Compile Include="waiting-list.aspx.designer.cs">
+      <DependentUpon>waiting-list.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -507,12 +507,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55298</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:55298/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="DayAtCreche.aspx.cs" Inherits="Web.Parent.DayAtCreche" %>
+    CodeBehind="a-day-at-creche.aspx.cs" Inherits="Web.Parent.DayAtCreche" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
     <title>Miramar Community Crèche | A day at crèche</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="birthdays,celebrations,banned food,art work,sun sense,toys,clothing,drink bottles,lunch boxes,primary caregiver,day at creche,parent information,parent, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/parents/a-day-at-creche" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/parents/a-day-at-creche.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
@@ -13,13 +13,13 @@
             <h2>
                 For Parents</h2>
             <ul class="nav nav-tabs">
-                <li class="active"><a href="/web/parent/dayatCreche.aspx">Day at crèche</a> </li>
-                <li><a href="/web/parent/collectingyourchild.aspx">Collecting your child</a></li>
-                <li><a href="/web/parent/importantinfo.aspx">Important Info</a></li>
-                <li><a href="/web/parent/parentnews.aspx">News</a></li>
-                <li><a href="/web/parent/community.aspx">Community</a></li>
-                <li><a href="/web/parent/emergencies.aspx">Safety & emergencies</a></li>
-                <li><a href="/web/parent/handoutforms.aspx">Handouts & forms</a></li>
+                <li class="active"><a href="/parent/a-day-at-creche.aspx">Day at crèche</a></li>
+                <li><a href="/parent/collecting-your-child.aspx">Collecting your child</a></li>
+                <li><a href="/parent/important-information.aspx">Important Info</a></li>
+                <li ><a href="/parent/parent-news.aspx">News</a></li>
+                <li><a href="/parent/community.aspx">Community</a></li>
+                <li><a href="/parent/emergencies.aspx">Safety & emergencies</a></li>
+                <li><a href="/parent/handout-forms.aspx">Handouts & forms</a></li>
             </ul>
         </div>
     </div>

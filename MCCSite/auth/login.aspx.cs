@@ -48,7 +48,7 @@ namespace auth
                 }
                 else
                 {
-                    Response.Redirect("/auth.logout.aspx");
+                    Response.Redirect("/auth/logout.aspx");
                 }
 
                 // Example JSON response.

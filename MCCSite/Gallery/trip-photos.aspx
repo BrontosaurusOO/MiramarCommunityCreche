@@ -1,19 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="ExcursionPhotos.aspx.cs" Inherits="Web.Gallery.ExcursionPhotos" %>
+    CodeBehind="trip-photos.aspx.cs" Inherits="Web.Gallery.ExcursionPhotos" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
     <title>Miramar Community Crèche | Trip & Excursion photos</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="trips, excursions,photos, photo, gallery, photo gallery, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/gallery/trip-photos"
+    <link href="http://www.miramarcommunitycreche.org.nz/gallery/trip-photos.aspx"
         rel="canonical" />
         </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <ul class="breadcrumb">
-                <li><a href="/Web/Side/PhotoGallery.aspx">Gallery</a> <span class="divider">/</span></li>
+                <li><a href="/photo-gallery.aspx">Gallery</a> <span class="divider">/</span></li>
                 <li class="active">Trips & Excursion Photos</li>
             </ul>
         </div>

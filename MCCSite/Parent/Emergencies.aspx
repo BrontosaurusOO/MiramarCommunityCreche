@@ -5,7 +5,7 @@
     <title>Miramar Community Crèche | Emergencies</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="civil defence,evacuation earthquake procedures,earthquake procedures,medical information,safety information,parent information,parent, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/parents/emergencies" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/parents/emergencies.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
@@ -13,13 +13,13 @@
             <h2>
                 For Parents</h2>
             <ul class="nav nav-tabs">
-                <li><a href="/web/parent/dayatCreche.aspx">Day at crèche</a></li>
-                <li><a href="/web/parent/collectingyourchild.aspx">Collecting your child</a></li>
-                <li><a href="/web/parent/importantinfo.aspx">Important Info</a></li>
-                <li><a href="/web/parent/parentnews.aspx">News</a></li>
-                <li><a href="/web/parent/community.aspx">Community</a></li>
-                <li class="active"><a href="/web/parent/emergencies.aspx">Safety & emergencies</a></li>
-                <li><a href="/web/parent/handoutforms.aspx">Handouts & forms</a></li>
+                <li><a href="/parent/a-day-at-creche.aspx">Day at crèche</a></li>
+                <li><a href="/parent/collecting-your-child.aspx">Collecting your child</a></li>
+                <li><a href="/parent/important-information.aspx">Important Info</a></li>
+                <li ><a href="/parent/parent-news.aspx">News</a></li>
+                <li><a href="/parent/community.aspx">Community</a></li>
+                <li class="active"><a href="/parent/emergencies.aspx">Safety & emergencies</a></li>
+                <li><a href="/parent/handout-forms.aspx">Handouts & forms</a></li>
             </ul>
         </div>
     </div>

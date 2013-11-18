@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="WaitingList.aspx.cs" Inherits="Web.Side.WaitingList" %>
+    CodeBehind="waiting-list.aspx.cs" Inherits="Web.Side.WaitingList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
     <title>Miramar Community Crèche | Waiting list</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="enrolment, waiting list, casual sessions, immunisations, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/waiting-list" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/waiting-list.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
@@ -14,7 +14,7 @@
                 Enrolling at our crèche</h2>
         </div>
         <div class="span2 top-15">
-            <a class="btn btn-primary" id="enrolButton" href="/Web/Side/Enrolment.aspx">Enrol now</a>
+            <a class="btn btn-primary" id="enrolButton" href="/enrolment.aspx">Enrol now</a>
         </div>
     </div>
     <div class="row-fluid">
@@ -29,7 +29,7 @@
                 If you would like to find out more about enrolling your child you can do this in
                 the following different ways:</p>
             <ul class="unstyled">
-                <li>Give our centre a <a href="/web/main/contactus.aspx">call</a> and ask for the senior
+                <li>Give our centre a <a href="/contact-us.aspx">call</a> and ask for the senior
                     teacher or manager</li>
                 <li>Come to visit and observe the centre in action upon arrangement</li>
                 <li>Download the form and either post or email to go on to the Waiting list</li>

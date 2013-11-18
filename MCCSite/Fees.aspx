@@ -5,7 +5,7 @@
     <title>Miramar Community Crèche | Fees</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="payment, fees, prices, standard fees, WINZ, subsidy, donations,work and income, help, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/fees" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/fees.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">

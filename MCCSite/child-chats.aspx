@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="CHILDChats.aspx.cs" Inherits="Web.Side.CHILDChats" %>
+    CodeBehind="child-chats.aspx.cs" Inherits="Web.Side.CHILDChats" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
     <title>Miramar Community Crèche | CHILD chats</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="talk,20 min,parent teacher meetings,CHILD chats,parent information,parent, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/child-chats" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/child-chats.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
     <h2>

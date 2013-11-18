@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="ContactUs.aspx.cs" Inherits="Web.Main.ContactUs" %>
+    CodeBehind="Contact-us.aspx.cs" Inherits="Web.Main.ContactUs" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
 
@@ -7,7 +7,7 @@
     <title>Miramar Community Crèche | Contact us</title>
     <meta name="description" content="Miramar Community Creche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="contact, opening hours, address, queries, map, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/contact-us" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/contact-us.aspx" rel="canonical" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">

@@ -6,7 +6,7 @@
     <title>Miramar Community Crèche</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
     <meta name="keywords" content="miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/" rel="canonical" />
+    <link href="http://www.miramarcommunitycreche.org.nz/default.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContentChild">
     <div class="row-fluid">
@@ -38,7 +38,7 @@
                 and also recognise the importance of the language and culture to our children in
                 Aotearoa, NZ.</p>
             <p class="text-left">
-                We aim to celebrate the cultural idenities of <strong>every child</strong> through
+                We aim to celebrate the cultural identities of <strong>every child</strong> through
                 fostering an inclusive learning environment that <em>embraces all cultures</em>.</p>
         </div>
         <div class="span6">
@@ -76,7 +76,7 @@
                     <p>
                         Click here to read our ero reports.</p>
                 </a></li>
-                <li class="span4 "><a href="/Web/Main/Reviews.aspx" class="thumbnail">
+                <li class="span4 "><a href="/reviews.aspx" class="thumbnail">
                     <img src="Images/teacher_child_buddy.jpg" alt="" />
                     <h4>
                         Reviews</h4>
@@ -84,7 +84,7 @@
                         Click here to read some of the comments parents, ERO, community members and ex teachers
                         have made about us.</p>
                 </a></li>
-                <li class="span3 "><a href="Web/Side/waitinglist.aspx" class="thumbnail">
+                <li class="span3 "><a href="/waiting-list.aspx" class="thumbnail">
                     <img src="Images/Gallery/Inside/girl_writing.jpg" alt="" />
                     <h4>
                         Enrol Now</h4>

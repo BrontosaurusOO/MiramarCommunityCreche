@@ -8,13 +8,13 @@
             </asp:ContentPlaceHolder>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="~/Styles/bootstrap-responsive.css" rel="stylesheet" />
-    <link href="~/Styles/bootstrap.css" rel="stylesheet" />
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="/Styles/Site.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/Scripts/jquery.js"></script>
     <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
     <script type="text/javascript" src="https://login.persona.org/include.js"></script>
-    <link rel="shortcut icon" href="Images/favicon.ico" />
+    <link rel="shortcut icon" href="/Images/favicon.ico" />
 </head>
 <body>
     <form id="form1" method="post" runat="server" >
@@ -56,7 +56,7 @@
                     Te Whare Manaaki Tamariki o Te Motu Kairangi</p>
             </div>
             <div class="span2">
-                <a id="signin" href="#" class="persona-button" runat="server" visible="false"><span>
+                <a id="signin" href="javascript:void(0)" class="persona-button" runat="server" visible="false"><span>
                     Log in</span></a> <a id="signout" href="#" class="persona-button" runat="server"
                         visible="false"><span>Logout</span></a>
             </div>

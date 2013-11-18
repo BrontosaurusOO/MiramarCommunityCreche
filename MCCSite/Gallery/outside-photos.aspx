@@ -1,26 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="GuestPhotos.aspx.cs" Inherits="Web.Gallery.GuestPhotos" %>
+    CodeBehind="outside-photos.aspx.cs" Inherits="Web.Gallery.OutsidePhotos" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageMetaContentChild" runat="server">
-    <title>Miramar Community Crèche | Visitor & guest photos</title>
+    <title>Miramar Community Crèche | Outside photos</title>
     <meta name="description" content="Miramar Community Crèche is a small not for profit crèche on Chelsea street, Miramar. MCC embraces all of the wonderful cultures of all children who attend." />
-    <meta name="keywords" content="visitor, guests,photos, photo, gallery, photo gallery, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
-    <link href="http://www.miramarcommunitycreche.org.nz/gallery/guest-photos" rel="canonical" />
+    <meta name="keywords" content="outside,photos, photo, gallery, photo gallery, miramar community creche, creche miramar, education, early childhood, child development, childhood education,early childhood education,child development center,early childhood development,child daycare" />
+    <link href="http://www.miramarcommunitycreche.org.nz/gallery/outisde-photos.aspx" rel="canonical" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentChild" runat="server">
     <div class="row-fluid">
         <div class="span10">
             <ul class="breadcrumb">
-                <li><a href="/Web/Side/PhotoGallery.aspx">Gallery</a> <span class="divider">/</span></li>
-                <li class="active">Guests Photos</li>
+                <li><a href="/photo-gallery.aspx">Gallery</a> <span class="divider">/</span></li>
+                <li class="active">Outside Play Photos</li>
             </ul>
         </div>
     </div>
     <div class="row-fluid">
         <div class="span10">
             <h2>
-                Photos of Guest at crèche</h2>
+                Photos from outside play</h2>
         </div>
     </div>
     <div class="row-fluid">
