@@ -315,7 +315,7 @@ namespace MCCSite.Web.Admin
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
             string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
 			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
-			string fileUrl = string.Format("ftp://{0}@{2}{1}", ftpUserName, locPath, hostName);
+			string fileUrl = string.Format("ftp://{0}:{3}@{1}/webroot{2}", ftpUserName, hostName, locPath, ftpPassword);
             try
             {
                 //Set up the ftp client
@@ -352,7 +352,7 @@ namespace MCCSite.Web.Admin
             }
             catch (Exception)
             {
-                Master.AddErrorMessage("There was an error adding a new photo item.");
+				Master.AddErrorMessage("There was an error trying to process your request. ");
             }
 
         }
@@ -363,7 +363,7 @@ namespace MCCSite.Web.Admin
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
 			string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
 			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
-            string fileUrl = string.Format("ftp://{0}@{4}/{1}/{2}/{3}", ftpUserName, basePath, ddlFolder.Value, photo.PostedFile.FileName, hostName);
+			string fileUrl = string.Format("ftp://{0}:{5}@{4}/webroot/{1}/{2}/{3}", ftpUserName, basePath, ddlFolder.Value, photo.PostedFile.FileName, hostName,ftpPassword);
             try
             {
                 //Set up the ftp client
@@ -438,7 +438,7 @@ namespace MCCSite.Web.Admin
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
 			string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
 			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
-            string fileUrl = string.Format("ftp://{0}@{4}/{1}/{2}/{3}", ftpUserName, basePath, folder, p.Name,hostName);
+            string fileUrl = string.Format("ftp://{0}:{5}@{4}/webroot/{1}/{2}/{3}", ftpUserName, basePath, folder, p.Name, hostName, ftpPassword);
             try
             {
                 //Set up the ftp client

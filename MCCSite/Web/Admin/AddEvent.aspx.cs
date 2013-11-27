@@ -278,7 +278,7 @@ namespace MCCSite.Web.Admin
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
             string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
 			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
-            string fileUrl = string.Format("ftp://{0}@{2}{1}", ftpUserName, locPath,hostName);
+			string fileUrl = string.Format("ftp://{0}:{3}@{1}/webroot{2}", ftpUserName, hostName, locPath, ftpPassword);
             try
             {
                 //Set up the ftp client
@@ -313,9 +313,9 @@ namespace MCCSite.Web.Admin
                     Master.AddSuccessMessage("An event item was successfully edited.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Master.AddErrorMessage("There was an error adding a new event item.");
+                Master.AddErrorMessage("There was an error trying to process your request. ");
             }
 
         }

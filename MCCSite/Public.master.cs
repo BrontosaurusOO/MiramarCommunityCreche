@@ -5,16 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MCCSite
-{
-    public partial class Public : System.Web.UI.MasterPage
-    {
+namespace MCCSite {
+	public partial class Public : System.Web.UI.MasterPage {
 
-        private bool _hideSideBar = false;
-        private bool _showAdminAction = false;
-        private static string _user = null;
+		private bool _hideSideBar = false;
+		private bool _showAdminAction = false;
+		private static string _user = null;
 
-        protected void Page_Load(object sender, EventArgs e)
+		protected void Page_Load (object sender, EventArgs e)
         {
             //Signin stuff - set the value on the page with the user
             currentUser.Value = _user;  //the hidden value on the page so the javascript tells persona if user is logged in
@@ -26,93 +24,84 @@ namespace MCCSite
             {
                 signin.Visible = true;
             }
+			if (!IsPostBack)
+				ClearPageMessages();
         }
 
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            if (_hideSideBar)
-            {
-                sideBar.Visible = false;
-                pageBody.Attributes.Add("class", String.Join(" ", pageBody.Attributes["class"].Split(' ').Except(new string[] { "", "span10" })));       //.Concat(new string[]{"offset1"}).ToArray()) to add a class add this on the end 
-            }
+		protected void Page_PreRender (object sender, EventArgs e) {
+			if (_hideSideBar)
+			{
+				sideBar.Visible = false;
+				pageBody.Attributes.Add("class", String.Join(" ", pageBody.Attributes["class"].Split(' ').Except(new string[] { "", "span10" })));       //.Concat(new string[]{"offset1"}).ToArray()) to add a class add this on the end 
+			}
 
-            if (_showAdminAction && (
-                 UserName == "miramar.creche@xtra.co.nz" ||
-                 UserName == "bronwyn.hopkin@hotmail.com")
-                 )
-            {
-                adminPanel.Visible = true;
-            }
-        }
+			if (_showAdminAction && (
+				 UserName == "miramar.creche@xtra.co.nz" ||
+				 UserName == "bronwyn.hopkin@hotmail.com" )
+				 )
+			{
+				adminPanel.Visible = true;
+			}
+		}
 
-        public void AddErrorMessage(string error)
-        {
-            messageBar.Visible = true;
-            msgText.InnerText = error;
-            msgText.Attributes.Add("class", "alert-error");
-        }
+		public void AddErrorMessage (string error) {
+			messageBar.Visible = true;
+			msgText.InnerText = error;
+			msgText.Attributes.Add("class", "alert-error");
+		}
 
-        public void AddSuccessMessage(string msg)
-        {
-            messageBar.Visible = true;
-            msgText.InnerText = msg;
-            msgText.Attributes.Add("class", "alert-success");
-        }
+		public void AddSuccessMessage (string msg) {
+			messageBar.Visible = true;
+			msgText.InnerText = msg;
+			msgText.Attributes.Add("class", "alert-success");
+		}
 
-        public void EnlargeTree(int girth)
-        {
-            tree.Width = girth;
-        }
+		public void ClearPageMessages () {
+			msgText.InnerText = string.Empty;
+			messageBar.Visible = false;
+		}
 
-        public void HideTree()
-        {
-            tree.Visible = false;
-        }
+		public void EnlargeTree (int girth) {
+			tree.Width = girth;
+		}
 
-        public void AddPageClass(string cssClass)
-        {
-            pageBody.Attributes.Add("class", cssClass);
-        }
+		public void HideTree () {
+			tree.Visible = false;
+		}
 
-        public void AddTreeClass(string cssClass)
-        {
-            tree.Attributes.Add("class", cssClass);
-        }
+		public void AddPageClass (string cssClass) {
+			pageBody.Attributes.Add("class", cssClass);
+		}
 
-        public string UserName
-        {
-            get
-            {
-                return _user;
-            }
-            set
-            {
-                _user = value;
-            }
-        }
+		public void AddTreeClass (string cssClass) {
+			tree.Attributes.Add("class", cssClass);
+		}
 
-        public bool HideSideBar
-        {
-            get
-            {
-                return _hideSideBar;
-            }
-            set
-            {
-                _hideSideBar = value;
-            }
-        }
+		public string UserName {
+			get {
+				return _user;
+			}
+			set {
+				_user = value;
+			}
+		}
 
-        public bool ShowAdminAction
-        {
-            get
-            {
-                return _showAdminAction;
-            }
-            set
-            {
-                _showAdminAction = value;
-            }
-        }
-    }
+		public bool HideSideBar {
+			get {
+				return _hideSideBar;
+			}
+			set {
+				_hideSideBar = value;
+			}
+		}
+
+		public bool ShowAdminAction {
+			get {
+				return _showAdminAction;
+			}
+			set {
+				_showAdminAction = value;
+			}
+		}
+	}
 }
