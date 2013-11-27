@@ -237,8 +237,9 @@ namespace MCCSite.Web.Admin
         {
             string locPath = "/Files/News.txt";
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
-            string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
-            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
+			string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
+			string fileUrl = string.Format("ftp://{0}@{2}{1}", ftpUserName, locPath, hostName);
             try
             {
                 //Set up the ftp client

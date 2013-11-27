@@ -314,7 +314,8 @@ namespace MCCSite.Web.Admin
             string locPath = "/Files/Photos.txt";
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
             string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
-            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com{1}", ftpUserName, locPath);
+			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
+			string fileUrl = string.Format("ftp://{0}@{2}{1}", ftpUserName, locPath, hostName);
             try
             {
                 //Set up the ftp client
@@ -360,8 +361,9 @@ namespace MCCSite.Web.Admin
         {
             string basePath = "Images/Gallery";
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
-            string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
-            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com/{1}/{2}/{3}", ftpUserName, basePath, ddlFolder.Value, photo.PostedFile.FileName);
+			string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
+            string fileUrl = string.Format("ftp://{0}@{4}/{1}/{2}/{3}", ftpUserName, basePath, ddlFolder.Value, photo.PostedFile.FileName, hostName);
             try
             {
                 //Set up the ftp client
@@ -434,8 +436,9 @@ namespace MCCSite.Web.Admin
         {
             string basePath = "Images/Gallery";
             string ftpUserName = ConfigurationManager.AppSettings["ftpUsername"].ToString();
-            string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
-            string fileUrl = string.Format("ftp://{0}@cca.849.myftpupload.com/{1}/{2}/{3}", ftpUserName, basePath, folder, p.Name);
+			string ftpPassword = ConfigurationManager.AppSettings["ftpPassword"].ToString();
+			string hostName = ConfigurationManager.AppSettings["hostName"].ToString();
+            string fileUrl = string.Format("ftp://{0}@{4}/{1}/{2}/{3}", ftpUserName, basePath, folder, p.Name,hostName);
             try
             {
                 //Set up the ftp client
