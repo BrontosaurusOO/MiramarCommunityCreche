@@ -3,7 +3,7 @@
 
 <%@ MasterType VirtualPath="~/Administrator.master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentChild" runat="server">
-	<div class="row-fluid" id="loggedOutContent" runat="server" visible="false">
+	<div class="row-fluid" id="loggedOutContent" runat="server" >
 		<div class="span10">
 			<h1>
 				Miramar Community Crèche Admin
@@ -14,7 +14,7 @@
 				Only users with Admin access can see this page and the pages in the blue bar at the top of this page.</p>
 		</div>
 		</div>
-        <div class="row-fluid" id="dashboardContent" runat="server" visible="false">
+        <div class="row-fluid" id="dashboardContent" runat="server" >
 			<div class="row-fluid">
 				<div class="span10">
 					<h1>

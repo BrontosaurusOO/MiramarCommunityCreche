@@ -73,8 +73,8 @@
                                 <p class="pull-right news-date" runat="server" id="newsDate">
                                     <small>Friday, 1 June 2013</small></p>
                                 <div class="button-holder">
-                                    <asp:Button CssClass="btn btn-info" runat="server" ID="btnEdit" Text="Edit event" />
-                                    <asp:Button CssClass="btn btn-danger" runat="server" ID="btnDelete" Text="Delete event" />
+                                    <asp:Button CssClass="btn btn-info" runat="server" ID="btnEdit" Text="Edit news" />
+                                    <asp:Button CssClass="btn btn-danger" runat="server" ID="btnDelete" Text="Delete news" />
                                 </div>
                             </div>
                         </ItemTemplate>

@@ -12,11 +12,16 @@ namespace MCCSite.Web.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
 			Master.CheckUser = false;
+        }
+
+		protected void Page_PreRender (object sender, EventArgs e) {
+			dashboardContent.Visible = false;
+			loggedOutContent.Visible = false;
 
 			if (Master.UserHasPermission)
 				dashboardContent.Visible = true;
 			else
 				loggedOutContent.Visible = true;
-        }
+		}
     }
 }

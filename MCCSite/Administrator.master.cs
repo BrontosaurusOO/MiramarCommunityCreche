@@ -20,9 +20,9 @@ namespace MCCSite
 					if (CheckUser)
 						Response.Redirect("/default.aspx?badAdmin=1");
 					else
-						UserHasPermission = false;
+						_userCanAccessPage = false;
 				}else{
-					UserHasPermission = true;
+					_userCanAccessPage = true;
 				}
         }
 
