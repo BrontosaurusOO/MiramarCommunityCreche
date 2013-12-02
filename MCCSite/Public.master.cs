@@ -10,6 +10,7 @@ namespace MCCSite {
 
 		private bool _hideSideBar = false;
 		private bool _showAdminAction = false;
+		private bool _showLogin = false;
 		private static string _user = null;
 
 		protected void Page_Load (object sender, EventArgs e)
@@ -35,13 +36,12 @@ namespace MCCSite {
 				pageBody.Attributes.Add("class", String.Join(" ", pageBody.Attributes["class"].Split(' ').Except(new string[] { "", "span10" })));       //.Concat(new string[]{"offset1"}).ToArray()) to add a class add this on the end 
 			}
 
-			if (_showAdminAction && (
-				 UserName == "miramar.creche@xtra.co.nz" ||
-				 UserName == "bronwyn.hopkin@hotmail.com" )
-				 )
-			{
+			if (_showAdminAction )	{
 				adminPanel.Visible = true;
 			}
+
+			if (_showLogin)
+				loginPanel.Visible = true;
 		}
 
 		public void AddErrorMessage (string error) {
@@ -101,6 +101,15 @@ namespace MCCSite {
 			}
 			set {
 				_showAdminAction = value;
+			}
+		}
+
+		public bool ShowLoginAction {
+			get {
+				return _showLogin;
+			}
+			set {
+				_showLogin = value;
 			}
 		}
 	}

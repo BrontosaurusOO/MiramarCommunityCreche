@@ -19,6 +19,7 @@ namespace MCCSite.Web.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+			Master.CheckUser = true;
             if (!IsPostBack)
             {
                 RefreshPageItems();

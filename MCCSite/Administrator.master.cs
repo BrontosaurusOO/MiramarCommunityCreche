@@ -9,12 +9,21 @@ namespace MCCSite
 {
     public partial class Administrator : System.Web.UI.MasterPage
     {
+		private bool _userNeedsPermission = false;
+		private bool _userCanAccessPage = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Master.UserName != "miramar.creche@xtra.co.nz" && Master.UserName != "bronwyn.hopkin@hotmail.com")
-            {
-                Response.Redirect("/default.aspx?badAdmin=1");
-            }
+			Master.ShowLoginAction = true;
+				if (Master.UserName != "miramar.creche@xtra.co.nz" && Master.UserName != "bronwyn.hopkin@hotmail.com")
+				{
+					if (CheckUser)
+						Response.Redirect("/default.aspx?badAdmin=1");
+					else
+						UserHasPermission = false;
+				}else{
+					UserHasPermission = true;
+				}
         }
 
         public void AddErrorMessage(string error)
@@ -26,5 +35,23 @@ namespace MCCSite
         {
             Master.AddSuccessMessage(msg);
         }
+
+		public bool CheckUser {
+			get {
+				return _userNeedsPermission;
+			}
+			set {
+				_userNeedsPermission = value;
+			}
+		}
+
+		public bool UserHasPermission {
+			get {
+				return _userCanAccessPage;
+			}
+			set {
+				_userCanAccessPage = value;
+			}
+		}
     }
 }

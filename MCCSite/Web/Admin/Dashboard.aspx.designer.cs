@@ -13,6 +13,24 @@ namespace MCCSite.Web.Admin {
     public partial class Dashboard {
         
         /// <summary>
+        /// loggedOutContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loggedOutContent;
+        
+        /// <summary>
+        /// dashboardContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dashboardContent;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
