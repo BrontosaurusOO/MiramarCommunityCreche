@@ -43,7 +43,7 @@ namespace auth
                 {
                     string email = output.email; // Since this is dynamic, convert it to string.
                     Master.CurrentUserName = email;
-                    Response.Redirect("/admin/dashboard.aspx");
+                    Response.Redirect("/default.aspx");
                 }
                 else
                 {
