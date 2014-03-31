@@ -38,7 +38,7 @@
                 <br />
                 <blockquote>
                     <p>
-                        Ask yourself: 'Do I feel the need to laminate?' Then teaching is for you.</p>
+                        Ask yourself: 'Do you feel the need to laminate?' Then teaching is for you.</p>
                     <small><cite title="Goodreads">Gordon Korman</cite></small>
                 </blockquote>
                 <blockquote>
@@ -48,17 +48,7 @@
                 </blockquote>
             </div>
             <div class="span5">
-                <h3>
-                    Bronwyn's Details</h3>
-                <p>
-                    If anything needs fixing or you need to get in contact with me my details are as
-                    follows:</p>
-                <address>
-                    <p>
-                        <strong>Phone:</strong> +04 235 7100<br />
-                        <strong>Cell:</strong> 021 1471009<br />
-                        <strong>Email:</strong> <a href="mailto:bronwyn.hopkin@hotmail.com">bronwyn.hopkin@hotmail.com</a></p>
-                </address>
+                
             </div>
 			</div>
         </div>

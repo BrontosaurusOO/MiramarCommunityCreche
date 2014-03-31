@@ -29,7 +29,7 @@ namespace auth
                 var data = new NameValueCollection();
                 data["assertion"] = assertion;
                 //data["audience"] = "http://localhost:55298/"; // Use your web site's URL here.   
-                data["audience"] = "http://miramarcommunitycreche.org.nz/"; // Use your web site's URL here.   
+                data["audience"] = "http://www.miramarcommunitycreche.org.nz/"; // Use your web site's URL here.   
 
                 // POST the data to the Persona provider (in this case Mozilla)
                 var response = web.UploadValues("https://verifier.login.persona.org/verify", "POST", data);
